@@ -20,6 +20,7 @@ Las decisiones de diseño (paleta, tipografía, componentes, ficha de proyecto) 
 ## CSS y archivos
 
 - Cada página carga `css/tokens.css` y luego `css/base.css`. No usar colores, tamaños ni espacios sueltos: usar las variables de `tokens.css` (añadir un token nuevo si falta).
+- CSS y JS se enlazan con versión para saltarse la caché del navegador (`bocetos.css?v=<hash>`). Al cambiar un `.css` o `.js`, actualizar el `?v=` en todas las páginas (mismo valor en todas, p. ej. el hash corto del último commit).
 - Retícula: `.contenedor` > `.reticula`, con hijos `.col-N` (ancho) y `.desde-N` (columna inicial). En móvil todo ocupa el ancho completo.
 - Logo, isotipos y favicons para la web: usar los de `assets/marca/` y la raíz, no los PDF de `img/`.
 - Fotos: `img/` guarda los originales recibidos (no se tocan); las versiones web (recortadas, WebP) van en `assets/fotos/` y `assets/proyectos/<slug>/`. Nunca ampliar una imagen por encima de su resolución original.
