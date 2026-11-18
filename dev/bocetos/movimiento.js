@@ -188,6 +188,39 @@
 
   if (reducido) return;
 
+  // ---------- Isotipo 1 en línea (Estudio): se dibuja al recorrer su sección ----------
+  document.querySelectorAll(".isotipo-trazos").forEach((iso) => {
+    const seccion = iso.closest("section") || iso.parentElement;
+    const tramos = [
+      [0, 0.42],
+      [0.3, 0.72],
+      [0.6, 1],
+    ];
+    let pendiente = false;
+    const dibujar = () => {
+      pendiente = false;
+      const vh = innerHeight;
+      const r = seccion.getBoundingClientRect();
+      const largo = Math.max(1, Math.min(r.height * 0.5, vh * 0.6));
+      const p = reducido
+        ? 1
+        : Math.min(1, Math.max(0, (vh * 0.85 - r.top) / largo));
+      tramos.forEach(([a, b], i) => {
+        const t = Math.min(1, Math.max(0, (p - a) / (b - a)));
+        iso.style.setProperty(`--a${i + 1}`, t.toFixed(4));
+      });
+    };
+    const pedir = () => {
+      if (!pendiente) {
+        pendiente = true;
+        requestAnimationFrame(dibujar);
+      }
+    };
+    dibujar();
+    addEventListener("scroll", pedir, { passive: true });
+    addEventListener("resize", pedir);
+  });
+
   // ---------- Pincel: isotipo de tres trazos pintado trazo a trazo ----------
   const pincel = (img) => {
     const w = document.createElement("span");

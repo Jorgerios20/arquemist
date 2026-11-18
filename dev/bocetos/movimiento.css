@@ -515,7 +515,15 @@ html.telon-entrada::after {
     right: calc(50% - var(--lado) / 2);
   }
 }
-.isotipo-scroll img {
+/* Variante en línea (Estudio): sin JS se ve completo */
+.isotipo-trazos {
+  --a1: 1;
+  --a2: 1;
+  --a3: 1;
+  position: relative;
+  aspect-ratio: 1;
+}
+:is(.isotipo-scroll, .isotipo-trazos) img {
   --frente: calc(
     var(--ini) + (var(--fin) - var(--ini) + var(--suave)) * var(--a)
   );
@@ -536,19 +544,19 @@ html.telon-entrada::after {
   );
 }
 /* Extensión de cada trazo sobre la línea de su degradado (medida en las capas) */
-.isotipo-scroll img:nth-child(1) {
+:is(.isotipo-scroll, .isotipo-trazos) img:nth-child(1) {
   --a: var(--a1, 0);
   --ang: 180deg;
   --ini: 17.9%;
   --fin: 82%;
 }
-.isotipo-scroll img:nth-child(2) {
+:is(.isotipo-scroll, .isotipo-trazos) img:nth-child(2) {
   --a: var(--a2, 0);
   --ang: 129.4deg;
   --ini: 22.1%;
   --fin: 76.6%;
 }
-.isotipo-scroll img:nth-child(3) {
+:is(.isotipo-scroll, .isotipo-trazos) img:nth-child(3) {
   --a: var(--a3, 0);
   --ang: 90deg;
   --ini: 33.2%;

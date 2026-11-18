@@ -31,6 +31,14 @@
       .nombre .iso-grande {
         width: clamp(6rem, 4rem + 6vw, 11rem);
       }
+      /* En escritorio el isotipo acompaña la lectura mientras se dibuja */
+      @media (min-width: 60rem) {
+        .nombre .reticula > .col-4 {
+          position: sticky;
+          top: var(--esp-10);
+          align-self: start;
+        }
+      }
       .nombre .ecuacion {
         font-family: var(--fuente-display);
         font-size: var(--texto-2xl);
@@ -244,13 +252,27 @@
       <section class="seccion nombre" style="padding-top: 0">
         <div class="contenedor reticula filas">
           <div class="col-4 pila">
-            <img
-              class="iso-grande pinta"
-              src="../../assets/marca/isotipo-cruzado-negro.webp"
-              alt=""
-              width="971"
-              height="971"
-            />
+            <!-- Isotipo 1 que se dibuja con el scroll (movimiento.js) -->
+            <div class="iso-grande isotipo-trazos" aria-hidden="true">
+              <img
+                src="../../assets/marca/isotipo-cruzado-trazo-1.webp"
+                alt=""
+                width="971"
+                height="971"
+              />
+              <img
+                src="../../assets/marca/isotipo-cruzado-trazo-2.webp"
+                alt=""
+                width="971"
+                height="971"
+              />
+              <img
+                src="../../assets/marca/isotipo-cruzado-trazo-3.webp"
+                alt=""
+                width="971"
+                height="971"
+              />
+            </div>
             <p class="ecuacion">
               <span class="t1">Arquitectura</span>
               <span class="mas acento">+</span>
