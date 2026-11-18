@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Boceto · Contacto — ARQUEMIST.</title>
+    <link rel="alternate" hreflang="en" href="en/contacto.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <script>
+      // Telón de entrada (ver movimiento.js): cubrir antes del primer pintado
+      (function () {
+        try {
+          var s = sessionStorage;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (s.getItem("telon") || !s.getItem("visto"))
+            document.documentElement.classList.add("telon-entrada");
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../../css/tokens.css" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="bocetos.css" />
+    <link rel="stylesheet" href="movimiento.css" />
+    <style>
+      .apertura {
+        padding-block: var(--esp-9) var(--esp-10);
+      }
+      /* Datos y horario: la lámina blanca sube sobre el degradado (como el cajetín de la ficha) */
+      .contacto-hoja {
+        position: relative;
+        z-index: 2;
+        margin-top: calc(var(--esp-9) * -1);
+      }
+      .hoja {
+        background: var(--papel);
+        box-shadow: var(--sombra-hoja);
+        padding: var(--esp-6) var(--esp-5) var(--esp-7);
+      }
+      @media (min-width: 60rem) {
+        .hoja {
+          padding: var(--esp-7) var(--esp-6) var(--esp-8);
+        }
+      }
+      .datos-contacto {
+        display: grid;
+        gap: var(--esp-6);
+        margin: 0;
+      }
+      .datos-contacto dt {
+        color: var(--grafito);
+      }
+      .datos-contacto dd {
+        margin: var(--esp-2) 0 0;
+        overflow-wrap: anywhere;
+      }
+      .datos-contacto .grande {
+        font-family: var(--fuente-display);
+        font-size: var(--texto-2xl);
+        line-height: 1;
+        letter-spacing: var(--tracking-titular);
+      }
+      .datos-contacto a {
+        color: var(--tinta);
+        text-decoration: none;
+        transition: color var(--dur-corta) var(--curva);
+      }
+      .datos-contacto a:hover,
+      .datos-contacto a:focus-visible {
+        color: var(--acento);
+      }
+      .datos-contacto .enlace-flecha {
+        display: inline-block;
+        margin-top: var(--esp-2);
+        color: var(--acento);
+      }
+
+      /* Horario: una fila por día, con hairlines claras; el día de hoy en latón */
+      .horario h2 {
+        margin-bottom: var(--esp-5);
+      }
+      .horario dl {
+        margin: 0;
+      }
+      .horario .dia {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: var(--esp-4);
+        padding-block: var(--esp-3);
+        border-top: var(--borde);
+      }
+      .horario .dia:last-child {
+        border-bottom: var(--borde);
+      }
+      .horario dt {
+        font-family: var(--fuente-display);
+        font-size: var(--texto-l);
+        letter-spacing: var(--tracking-titular);
+        text-transform: uppercase;
+      }
+      .horario dd {
+        margin: 0;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+      .horario .cerrado dd {
+        color: var(--grafito);
+      }
+      .horario .hoy dt,
+      .horario .hoy dd {
+        color: var(--acento);
+      }
+      .horario .hoy dt::after {
+        content: attr(data-hoy);
+        margin-left: var(--esp-3);
+        font-family: var(--fuente-texto);
+        font-size: var(--texto-xs);
+        letter-spacing: var(--tracking-etiqueta);
+        vertical-align: middle;
+      }
+      .horario .nota {
+        margin-top: var(--esp-4);
+        color: var(--grafito);
+        font-size: var(--texto-s);
+      }
+
+      /* Pista: globo que avisa que el enlace se puede pulsar (al pasar el ratón o con el teclado) */
+      .con-pista {
+        position: relative;
+      }
+      .con-pista::after {
+        content: attr(data-pista);
+        position: absolute;
+        left: 0;
+        bottom: calc(100% + var(--esp-2));
+        padding: var(--esp-1) var(--esp-3);
+        background: var(--tinta);
+        color: var(--papel);
+        font-family: var(--fuente-texto);
+        font-size: var(--texto-xs);
+        line-height: var(--interlineado);
+        letter-spacing: var(--tracking-etiqueta);
+        text-transform: uppercase;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(var(--esp-1));
+        transition:
+          opacity var(--dur-corta) var(--curva),
+          transform var(--dur-corta) var(--curva);
+      }
+      .con-pista:hover::after,
+      .con-pista:focus-visible::after {
+        opacity: 1;
+        transform: none;
+      }
+      /* En el teléfono no hay ratón: la pista se queda visible bajo el dato, en latón,
+         y el enlace crece para que sea fácil de tocar */
+      @media (hover: none) {
+        .con-pista {
+          display: inline-block;
+          padding-block: var(--esp-2);
+        }
+        .con-pista::after {
+          position: static;
+          display: block;
+          margin-top: var(--esp-2);
+          padding: 0;
+          background: none;
+          color: var(--acento);
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .mapa {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 7;
+        min-height: 20rem;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="contenedor">
+        <a href="inicio.html" aria-label="ARQUEMIST. — Inicio"
+          ><img
+            class="logo logo--negro"
+            src="../../assets/marca/logo-negro.svg"
+            alt="ARQUEMIST. The Alchemy of Space."
+            width="2024"
+            height="486" /><img
+            class="logo logo--blanco"
+            src="../../assets/marca/logo-blanco.svg"
+            alt=""
+            width="2024"
+            height="486"
+            aria-hidden="true"
+        /></a>
+        <nav class="nav" aria-label="Principal">
+          <a href="estudio.html">Estudio</a>
+          <a href="proyectos.html">Proyectos</a>
+          <a href="contacto.html" aria-current="page">Contacto</a>
+          <span class="idioma"
+            ><a title="Español" href="contacto.html" aria-current="true">ES</a
+            >/<a title="English" href="en/contacto.html" lang="en" hreflang="en"
+              >EN</a
+            ></span
+          >
+        </nav>
+        <button class="menu-boton" type="button">Menú</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Apertura -->
+      <section class="apertura seccion--oscura degradado">
+        <div class="contenedor reticula filas">
+          <h1 class="hero col-12">Contacto</h1>
+          <!-- TODO: texto de entrada de Contacto (no está en docs/) -->
+        </div>
+      </section>
+
+      <!-- 2. Datos de contacto + horario en láminas blancas -->
+      <section class="contacto-hoja">
+        <div class="contenedor reticula filas">
+          <div class="col-5 hoja">
+            <dl class="datos-contacto">
+              <div>
+                <dt class="etiqueta">Teléfono</dt>
+                <dd class="grande">
+                  <a
+                    class="con-pista"
+                    data-pista="Llamar →"
+                    href="tel:+524461019600"
+                    >446 101 9600</a
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt class="etiqueta">Correo</dt>
+                <dd>
+                  <a
+                    class="con-pista"
+                    data-pista="Escribir correo →"
+                    href="mailto:contacto.arquemist@gmail.com"
+                    >contacto.arquemist@gmail.com</a
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt class="etiqueta">Dirección</dt>
+                <dd>
+                  <address style="font-style: normal">
+                    C. 13 de Septiembre 7<br />
+                    Las Campanas<br />
+                    76010 Santiago de Querétaro, Qro.
+                  </address>
+                  <a
+                    class="enlace-flecha"
+                    href="https://www.google.com/maps/search/?api=1&amp;query=C.+13+de+Septiembre+7%2C+Las+Campanas%2C+76010+Santiago+de+Quer%C3%A9taro%2C+Qro.%2C+M%C3%A9xico"
+                    target="_blank"
+                    rel="noopener"
+                    >Cómo llegar →<span class="visualmente-oculto">
+                      (abre Google Maps en una pestaña nueva)</span
+                    ></a
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt class="etiqueta">Instagram</dt>
+                <dd>
+                  <a
+                    class="con-pista"
+                    data-pista="Abrir Instagram →"
+                    href="https://www.instagram.com/arquemist.arquitectos/"
+                    target="_blank"
+                    rel="noopener"
+                    >@arquemist.arquitectos<span class="visualmente-oculto">
+                      (se abre en una pestaña nueva)</span
+                    ></a
+                  >
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <div class="col-6 desde-7 hoja horario">
+            <h2>Horario</h2>
+            <dl>
+              <div class="dia" data-dia="1">
+                <dt data-hoy="HOY">Lunes</dt>
+                <dd>9:00 – 20:00</dd>
+              </div>
+              <div class="dia" data-dia="2">
+                <dt data-hoy="HOY">Martes</dt>
+                <dd>9:00 – 20:00</dd>
+              </div>
+              <div class="dia" data-dia="3">
+                <dt data-hoy="HOY">Miércoles</dt>
+                <dd>9:00 – 20:00</dd>
+              </div>
+              <div class="dia" data-dia="4">
+                <dt data-hoy="HOY">Jueves</dt>
+                <dd>9:00 – 20:00</dd>
+              </div>
+              <div class="dia" data-dia="5">
+                <dt data-hoy="HOY">Viernes</dt>
+                <dd>9:00 – 20:00</dd>
+              </div>
+              <div class="dia" data-dia="6">
+                <dt data-hoy="HOY">Sábado</dt>
+                <dd>9:00 – 17:00</dd>
+              </div>
+              <div class="dia cerrado" data-dia="0">
+                <dt data-hoy="HOY">Domingo</dt>
+                <dd>Cerrado</dd>
+              </div>
+            </dl>
+            <p class="nota">El horario puede cambiar en días festivos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Mapa -->
+      <section class="seccion">
+        <div class="contenedor">
+          <iframe
+            class="mapa"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.972789341368!2d-100.4153654239739!3d20.589168802730452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b4bba241a37%3A0x72db75c67c06f71f!2sArquemist%20Arquitectos!5e0!3m2!1ses!2smx!4v1795030412989!5m2!1ses!2smx"
+            title="Mapa de ubicación del estudio ARQUEMIST. en Querétaro"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie" id="contacto">
+      <div class="contenedor">
+        <div class="contacto-cta">
+          <h2 class="contacto-titulo">
+            <a
+              class="contacto-enlace"
+              href="https://www.instagram.com/arquemist.arquitectos/"
+              target="_blank"
+              rel="noopener"
+              >Escríbenos por Instagram&nbsp;<span
+                class="flecha"
+                aria-hidden="true"
+                >→</span
+              ><span class="visualmente-oculto">
+                (se abre en una pestaña nueva)</span
+              ></a
+            >
+          </h2>
+          <p class="contacto-usuario">@arquemist.arquitectos</p>
+        </div>
+        <div class="reticula">
+          <div class="col-4 pila">
+            <img
+              class="iso"
+              src="../../assets/marca/isotipo-trazos-blanco.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <p class="display" style="font-size: var(--texto-xl)">
+              The Alchemy of Space.
+            </p>
+          </div>
+          <div class="col-3 desde-5 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Estudio</p>
+            <address style="font-style: normal">
+              C. 13 de Septiembre 7<br />
+              Las Campanas<br />
+              76010 Santiago de Querétaro, Qro.
+            </address>
+            <a
+              class="enlace-flecha"
+              href="https://www.google.com/maps/search/?api=1&amp;query=C.+13+de+Septiembre+7%2C+Las+Campanas%2C+76010+Santiago+de+Quer%C3%A9taro%2C+Qro.%2C+M%C3%A9xico"
+              target="_blank"
+              rel="noopener"
+              >Cómo llegar →<span class="visualmente-oculto">
+                (abre Google Maps en una pestaña nueva)</span
+              ></a
+            >
+          </div>
+          <div class="col-3 desde-8 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Contacto</p>
+            <p class="contacto-datos">
+              <a href="tel:+524461019600" aria-label="Llamar al 446 101 9600"
+                >446 101 9600</a
+              >
+              <a
+                href="mailto:contacto.arquemist@gmail.com"
+                aria-label="Escribir a contacto.arquemist@gmail.com"
+                >contacto.arquemist@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="col-2 desde-11 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Redes</p>
+            <p>
+              <a
+                class="red-social"
+                href="https://www.instagram.com/arquemist.arquitectos/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram de ARQUEMIST. (se abre en una pestaña nueva)"
+                ><svg
+                  class="icono"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="0.75"
+                    fill="currentColor"
+                    stroke="none"
+                  /></svg
+                ><span>Instagram</span></a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© ARQUEMIST.</span
+          ><span class="idioma"
+            ><a title="Español" href="contacto.html" aria-current="true">ES</a
+            >/<a title="English" href="en/contacto.html" lang="en" hreflang="en"
+              >EN</a
+            ></span
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="movimiento.js" defer></script>
+    <script>
+      // Marca el día de hoy en el horario
+      (function () {
+        var hoy = document.querySelector(
+          '.horario [data-dia="' + new Date().getDay() + '"]',
+        );
+        if (hoy) hoy.classList.add("hoy");
+      })();
+    </script>
+  </body>
+</html>

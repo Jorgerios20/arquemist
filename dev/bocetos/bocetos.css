@@ -103,7 +103,7 @@
   color: var(--papel);
   text-decoration: none;
 }
-/* Contacto: la llamada principal del pie (el estudio atiende por Instagram) */
+/* Contacto: la llamada principal del pie (Instagram); teléfono y correo debajo */
 .contacto-cta {
   margin-bottom: var(--esp-9);
 }
@@ -144,6 +144,19 @@
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+/* Teléfono y correo: uno por línea; el correo puede partirse en columnas estrechas */
+.contacto-datos a {
+  display: block;
+  overflow-wrap: anywhere;
+  transition: color var(--dur-corta) var(--curva);
+}
+.contacto-datos a + a {
+  margin-top: var(--esp-2);
+}
+.pie .contacto-datos a:hover,
+.pie .contacto-datos a:focus-visible {
+  color: var(--acento-claro);
 }
 .pie .iso {
   width: 4rem;
