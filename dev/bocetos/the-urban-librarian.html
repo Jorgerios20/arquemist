@@ -22,59 +22,7 @@
     <link rel="stylesheet" href="../../css/base.css" />
     <link rel="stylesheet" href="bocetos.css" />
     <link rel="stylesheet" href="movimiento.css" />
-    <style>
-      .portada {
-        padding-block: var(--esp-8) var(--esp-7);
-      }
-      .datos {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--esp-5) var(--esp-4);
-        border-top: var(--borde);
-        padding-top: var(--esp-5);
-      }
-      .datos dt {
-        color: var(--grafito);
-      }
-      .datos dd {
-        margin: var(--esp-1) 0 0;
-      }
-      @media (min-width: 60rem) {
-        .datos {
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-        }
-      }
-      .paso {
-        display: flex;
-        gap: var(--esp-4);
-        align-items: baseline;
-        margin-bottom: var(--esp-6);
-      }
-      .renders .reticula,
-      .materia .reticula {
-        row-gap: var(--medianil);
-      }
-      .siguiente {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        border-top: var(--borde);
-        padding-block: var(--esp-8);
-      }
-      .siguiente .hero {
-        transition: color var(--dur-corta) var(--curva);
-      }
-      .siguiente:hover .hero {
-        color: var(--acento);
-      }
-      .portada .reticula { align-items: end; }
-      .foto-portada { --ar: 4 / 5; }
-      @media (min-width: 60rem) {
-        .portada .texto-portada { grid-column: 1 / span 7; }
-        .portada .foto-portada { grid-column: 8 / span 5; --ar: 686 / 808; }
-        .renders .bajo { margin-top: var(--esp-10); }
-      }
-    </style>
+    <link rel="stylesheet" href="ficha.css" />
   </head>
   <body>
 
@@ -121,18 +69,18 @@
           </figure>
         </div>
       </section>
-      <div class="contenedor">
+      <div class="contenedor cajetin">
         <dl class="datos">
           <div><dt class="etiqueta">Tipo</dt><dd>Biblioteca comunitaria</dd></div>
           <div><dt class="etiqueta">Ubicación</dt><dd>Corregidora, Querétaro, México</dd></div>
           <div><dt class="etiqueta">Fecha</dt><dd>29 de octubre de 2026</dd></div>
           <div><dt class="etiqueta">Material</dt><dd>Madera recuperada de obra</dd></div>
           <div><dt class="etiqueta">Estado</dt><dd class="estado">En desarrollo</dd></div>
-        </dl>
+        <div class="cajetin-proceso"><dt class="etiqueta">Proceso</dt><dd><ol class="proceso" aria-label="Secciones de este proyecto"><li><a href="#idea">Idea</a></li><li><span>Transformación</span></li><li><span>Materia</span></li></ol></dd></div></dl>
       </div>
 
       <!-- 2. Idea: concepto + renders -->
-      <section class="seccion renders">
+      <section class="seccion renders" id="idea">
         <div class="contenedor">
           <div class="paso"><span class="numero">01</span><h2>Idea</h2></div>
           <div class="reticula filas" style="margin-bottom: var(--esp-8)">
@@ -164,22 +112,25 @@
       </section>
 
       <!-- Cierre -->
-      <section class="seccion" style="padding-top: 0">
+      <section class="seccion seccion--oscura cierre">
         <div class="contenedor reticula">
-          <p class="cita-larga col-7 desde-5">
-            Porque creemos que la arquitectura alcanza su mayor valor cuando deja de hablar de edificios y comienza a hablar de
-            personas.
-          </p>
+          <img class="cierre-trazos trazos-al-ver" src="../../assets/marca/isotipo-trazos-blanco.webp" alt="" width="1024" height="1024" loading="lazy" />
+          <p class="cierre-frase">Porque creemos que la arquitectura alcanza su mayor valor cuando deja de hablar de edificios y comienza a hablar de personas.</p>
         </div>
       </section>
 
       <!-- 5. Siguiente proyecto -->
-      <div class="contenedor">
-        <a class="siguiente" href="casa-entre-muros.html">
-          <span class="etiqueta secundario">Siguiente proyecto</span>
-          <span class="hero display" style="display: block; margin-top: var(--esp-3)">Casa Entre Muros →</span>
-        </a>
-      </div>
+      <a class="siguiente" href="casa-entre-muros.html">
+        <div class="contenedor reticula">
+          <div class="siguiente-texto">
+            <span class="etiqueta secundario">Siguiente proyecto</span>
+            <span class="siguiente-titulo">Casa Entre Muros <span class="flecha" aria-hidden="true">→</span></span>
+          </div>
+            <figure class="foto siguiente-foto">
+              <img src="../../assets/proyectos/ejemplo-casa-entre-muros/exterior.webp" alt="" width="1600" height="2133" loading="lazy" />
+            </figure>
+        </div>
+      </a>
     </main>
 
     <footer class="pie" id="contacto">

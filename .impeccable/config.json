@@ -290,6 +290,15 @@
         ],
         "createdAt": "2026-11-18T17:34:22.112Z",
         "reason": "Claude triage: mismo caso que inicio.html en español: etiquetas cortas en mayúsculas, no texto corrido"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T17:51:40.235Z",
+        "reason": "Claude triage: mismo caso ya aceptado en las otras páginas; aquí además el texto en mayúsculas es un valor del cajetín en Staatliches ('Wood reclaimed from construction sites'), un dato corto, no texto corrido"
       }
     ]
   }

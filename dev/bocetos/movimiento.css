@@ -342,17 +342,33 @@ main,
 }
 
 /* ---------- Filtros de proyectos ---------- */
-.galeria .proyecto-tarjeta {
-  transition:
-    opacity var(--dur-media) var(--curva),
-    transform var(--dur-media) var(--curva);
+.galeria .proyecto-tarjeta[hidden] {
+  display: none;
 }
-.galeria .proyecto-tarjeta.atenuada {
-  opacity: 0.12;
-  transform: scale(0.98);
-  pointer-events: none;
+/* Al filtrar, la composición asimétrica pasa a una rejilla regular de dos columnas */
+.galeria.filtrando .proyecto-tarjeta,
+.galeria.filtrando .proyecto-tarjeta.bajo {
+  --inicio: auto;
+  --ancho: 6;
+  margin-top: 0;
 }
-
+.galeria-vacia {
+  padding-block: var(--esp-8);
+}
+::view-transition-group(*) {
+  animation-duration: var(--dur-larga);
+  animation-timing-function: var(--curva);
+}
+/* Sin View Transitions: las tarjetas que quedan aparecen con un leve ascenso */
+.proyecto-tarjeta.entrando {
+  animation: tarjeta-entra var(--dur-larga) var(--curva);
+}
+@keyframes tarjeta-entra {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
 
 /* ---------- Pincel: el isotipo de tres trazos se pinta trazo a trazo ----------
  * movimiento.js envuelve la imagen en .pincel con tres copias idénticas; cada una
@@ -402,9 +418,14 @@ main,
   transition-delay: calc(var(--pincel-espera, 0ms) + var(--k) * 140ms);
 }
 .mov .pincel.pintado > img,
-.mov.cargado .gesto.pincel > img {
+.mov.cargado .gesto.pincel > img,
+.mov .trazos-al-ver.pincel.visible > img {
   -webkit-mask-position: 0 0;
   mask-position: 0 0;
+}
+.trazos-al-ver.pincel {
+  --pincel-espera: 250ms;
+  --pincel-dur: 1000ms;
 }
 .inicio-hero .gesto.pincel {
   --pincel-espera: 700ms;

@@ -46,28 +46,69 @@
     });
   }
 
-  // ---------- Filtros de proyectos ----------
+  // ---------- Filtros de proyectos: ocultan las tarjetas que no coinciden ----------
   const filtros = document.querySelector(".filtros");
-  if (filtros) {
-    const tarjetas = document.querySelectorAll(".galeria .proyecto-tarjeta");
+  const galeria = filtros && filtros.closest(".galeria");
+  if (galeria) {
+    const tarjetas = [...galeria.querySelectorAll(".proyecto-tarjeta")];
+    const rejilla = tarjetas[0] && tarjetas[0].parentElement;
+    const estado = (t) =>
+      t.querySelector(".estado").textContent.trim().toLowerCase();
+    // Aviso para lectores de pantalla y mensaje cuando no hay resultados
+    const anuncio = document.createElement("p");
+    anuncio.className = "solo-lectores";
+    anuncio.setAttribute("aria-live", "polite");
+    filtros.after(anuncio);
+    const vacio = document.createElement("p");
+    vacio.className = "galeria-vacia secundario";
+    vacio.hidden = true;
+    vacio.textContent = en
+      ? "No projects in this category yet."
+      : "Todavía no hay proyectos en esta categoría.";
+    if (rejilla) rejilla.after(vacio);
+
+    const aplicar = (f) => {
+      let n = 0;
+      tarjetas.forEach((t) => {
+        const e = estado(t);
+        const ok =
+          f === "todos" ||
+          (f === "construidos" ? e === "construido" : e === f);
+        t.hidden = !ok;
+        if (ok) n++;
+      });
+      galeria.classList.toggle("filtrando", f !== "todos");
+      vacio.hidden = n > 0;
+      anuncio.textContent =
+        n === 1 ? "1 proyecto" : `${n} proyectos`;
+      // Las tarjetas cambian de sitio: volver a comprobar qué debe revelarse
+      dispatchEvent(new Event("scroll"));
+    };
+
     filtros.addEventListener("click", (e) => {
       const b = e.target.closest("button");
-      if (!b) return;
+      if (!b || b.getAttribute("aria-pressed") === "true") return;
       filtros
         .querySelectorAll("button")
         .forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
       const f = b.textContent.trim().toLowerCase();
-      tarjetas.forEach((t) => {
-        const estado = t
-          .querySelector(".estado")
-          .textContent.trim()
-          .toLowerCase();
-        const ok =
-          f === "todos" ||
-          (f === "construidos" ? estado === "construido" : estado === f);
-        t.classList.toggle("atenuada", !ok);
-        t.toggleAttribute("inert", !ok);
-      });
+      if (reducido || !document.startViewTransition) {
+        aplicar(f);
+        if (!reducido)
+          tarjetas.forEach((t) => {
+            if (t.hidden) return;
+            t.classList.remove("entrando");
+            void t.offsetWidth;
+            t.classList.add("entrando");
+          });
+        return;
+      }
+      // View Transitions: las que se van se desvanecen y las que quedan se recolocan
+      tarjetas.forEach((t, k) => (t.style.viewTransitionName = `tarjeta-${k}`));
+      const vt = document.startViewTransition(() => aplicar(f));
+      vt.finished.finally(() =>
+        tarjetas.forEach((t) => (t.style.viewTransitionName = "")),
+      );
     });
   }
 
@@ -105,7 +146,7 @@
     w.append(img, ...copias);
     return w;
   };
-  document.querySelectorAll("img.gesto").forEach(pincel);
+  document.querySelectorAll("img.gesto, img.trazos-al-ver").forEach(pincel);
 
   // ---------- Telón entre páginas ----------
   const entrada = html.classList.contains("telon-entrada");
@@ -253,7 +294,7 @@
   };
   marcar("main .wf-img:not(.comparador .wf-img), main .foto", "imagen");
   marcar(
-    "main h2, main h3:not(.proyecto-tarjeta h3), main .entradilla, main .cita, main .cita-larga, main .etiqueta:not(.proyecto-tarjeta .etiqueta), main .pila > p, main .pilares li, main .proyecto-tarjeta .meta, main .datos > div, main .paso",
+    "main h2, main h3:not(.proyecto-tarjeta h3), main .entradilla, main .cita, main .cita-larga, main .etiqueta:not(.proyecto-tarjeta .etiqueta), main .pila > p, main .pilares li, main .proyecto-tarjeta .meta, main .datos, main .paso",
   );
   // Escalonar elementos hermanos
   const grupos = new Map();
@@ -266,7 +307,9 @@
   // Comprobación directa de posición (al cargar, al hacer scroll y al redimensionar).
   // Se revela cuando el borde superior entra en el 92 % inferior de la ventana.
   let pendientes = [
-    ...document.querySelectorAll("[data-revelar], .ecuacion, .pinta"),
+    ...document.querySelectorAll(
+      "[data-revelar], .ecuacion, .pinta, .trazos-al-ver",
+    ),
   ];
   const comparadores = [...document.querySelectorAll(".comparador")];
   comparadores.forEach((c) =>

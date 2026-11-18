@@ -21,52 +21,7 @@
     <link rel="stylesheet" href="../../css/base.css" />
     <link rel="stylesheet" href="bocetos.css" />
     <link rel="stylesheet" href="movimiento.css" />
-    <style>
-      .portada {
-        padding-block: var(--esp-8) var(--esp-7);
-      }
-      .datos {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--esp-5) var(--esp-4);
-        border-top: var(--borde);
-        padding-top: var(--esp-5);
-      }
-      .datos dt {
-        color: var(--grafito);
-      }
-      .datos dd {
-        margin: var(--esp-1) 0 0;
-      }
-      @media (min-width: 60rem) {
-        .datos {
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-        }
-      }
-      .paso {
-        display: flex;
-        gap: var(--esp-4);
-        align-items: baseline;
-        margin-bottom: var(--esp-6);
-      }
-      .renders .reticula,
-      .materia .reticula {
-        row-gap: var(--medianil);
-      }
-      .siguiente {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        border-top: var(--borde);
-        padding-block: var(--esp-8);
-      }
-      .siguiente .hero {
-        transition: color var(--dur-corta) var(--curva);
-      }
-      .siguiente:hover .hero {
-        color: var(--acento);
-      }
-    </style>
+    <link rel="stylesheet" href="ficha.css" />
   </head>
   <body>
 
@@ -109,7 +64,7 @@
       <div class="wf-img wf-img--obra" style="--ar: 21 / 9">
         <span>Imagen principal · obra terminada</span>
       </div>
-      <div class="contenedor" style="margin-top: var(--esp-6)">
+      <div class="contenedor cajetin" style="margin-top: var(--esp-6)">
         <dl class="datos">
           <div>
             <dt class="etiqueta">Tipo</dt>
@@ -131,11 +86,11 @@
             <dt class="etiqueta">Estado</dt>
             <dd>Construido</dd>
           </div>
-        </dl>
+        <div class="cajetin-proceso"><dt class="etiqueta">Proceso</dt><dd><ol class="proceso" aria-label="Secciones de este proyecto"><li><a href="#idea">Idea</a></li><li><a href="#transformacion">Transformación</a></li><li><a href="#materia">Materia</a></li></ol></dd></div></dl>
       </div>
 
       <!-- 2. Idea: renders + concepto -->
-      <section class="seccion renders">
+      <section class="seccion renders" id="idea">
         <div class="contenedor">
           <div class="paso">
             <span class="numero">01</span>
@@ -165,10 +120,10 @@
       </section>
 
       <!-- 3. Transformación: comparador render ↔ obra (mismo encuadre) -->
-      <section class="seccion seccion--oscura">
+      <section class="seccion seccion--oscura" id="transformacion">
         <div class="contenedor">
           <div class="paso">
-            <span class="numero" style="color: var(--acento-claro)">02</span>
+            <span class="numero">02</span>
             <h2>Transformación</h2>
           </div>
           <div class="reticula filas" style="margin-bottom: var(--esp-7)">
@@ -207,7 +162,7 @@
       </section>
 
       <!-- 4. Materia: fotografías de obra -->
-      <section class="seccion materia">
+      <section class="seccion materia" id="materia">
         <div class="contenedor">
           <div class="paso">
             <span class="numero">03</span>
@@ -230,16 +185,14 @@
       </section>
 
       <!-- 5. Siguiente proyecto -->
-      <div class="contenedor">
-        <a class="siguiente" href="proyecto.html">
-          <span class="etiqueta secundario">Siguiente proyecto</span>
-          <span
-            class="hero display"
-            style="display: block; margin-top: var(--esp-3)"
-            >Proyecto dos →</span
-          >
-        </a>
-      </div>
+      <a class="siguiente" href="proyecto.html">
+        <div class="contenedor reticula">
+          <div class="siguiente-texto">
+            <span class="etiqueta secundario">Siguiente proyecto</span>
+            <span class="siguiente-titulo">Proyecto dos <span class="flecha" aria-hidden="true">→</span></span>
+          </div>
+        </div>
+      </a>
     </main>
 
     <footer class="pie" id="contacto">
