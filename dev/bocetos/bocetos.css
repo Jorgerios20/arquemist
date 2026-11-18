@@ -1,0 +1,442 @@
+/* Estilos de los bocetos (fase 2). Solo para dev/bocetos/. Los componentes que se aprueben pasarán a css/. */
+
+/* ---------- Marcador de imagen ---------- */
+.wf-img {
+  position: relative;
+  aspect-ratio: var(--ar, 4 / 3);
+  background: linear-gradient(
+      to top right,
+      transparent calc(50% - 0.5px),
+      var(--linea) 50%,
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      to top left,
+      transparent calc(50% - 0.5px),
+      var(--linea) 50%,
+      transparent calc(50% + 0.5px)
+    ),
+    #f4f3f0;
+  display: grid;
+  place-items: center;
+}
+.wf-img > span {
+  background: var(--papel);
+  padding: var(--esp-1) var(--esp-3);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  color: var(--grafito);
+}
+.wf-img--obra {
+  background-color: #e9e7e2;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--papel);
+  border-bottom: var(--borde);
+}
+.cabecera .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-5);
+  padding-block: var(--esp-4);
+}
+.cabecera .logo {
+  width: clamp(7.5rem, 6rem + 4vw, 10rem);
+}
+.nav {
+  display: none;
+  gap: var(--esp-6);
+  align-items: center;
+}
+.nav a,
+.idioma a,
+.menu-boton {
+  color: var(--tinta);
+  text-decoration: none;
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+}
+.nav a[aria-current="page"] {
+  color: var(--acento);
+}
+.idioma {
+  display: flex;
+  gap: var(--esp-2);
+  color: var(--grafito);
+  font-size: var(--texto-xs);
+}
+.idioma a[aria-current="true"] {
+  color: var(--acento);
+}
+.menu-boton {
+  background: none;
+  border: 0;
+  padding: var(--esp-2) 0;
+  cursor: pointer;
+}
+@media (min-width: 60rem) {
+  .nav {
+    display: flex;
+  }
+  .menu-boton {
+    display: none;
+  }
+}
+
+/* ---------- Pie ---------- */
+.pie {
+  background: var(--tinta);
+  color: var(--papel);
+  padding-block: var(--esp-9) var(--esp-6);
+}
+.pie a {
+  color: var(--papel);
+  text-decoration: none;
+}
+.pie .iso {
+  width: 4rem;
+}
+.pie .reticula {
+  row-gap: var(--esp-6);
+}
+.pie .legal {
+  margin-top: var(--esp-8);
+  padding-top: var(--esp-5);
+  border-top: 1px solid #2a2a2a;
+  color: var(--grafito-claro);
+  font-size: var(--texto-xs);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--esp-3);
+}
+
+/* ---------- Utilidades de los bocetos ---------- */
+.pila > * + * {
+  margin-top: var(--esp-5);
+}
+.pila-s > * + * {
+  margin-top: var(--esp-3);
+}
+.fila-entre {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--esp-4);
+  flex-wrap: wrap;
+}
+.reticula.filas {
+  row-gap: var(--esp-7);
+}
+.enlace-flecha {
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.regla {
+  border: 0;
+  border-top: var(--borde);
+}
+.numero {
+  font-family: var(--fuente-display);
+  color: var(--acento);
+  font-size: var(--texto-l);
+}
+
+/* ---------- Tarjeta de proyecto ---------- */
+.proyecto-tarjeta {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.proyecto-tarjeta .meta {
+  margin-top: var(--esp-3);
+}
+.proyecto-tarjeta h3 {
+  margin-top: var(--esp-1);
+}
+.estado {
+  color: var(--acento);
+}
+
+/* ---------- Pilares ---------- */
+.pilares {
+  list-style: none;
+  padding: 0;
+  border-top: var(--borde);
+}
+.pilares li {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  column-gap: var(--esp-4);
+  row-gap: var(--esp-2);
+  padding-block: var(--esp-6);
+  border-bottom: var(--borde);
+}
+.pilares li p {
+  grid-column: 2;
+}
+@media (min-width: 60rem) {
+  .pilares li {
+    grid-template-columns: 4rem minmax(0, 5fr) minmax(0, 6fr);
+    align-items: baseline;
+  }
+  .pilares li p {
+    grid-column: 3;
+  }
+}
+
+/* ---------- Comparador render ↔ obra ---------- */
+.comparador {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  user-select: none;
+}
+.comparador .wf-img {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+}
+.comparador .lado-render {
+  clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+}
+.comparador .linea {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos, 50%);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--acento);
+  pointer-events: none;
+}
+.comparador .linea::after {
+  content: "↔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  background: var(--acento);
+  color: var(--papel);
+}
+.comparador input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  margin: 0;
+}
+.comparador .rotulo {
+  position: absolute;
+  bottom: var(--esp-3);
+  background: var(--papel);
+  padding: var(--esp-1) var(--esp-3);
+  pointer-events: none;
+}
+.comparador .rotulo--izq {
+  left: var(--esp-3);
+}
+.comparador .rotulo--der {
+  right: var(--esp-3);
+}
+
+/* ---------- Aviso de boceto ---------- */
+.aviso-boceto {
+  background: var(--acento);
+  color: var(--papel);
+  font-size: var(--texto-xs);
+  padding: var(--esp-2) var(--margen);
+  text-align: center;
+}
+
+/* Imagen que rellena la altura de su fila en escritorio; en móvil, proporción fija */
+.wf-img.llena {
+  --ar: 4 / 3;
+}
+@media (min-width: 60rem) {
+  .wf-img.llena {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+}
+
+.enlace-flecha {
+  display: inline-block;
+}
+/* En el comparador los rótulos de esquina ya indican Render / Obra */
+.comparador .wf-img > span {
+  display: none;
+}
+
+/* Cita larga: en caja baja para que se lea bien (las mayúsculas quedan para citas cortas) */
+.cita-larga {
+  font-size: var(--texto-l);
+  font-style: italic;
+  line-height: 1.45;
+  max-width: 36ch;
+  padding-left: var(--esp-5);
+  border-left: 2px solid var(--acento);
+}
+/* Títulos de proyecto: h2 en la galería, mismo tamaño que en Inicio */
+.proyecto-tarjeta h2 {
+  font-size: var(--texto-xl);
+  margin-top: var(--esp-1);
+}
+
+/* ---------- Foto real ---------- */
+.foto {
+  position: relative;
+  aspect-ratio: var(--ar, 4 / 3);
+  overflow: hidden;
+  background: var(--linea);
+  margin: 0;
+}
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Segunda imagen de la tarjeta: entra con un barrido al pasar el cursor */
+.foto .alterna {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--dur-larga) cubic-bezier(0.65, 0, 0.35, 1);
+}
+.proyecto-tarjeta:hover .foto .alterna,
+.proyecto-tarjeta:focus-visible .foto .alterna {
+  clip-path: inset(0 0 0 0);
+}
+.proyecto-tarjeta .foto > img:first-child {
+  transition: transform 1.2s var(--curva);
+}
+.proyecto-tarjeta:hover .foto > img:first-child {
+  transform: scale(1.04);
+}
+
+/* Comparador con fotos reales */
+.comparador > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Marca visible para proyectos de ejemplo ficticios */
+.ficticio {
+  color: var(--grafito);
+  border: 1px dashed var(--grafito);
+  padding: var(--esp-1) var(--esp-2);
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Redes sociales en el pie: icono de línea + texto */
+.red-social {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--esp-2);
+  transition: color var(--dur-corta) var(--curva);
+}
+.red-social .icono {
+  flex: none;
+  transition: transform var(--dur-media) var(--curva);
+}
+.pie .red-social:hover {
+  color: var(--acento-claro);
+}
+.red-social:hover .icono {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+/* Idioma sin traducción todavía (solo en el boceto) */
+.idioma .sin-traduccion {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ---------- Selector de idioma: interruptor de dos botones ---------- */
+.idioma {
+  display: inline-flex;
+  gap: 0;
+  font-size: 0; /* oculta la barra "/" entre los enlaces */
+  border: 1px solid var(--tinta);
+}
+.idioma a {
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  line-height: 1;
+  padding: var(--esp-2) var(--esp-3);
+  color: var(--tinta);
+  text-decoration: none;
+  transition:
+    background-color var(--dur-corta) var(--curva),
+    color var(--dur-corta) var(--curva);
+}
+.idioma a:hover {
+  background: var(--linea);
+  color: var(--tinta);
+}
+.idioma a[aria-current="true"],
+.idioma a[aria-current="true"]:hover {
+  background: var(--tinta);
+  color: var(--papel);
+  cursor: default;
+}
+.idioma .sin-traduccion:hover {
+  background: none;
+}
+/* Sobre fondo oscuro (pie y menú móvil) */
+.pie .idioma,
+.menu-movil .idioma {
+  border-color: var(--papel);
+}
+.pie .idioma a,
+.menu-movil .idioma a {
+  color: var(--papel);
+}
+.pie .idioma a:hover,
+.menu-movil .idioma a:hover {
+  background: #2a2a2a;
+  color: var(--papel);
+}
+.pie .idioma a[aria-current="true"],
+.menu-movil .idioma a[aria-current="true"] {
+  background: var(--papel);
+  color: var(--tinta);
+}
+/* En el menú móvil los enlaces de idioma no heredan el tamaño grande */
+.menu-movil .idioma {
+  margin-top: var(--esp-6);
+  width: fit-content;
+}
+.menu-movil .idioma a {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-s);
+  padding: var(--esp-3) var(--esp-4);
+  opacity: 1;
+  transform: none;
+}

@@ -1,0 +1,303 @@
+/*
+ * ARQUEMIST. — Base
+ * Fuentes, reset mínimo, tipografía, retícula y utilidades globales.
+ * Cargar después de tokens.css.
+ */
+
+/* ---------- Fuentes (autoalojadas, subset latin) ---------- */
+@font-face {
+  font-family: "Staatliches";
+  src: url("../assets/fonts/staatliches-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../assets/fonts/noto-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../assets/fonts/noto-sans-400i.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../assets/fonts/noto-sans-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("../assets/fonts/noto-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Reset mínimo ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ---------- Documento ---------- */
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-base);
+  line-height: var(--interlineado);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* ---------- Tipografía ---------- */
+h1,
+h2,
+h3,
+h4,
+.display {
+  font-family: var(--fuente-display);
+  font-weight: 400;
+  line-height: var(--interlineado-titular);
+  letter-spacing: var(--tracking-titular);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--texto-4xl);
+}
+h2 {
+  font-size: var(--texto-3xl);
+}
+h3 {
+  font-size: var(--texto-xl);
+}
+h4 {
+  font-size: var(--texto-l);
+}
+.hero {
+  font-size: var(--texto-hero);
+  line-height: 0.88;
+}
+
+p,
+li {
+  max-width: var(--medida);
+  text-wrap: pretty;
+}
+.entradilla {
+  font-size: var(--texto-m);
+  line-height: 1.5;
+}
+.secundario {
+  color: var(--grafito);
+}
+.etiqueta {
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+}
+.cita {
+  font-family: var(--fuente-display);
+  font-size: var(--texto-2xl);
+  line-height: 1.05;
+  text-transform: uppercase;
+  max-width: 22ch;
+}
+
+a {
+  color: var(--acento);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color var(--dur-corta) var(--curva);
+}
+a:hover {
+  color: var(--tinta);
+}
+
+::selection {
+  background: var(--acento);
+  color: var(--papel);
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 3px;
+}
+
+/* ---------- Retícula ---------- */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: var(--margen);
+}
+
+/* 4 columnas en móvil, 8 en tablet, 12 en escritorio */
+.reticula {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--medianil);
+}
+.reticula > * {
+  grid-column: 1 / -1;
+}
+@media (min-width: 40rem) {
+  .reticula {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+@media (min-width: 60rem) {
+  .reticula {
+    grid-template-columns: repeat(var(--columnas), minmax(0, 1fr));
+  }
+  /* .col-N fija el ancho y .desde-N la columna inicial; se combinan: class="col-6 desde-7" */
+  .reticula > * {
+    grid-column: var(--inicio, auto) / span var(--ancho, 12);
+  }
+}
+.col-3 {
+  --ancho: 3;
+}
+.col-4 {
+  --ancho: 4;
+}
+.col-5 {
+  --ancho: 5;
+}
+.col-6 {
+  --ancho: 6;
+}
+.col-7 {
+  --ancho: 7;
+}
+.col-8 {
+  --ancho: 8;
+}
+.col-9 {
+  --ancho: 9;
+}
+.col-12 {
+  --ancho: 12;
+}
+.desde-2 {
+  --inicio: 2;
+}
+.desde-3 {
+  --inicio: 3;
+}
+.desde-4 {
+  --inicio: 4;
+}
+.desde-5 {
+  --inicio: 5;
+}
+.desde-6 {
+  --inicio: 6;
+}
+.desde-7 {
+  --inicio: 7;
+}
+.desde-8 {
+  --inicio: 8;
+}
+.desde-9 {
+  --inicio: 9;
+}
+.desde-10 {
+  --inicio: 10;
+}
+.desde-11 {
+  --inicio: 11;
+}
+.col-2 {
+  --ancho: 2;
+}
+
+/* ---------- Secciones ---------- */
+.seccion {
+  padding-block: var(--esp-seccion);
+}
+.seccion--oscura {
+  background: var(--tinta);
+  color: var(--papel);
+}
+.seccion--oscura a,
+.seccion--oscura .acento {
+  color: var(--acento-claro);
+}
+.seccion--oscura a:hover {
+  color: var(--papel);
+}
+.seccion--oscura .secundario {
+  color: var(--grafito-claro);
+}
+.seccion--oscura ::selection {
+  background: var(--acento-claro);
+  color: var(--tinta);
+}
+
+/* ---------- Marca ---------- */
+.acento {
+  color: var(--acento);
+}
+.logo {
+  width: clamp(9rem, 6rem + 10vw, 14rem);
+}
+
+/* ---------- Accesibilidad ---------- */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

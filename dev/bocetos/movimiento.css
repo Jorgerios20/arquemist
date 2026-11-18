@@ -1,0 +1,376 @@
+/*
+ * Capa de movimiento e interacción de los bocetos.
+ * Mejora progresiva: los estados ocultos solo se aplican si movimiento.js añade .mov a <html>
+ * (no se añade con prefers-reduced-motion), así que sin JS todo es visible.
+ */
+
+/* ---------- Transiciones entre páginas (View Transitions) ---------- */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--dur-media);
+  animation-timing-function: var(--curva);
+}
+.cabecera .logo {
+  view-transition-name: logo;
+}
+
+/* ---------- Líneas de retícula: el plano del arquitecto ---------- */
+.lineas-reticula {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.lineas-reticula .contenedor,
+.lineas-reticula .reticula {
+  height: 100%;
+}
+.lineas-reticula .reticula > div {
+  grid-column: span 1;
+  border-inline: 1px solid var(--linea);
+  opacity: 0.55;
+  transform-origin: top;
+}
+.lineas-reticula .reticula > div:nth-child(n + 5) {
+  display: none;
+}
+@media (min-width: 40rem) {
+  .lineas-reticula .reticula > div:nth-child(n + 5) {
+    display: block;
+  }
+  .lineas-reticula .reticula > div:nth-child(n + 9) {
+    display: none;
+  }
+}
+@media (min-width: 60rem) {
+  .lineas-reticula .reticula > div:nth-child(n + 9) {
+    display: block;
+  }
+}
+.mov .lineas-reticula .reticula > div {
+  transform: scaleY(0);
+  transition: transform 1.4s var(--curva);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+.mov.cargado .lineas-reticula .reticula > div {
+  transform: scaleY(1);
+}
+main,
+.pie,
+.aviso-boceto {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Cabecera: se oculta al bajar, vuelve al subir ---------- */
+.cabecera {
+  z-index: 20;
+  transition: transform var(--dur-media) var(--curva);
+}
+.cabecera.oculta {
+  transform: translateY(-100%);
+}
+/* Compacta: el logo se reduce con transform (sin animar padding ni alto) */
+.cabecera .logo {
+  transform-origin: left center;
+  transition: transform var(--dur-media) var(--curva);
+}
+.cabecera.compacta .logo {
+  transform: scale(0.82);
+}
+
+/* ---------- Hero: palabras que emergen + trazo que se pinta ---------- */
+.palabra {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.palabra > span {
+  display: inline-block;
+}
+.mov .palabra > span {
+  transform: translateY(105%);
+  transition: transform 1s var(--curva);
+  transition-delay: calc(150ms + var(--i, 0) * 70ms);
+}
+.mov.cargado .palabra > span {
+  transform: none;
+}
+.mov .gesto,
+.mov .pinta {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.7s;
+}
+.mov.cargado .gesto,
+.mov .pinta.visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- Aparición al hacer scroll ---------- */
+.mov [data-revelar] {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity var(--dur-larga) var(--curva),
+    transform var(--dur-larga) var(--curva);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.mov [data-revelar].visible {
+  opacity: 1;
+  transform: none;
+}
+/* Imágenes: se "levantan" de abajo arriba, como una obra que se construye */
+.mov [data-revelar="imagen"] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  transition-delay: calc(var(--i, 0) * 120ms);
+}
+.mov [data-revelar="imagen"].visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- Tarjetas de proyecto: de render a obra al pasar el cursor ---------- */
+.proyecto-tarjeta .wf-img {
+  overflow: hidden;
+}
+.proyecto-tarjeta .wf-img[data-obra]::after {
+  content: attr(data-obra);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #e2ded6;
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  color: var(--tinta);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--dur-larga) cubic-bezier(0.65, 0, 0.35, 1);
+}
+.proyecto-tarjeta:hover .wf-img[data-obra]::after,
+.proyecto-tarjeta:focus-visible .wf-img[data-obra]::after {
+  clip-path: inset(0 0 0 0);
+}
+.proyecto-tarjeta h2,
+.proyecto-tarjeta h3 {
+  transition: color var(--dur-corta) var(--curva);
+}
+.proyecto-tarjeta:hover h2,
+.proyecto-tarjeta:hover h3 {
+  color: var(--acento);
+}
+
+/* Cursor "Ver" sobre los proyectos (solo con ratón) */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: -2.75rem 0 0 -2.75rem;
+  border-radius: 50%;
+  background: var(--acento);
+  color: var(--papel);
+  display: grid;
+  place-items: center;
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  pointer-events: none;
+  scale: 0;
+  transition: scale var(--dur-media) var(--curva);
+}
+.cursor.activo {
+  scale: 1;
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+
+/* ---------- Enlaces con flecha ---------- */
+.enlace-flecha {
+  transition:
+    color var(--dur-corta) var(--curva),
+    transform var(--dur-media) var(--curva);
+}
+.enlace-flecha:hover {
+  transform: translateX(0.35rem);
+}
+
+/* ---------- Pilares: la fila se activa al pasar ---------- */
+.pilares li {
+  position: relative;
+}
+.pilares li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--acento);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-larga) var(--curva);
+}
+.pilares li:hover::after {
+  transform: scaleX(1);
+}
+.pilares .numero,
+.pilares h3 {
+  transition:
+    transform var(--dur-media) var(--curva),
+    color var(--dur-corta) var(--curva);
+}
+.pilares li:hover .numero {
+  transform: translateX(0.5rem);
+}
+.pilares li:hover h3 {
+  color: var(--acento);
+}
+
+/* ---------- Ecuación: arquitectura + alquimia = ARQUEMIST. ---------- */
+.ecuacion > span {
+  display: inline-block;
+}
+.ecuacion .resultado {
+  display: block;
+  font-size: 1.5em;
+  margin-top: var(--esp-2);
+}
+.mov .ecuacion .t1 {
+  transform: translateX(-2rem);
+  opacity: 0;
+}
+.mov .ecuacion .t2 {
+  transform: translateX(2rem);
+  opacity: 0;
+}
+.mov .ecuacion .mas,
+.mov .ecuacion .resultado {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.mov .ecuacion > span {
+  transition:
+    transform 1s var(--curva),
+    opacity 1s var(--curva);
+}
+.mov .ecuacion .mas {
+  transition-delay: 0.5s;
+}
+.mov .ecuacion .resultado {
+  transition-delay: 0.9s;
+}
+.mov .ecuacion.visible > span {
+  transform: none;
+  opacity: 1;
+}
+
+/* ---------- Comparador: pista de interacción ---------- */
+@property --pos {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+.comparador.pista {
+  animation: pista 2.2s var(--curva);
+}
+@keyframes pista {
+  0%,
+  100% {
+    --pos: 50%;
+  }
+  35% {
+    --pos: 28%;
+  }
+  70% {
+    --pos: 72%;
+  }
+}
+
+/* ---------- Menú móvil ---------- */
+.menu-movil {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--tinta);
+  color: var(--papel);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--esp-4);
+  padding: var(--margen);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path var(--dur-larga) cubic-bezier(0.65, 0, 0.35, 1);
+  visibility: hidden;
+}
+.menu-movil.abierto {
+  clip-path: inset(0 0 0 0);
+  visibility: visible;
+}
+.menu-movil a {
+  font-family: var(--fuente-display);
+  font-size: var(--texto-4xl);
+  line-height: 1;
+  color: var(--papel);
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition:
+    opacity var(--dur-media) var(--curva),
+    transform var(--dur-media) var(--curva);
+  transition-delay: calc(250ms + var(--i, 0) * 80ms);
+}
+.menu-movil.abierto a {
+  opacity: 1;
+  transform: none;
+}
+.menu-movil a[aria-current="page"] {
+  color: var(--acento-claro);
+}
+.menu-movil .cerrar {
+  position: absolute;
+  top: var(--esp-4);
+  right: var(--margen);
+  background: none;
+  border: 0;
+  color: var(--papel);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-etiqueta);
+  text-transform: uppercase;
+  padding: var(--esp-2) 0;
+  cursor: pointer;
+}
+
+/* ---------- Filtros de proyectos ---------- */
+.galeria .proyecto-tarjeta {
+  transition:
+    opacity var(--dur-media) var(--curva),
+    transform var(--dur-media) var(--curva);
+}
+.galeria .proyecto-tarjeta.atenuada {
+  opacity: 0.12;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

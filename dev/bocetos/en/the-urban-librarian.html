@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Mock-up · The Urban Librarian. — ARQUEMIST.</title>
+    <link rel="alternate" hreflang="es" href="../the-urban-librarian.html" />
+    <link rel="icon" href="../../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../../css/tokens.css" />
+    <link rel="stylesheet" href="../../../css/base.css" />
+    <link rel="stylesheet" href="../bocetos.css" />
+    <link rel="stylesheet" href="../movimiento.css" />
+    <style>
+      .portada {
+        padding-block: var(--esp-8) var(--esp-7);
+      }
+      .datos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--esp-5) var(--esp-4);
+        border-top: var(--borde);
+        padding-top: var(--esp-5);
+      }
+      .datos dt {
+        color: var(--grafito);
+      }
+      .datos dd {
+        margin: var(--esp-1) 0 0;
+      }
+      @media (min-width: 60rem) {
+        .datos {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+      }
+      .paso {
+        display: flex;
+        gap: var(--esp-4);
+        align-items: baseline;
+        margin-bottom: var(--esp-6);
+      }
+      .renders .reticula,
+      .materia .reticula {
+        row-gap: var(--medianil);
+      }
+      .siguiente {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        border-top: var(--borde);
+        padding-block: var(--esp-8);
+      }
+      .siguiente .hero {
+        transition: color var(--dur-corta) var(--curva);
+      }
+      .siguiente:hover .hero {
+        color: var(--acento);
+      }
+      .portada .reticula { align-items: end; }
+      .foto-portada { --ar: 4 / 5; }
+      @media (min-width: 60rem) {
+        .portada .texto-portada { grid-column: 1 / span 7; }
+        .portada .foto-portada { grid-column: 8 / span 5; --ar: 686 / 808; }
+        .renders .bajo { margin-top: var(--esp-10); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aviso-boceto">Phase 2 mock-up — real project page, “in progress” variant (cover + idea)</div>
+
+    <header class="cabecera">
+      <div class="contenedor">
+        <a href="inicio.html" aria-label="ARQUEMIST. — Home"
+          ><img
+            class="logo"
+            src="../../../assets/marca/logo-negro.svg"
+            alt="ARQUEMIST. The Alchemy of Space."
+            width="2024"
+            height="486"
+        /></a>
+        <nav class="nav" aria-label="Main">
+          <a href="../estudio.html">Studio</a>
+          <a href="../proyectos.html" aria-current="page">Projects</a>
+          <a href="#contacto">Contact</a>
+          <span class="idioma"
+            ><a title="Español" href="../the-urban-librarian.html" lang="es" hreflang="es">ES</a>/<a title="English" href="the-urban-librarian.html" aria-current="true">EN</a></span
+          >
+        </nav>
+        <button class="menu-boton" type="button">Menu</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Portada -->
+      <section class="portada">
+        <div class="contenedor reticula filas">
+          <div class="texto-portada pila">
+            <a class="enlace-flecha secundario" href="../proyectos.html">← Projects</a>
+            <h1 class="hero">The Urban Librarian.</h1>
+            <p class="entradilla">
+              An urban architecture initiative that seeks to bring reading, culture and the exchange of ideas closer to the everyday spaces of our city.
+            </p>
+          </div>
+          <figure class="foto foto-portada">
+            <img src="../../../assets/proyectos/the-urban-librarian/render-3.webp" alt="Render of The Urban Librarian: a reclaimed-wood book box on a pedestal, next to a playground." width="686" height="808" fetchpriority="high" />
+          </figure>
+        </div>
+      </section>
+      <div class="contenedor">
+        <dl class="datos">
+          <div><dt class="etiqueta">Type</dt><dd>Community library</dd></div>
+          <div><dt class="etiqueta">Location</dt><dd>Corregidora, Querétaro, Mexico</dd></div>
+          <div><dt class="etiqueta">Date</dt><dd>October 29, 2026</dd></div>
+          <div><dt class="etiqueta">Material</dt><dd>Wood reclaimed from construction sites</dd></div>
+          <div><dt class="etiqueta">Status</dt><dd class="estado">In progress</dd></div>
+        </dl>
+      </div>
+
+      <!-- 2. Idea: concepto + renders -->
+      <section class="seccion renders">
+        <div class="contenedor">
+          <div class="paso"><span class="numero">01</span><h2>Idea</h2></div>
+          <div class="reticula filas" style="margin-bottom: var(--esp-8)">
+            <div class="col-7 desde-5 pila">
+              <p class="entradilla">
+                The Urban Librarian is a small community library, built from wood reclaimed from construction sites, where anyone can take a book, leave another and share stories.
+              </p>
+              <p>
+                More than a piece of street furniture, we seek to create a meeting point between people and culture, showing that even the smallest interventions can transform the way we inhabit and share our spaces.
+              </p>
+              <p>
+                We hope this project grows through the participation of the community, that the books find new readers, and that this first intervention is the beginning of many more.
+              </p>
+            </div>
+          </div>
+          <div class="reticula filas">
+            <figure class="foto col-7" style="--ar: 630 / 379">
+              <img src="../../../assets/proyectos/the-urban-librarian/render-1.webp" alt="Render: the library in a park, among paths, lavender and wooden benches." width="630" height="379" loading="lazy" />
+            </figure>
+            <figure class="foto col-5 desde-8 bajo" style="--ar: 630 / 329">
+              <img src="../../../assets/proyectos/the-urban-librarian/render-2.webp" alt="Render: the library next to a children's playground and a street lamp." width="630" height="329" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cierre -->
+      <section class="seccion" style="padding-top: 0">
+        <div class="contenedor reticula">
+          <p class="cita-larga col-7 desde-5">
+            Because we believe architecture reaches its greatest value when it stops talking about buildings and starts talking about people.
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. Next project -->
+      <div class="contenedor">
+        <a class="siguiente" href="../casa-entre-muros.html">
+          <span class="etiqueta secundario">Next project</span>
+          <span class="hero display" style="display: block; margin-top: var(--esp-3)">Casa Entre Muros →</span>
+        </a>
+      </div>
+    </main>
+
+    <footer class="pie" id="contacto">
+      <div class="contenedor">
+        <div class="reticula">
+          <div class="col-4 pila">
+            <img
+              class="iso"
+              src="../../../assets/marca/isotipo-trazos-blanco.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <p class="display" style="font-size: var(--texto-xl)">
+              The Alchemy of Space.
+            </p>
+          </div>
+          <div class="col-3 desde-7 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Contact</p>
+            <address style="font-style: normal">
+              Av. 5 de Febrero #168<br />
+              Col. Las Campanas<br />
+              76010 Querétaro, Qro.
+            </address>
+          </div>
+          <div class="col-2 desde-11 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Social</p>
+            <p><a class="red-social" href="https://www.instagram.com/arquemist.arquitectos/" target="_blank" rel="noopener" aria-label="ARQUEMIST. on Instagram (opens in a new tab)"><svg class="icono" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" /></svg><span>Instagram</span></a></p>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© ARQUEMIST.</span
+          ><span class="idioma"
+            ><a title="Español" href="../the-urban-librarian.html" lang="es" hreflang="es">ES</a>/<a title="English" href="the-urban-librarian.html" aria-current="true">EN</a></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Comparador: el deslizador mueve la línea y recorta el render.
+      document.querySelectorAll(".comparador").forEach((c) => {
+        const r = c.querySelector("input");
+        r.addEventListener("input", () =>
+          c.style.setProperty("--pos", r.value + "%"),
+        );
+      });
+    </script>
+    <script src="../movimiento.js" defer></script>
+  </body>
+</html>

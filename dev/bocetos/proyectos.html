@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Boceto · Proyectos — ARQUEMIST.</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../css/tokens.css" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="bocetos.css" />
+    <link rel="stylesheet" href="movimiento.css" />
+    <style>
+      .apertura {
+        padding-block: var(--esp-9) var(--esp-7);
+      }
+      .filtros {
+        display: flex;
+        gap: var(--esp-5);
+        flex-wrap: wrap;
+        border-bottom: var(--borde);
+        padding-bottom: var(--esp-4);
+      }
+      .filtros button {
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        color: var(--grafito);
+      }
+      .filtros button[aria-pressed="true"] {
+        color: var(--tinta);
+        border-bottom: 2px solid var(--acento);
+        padding-bottom: var(--esp-1);
+      }
+      @media (min-width: 60rem) {
+        .galeria .bajo {
+          margin-top: var(--esp-9);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aviso-boceto">Boceto de la fase 2 — proyectos de ejemplo</div>
+
+    <header class="cabecera">
+      <div class="contenedor">
+        <a href="inicio.html" aria-label="ARQUEMIST. — Inicio"
+          ><img
+            class="logo"
+            src="../../assets/marca/logo-negro.svg"
+            alt="ARQUEMIST. The Alchemy of Space."
+            width="2024"
+            height="486"
+        /></a>
+        <nav class="nav" aria-label="Principal">
+          <a href="estudio.html">Estudio</a>
+          <a href="proyectos.html" aria-current="page">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+          <span class="idioma"
+            ><a title="Español" href="#" aria-current="true">ES</a>/<a class="sin-traduccion" lang="en" aria-disabled="true" title="Traducción pendiente en el boceto">EN</a></span
+          >
+        </nav>
+        <button class="menu-boton" type="button">Menú</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="apertura">
+        <div class="contenedor reticula filas">
+          <h1 class="hero col-12">Proyectos</h1>
+          <p class="entradilla secundario col-6">
+            Cada proyecto representa una oportunidad para reinterpretar lo
+            existente, descubrir nuevas posibilidades y crear algo que
+            trascienda su función.
+          </p>
+        </div>
+      </section>
+
+      <section class="seccion galeria" style="padding-top: 0">
+        <div class="contenedor">
+          <div
+            class="filtros etiqueta"
+            role="group"
+            aria-label="Filtrar por estado"
+            style="margin-bottom: var(--esp-7)"
+          >
+            <button type="button" aria-pressed="true">Todos</button>
+            <button type="button" aria-pressed="false">Construidos</button>
+            <button type="button" aria-pressed="false">En desarrollo</button>
+          </div>
+
+          <!-- Galería asimétrica: anchos y alturas alternos sobre la retícula de 12 -->
+          <div class="reticula filas">
+            <a class="proyecto-tarjeta col-7" href="the-urban-librarian.html">
+              <div class="foto" style="--ar: 4 / 5">
+                <img src="../../assets/proyectos/the-urban-librarian/render-3.webp" alt="Render de The Urban Librarian: biblioteca comunitaria de madera recuperada junto a un área de juegos." width="686" height="808" loading="lazy" />
+                <img class="alterna" src="../../assets/proyectos/the-urban-librarian/render-1.webp" alt="" width="630" height="379" loading="lazy" />
+              </div>
+              <div class="meta">
+                <span class="etiqueta estado">En desarrollo</span>
+                <h2>The Urban Librarian.</h2>
+                <p class="secundario">Biblioteca comunitaria · Corregidora, Querétaro · 2026</p>
+              </div>
+            </a>
+            <a class="proyecto-tarjeta col-4 desde-9 bajo" href="casa-entre-muros.html">
+              <div class="foto" style="--ar: 3 / 4">
+                <img src="../../assets/proyectos/ejemplo-casa-entre-muros/exterior.webp" alt="Render de Casa Entre Muros: patio con mezquite entre muros de piedra." width="1600" height="2133" loading="lazy" />
+                <img class="alterna" src="../../assets/proyectos/ejemplo-casa-entre-muros/interior.webp" alt="" width="2000" height="1125" loading="lazy" />
+              </div>
+              <div class="meta">
+                <span class="etiqueta estado">En desarrollo</span> <span class="etiqueta ficticio">Ejemplo ficticio</span>
+                <h2>Casa Entre Muros</h2>
+                <p class="secundario">Vivienda · El Marqués, Querétaro · 2027</p>
+              </div>
+            </a>
+            <a class="proyecto-tarjeta col-5 desde-2" href="taller-cantera.html">
+              <div class="foto" style="--ar: 16 / 10">
+                <img src="../../assets/proyectos/ejemplo-taller-cantera/render.webp" alt="Render del Taller Cantera." width="2000" height="1125" loading="lazy" />
+                <img class="alterna" src="../../assets/proyectos/ejemplo-taller-cantera/obra.webp" alt="" width="2000" height="1125" loading="lazy" />
+              </div>
+              <div class="meta">
+                <span class="etiqueta estado">Construido</span> <span class="etiqueta ficticio">Ejemplo ficticio</span>
+                <h2>Taller Cantera</h2>
+                <p class="secundario">Taller de artista · Centro Histórico, Querétaro · 2025</p>
+              </div>
+            </a>
+            
+            
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie" id="contacto">
+      <div class="contenedor">
+        <div class="reticula">
+          <div class="col-4 pila">
+            <img
+              class="iso"
+              src="../../assets/marca/isotipo-trazos-blanco.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <p class="display" style="font-size: var(--texto-xl)">
+              The Alchemy of Space.
+            </p>
+          </div>
+          <div class="col-3 desde-7 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Contacto</p>
+            <address style="font-style: normal">
+              Av. 5 de Febrero #168<br />
+              Col. Las Campanas<br />
+              76010 Querétaro, Qro.
+            </address>
+          </div>
+          <div class="col-2 desde-11 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Redes</p>
+            <p><a class="red-social" href="https://www.instagram.com/arquemist.arquitectos/" target="_blank" rel="noopener" aria-label="Instagram de ARQUEMIST. (se abre en una pestaña nueva)"><svg class="icono" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" /></svg><span>Instagram</span></a></p>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© ARQUEMIST.</span
+          ><span class="idioma"
+            ><a title="Español" href="#" aria-current="true">ES</a>/<a class="sin-traduccion" lang="en" aria-disabled="true" title="Traducción pendiente en el boceto">EN</a></span
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="movimiento.js" defer></script>
+  </body>
+</html>

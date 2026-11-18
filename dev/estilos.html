@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Guía de estilos — ARQUEMIST.</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png" />
+    <link
+      rel="preload"
+      href="../assets/fonts/staatliches-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/noto-sans-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <style>
+      /* Estilos solo de esta guía interna */
+      .g-bloque {
+        padding-block: var(--esp-8);
+        border-top: var(--borde);
+      }
+      .g-bloque > .contenedor > .etiqueta {
+        display: block;
+        margin-bottom: var(--esp-6);
+        color: var(--grafito);
+      }
+      .g-muestras {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        gap: var(--esp-4);
+      }
+      .g-muestra {
+        border: var(--borde);
+      }
+      .g-muestra > div {
+        height: 6rem;
+      }
+      .g-muestra > p {
+        padding: var(--esp-3);
+        font-size: var(--texto-s);
+        line-height: 1.4;
+      }
+      .g-escala > * + * {
+        margin-top: var(--esp-5);
+      }
+      .g-escala .etiqueta {
+        display: block;
+        color: var(--grafito);
+        margin-bottom: var(--esp-1);
+      }
+      .g-reticula .reticula {
+        min-height: 8rem;
+      }
+      .g-reticula .reticula > div {
+        grid-column: span 1;
+        background: color-mix(in srgb, var(--acento) 14%, transparent);
+      }
+      .g-marcas {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: var(--esp-4);
+      }
+      .g-marcas figure {
+        display: grid;
+        place-items: center;
+        gap: var(--esp-4);
+        padding: var(--esp-7) var(--esp-5);
+        border: var(--borde);
+      }
+      .g-marcas figure.oscura {
+        background: var(--tinta);
+        border-color: var(--tinta);
+        color: var(--papel);
+      }
+      .g-marcas figcaption {
+        font-size: var(--texto-xs);
+      }
+      .g-marcas img.iso {
+        width: 7rem;
+      }
+      .g-muestra-oscura {
+        margin-top: var(--esp-6);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="seccion">
+      <div class="contenedor">
+        <img
+          class="logo"
+          src="../assets/marca/logo-negro.svg"
+          alt="ARQUEMIST. The Alchemy of Space."
+          width="2024"
+          height="486"
+        />
+        <h1 class="hero" style="margin-top: var(--esp-8)">Guía de estilos</h1>
+        <p class="entradilla secundario" style="margin-top: var(--esp-5)">
+          Herramienta interna de la fase 1: tokens, tipografía, retícula y
+          marca. No se publica ni se traduce.
+        </p>
+      </div>
+    </header>
+
+    <section class="g-bloque" aria-labelledby="t-color">
+      <div class="contenedor">
+        <span class="etiqueta" id="t-color">01 — Color</span>
+        <div class="g-muestras">
+          <div class="g-muestra">
+            <div style="background: var(--tinta)"></div>
+            <p><strong>--tinta</strong><br />#0E0E0E</p>
+          </div>
+          <div class="g-muestra">
+            <div style="background: var(--papel)"></div>
+            <p><strong>--papel</strong><br />#FFFFFF</p>
+          </div>
+          <div class="g-muestra">
+            <div style="background: var(--grafito)"></div>
+            <p><strong>--grafito</strong><br />#5A5A5A</p>
+          </div>
+          <div class="g-muestra">
+            <div style="background: var(--grafito-claro)"></div>
+            <p><strong>--grafito-claro</strong><br />#B5B5B5</p>
+          </div>
+          <div class="g-muestra">
+            <div style="background: var(--linea)"></div>
+            <p><strong>--linea</strong><br />#E2E0DB</p>
+          </div>
+          <div class="g-muestra">
+            <div style="background: var(--acento)"></div>
+            <p><strong>--acento</strong> latón<br />#8C6A2E</p>
+          </div>
+          <div class="g-muestra">
+            <div style="background: var(--acento-claro)"></div>
+            <p><strong>--acento-claro</strong><br />#C2A266</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="g-bloque" aria-labelledby="t-tipo">
+      <div class="contenedor g-escala">
+        <span class="etiqueta" id="t-tipo"
+          >02 — Tipografía · Staatliches + Noto Sans</span
+        >
+        <div>
+          <span class="etiqueta">--texto-hero</span>
+          <p class="display hero">La alquimia del espacio</p>
+        </div>
+        <div>
+          <span class="etiqueta">h1 · --texto-4xl</span>
+          <h1>Transformamos ideas en espacios</h1>
+        </div>
+        <div>
+          <span class="etiqueta">h2 · --texto-3xl</span>
+          <h2>Creatividad sin fórmulas</h2>
+        </div>
+        <div>
+          <span class="etiqueta">h3 · --texto-xl</span>
+          <h3>Rigor y materialización</h3>
+        </div>
+        <div>
+          <span class="etiqueta">h4 · --texto-l</span>
+          <h4>Arte y experimentación</h4>
+        </div>
+        <div>
+          <span class="etiqueta">.cita · --texto-2xl</span>
+          <p class="cita">La arquitectura es el arte de transformar.</p>
+        </div>
+        <div>
+          <span class="etiqueta">.entradilla · --texto-m</span>
+          <p class="entradilla">
+            Entendemos la arquitectura como un encuentro entre el arte, la
+            técnica y la sensibilidad humana.
+          </p>
+        </div>
+        <div>
+          <span class="etiqueta">Cuerpo · --texto-base 17px / 1.6</span>
+          <p>
+            ARQUEMIST. es un estudio de arquitectura y diseño que nace de una
+            convicción: los espacios tienen el poder de transformar la manera en
+            que vivimos, sentimos y nos relacionamos con el mundo. ¿Quiénes
+            somos? Áéíóú ñ ¡ü!
+            <em>Cursiva para matices</em>, <strong>negrita 700</strong> y
+            <a href="#">un enlace en latón</a>.
+          </p>
+        </div>
+        <div>
+          <span class="etiqueta">.etiqueta · --texto-xs</span>
+          <p class="etiqueta acento">Construido · Año · Ubicación</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="g-bloque g-reticula" aria-labelledby="t-ret">
+      <div class="contenedor">
+        <span class="etiqueta" id="t-ret"
+          >03 — Retícula · 4 / 8 / 12 columnas</span
+        >
+        <div class="reticula">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="reticula" style="margin-top: var(--esp-6)">
+          <h3 class="col-4">Misión</h3>
+          <p class="col-6 desde-7">
+            Transformar el espacio a través de la arquitectura, el diseño y la
+            creatividad, desarrollando proyectos que equilibren la sensibilidad
+            artística, la funcionalidad y la responsabilidad social.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="g-bloque" aria-labelledby="t-marca">
+      <div class="contenedor">
+        <span class="etiqueta" id="t-marca">04 — Marca</span>
+        <div class="g-marcas">
+          <figure>
+            <img
+              class="logo"
+              src="../assets/marca/logo-negro.svg"
+              alt="ARQUEMIST."
+              width="2024"
+              height="486"
+            />
+            <figcaption>logo-negro.svg</figcaption>
+          </figure>
+          <figure class="oscura">
+            <img
+              class="logo"
+              src="../assets/marca/logo-blanco.svg"
+              alt="ARQUEMIST."
+              width="2024"
+              height="486"
+            />
+            <figcaption>logo-blanco.svg</figcaption>
+          </figure>
+          <figure>
+            <img
+              class="iso"
+              src="../assets/marca/isotipo-trazos-negro.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <figcaption>isotipo-trazos-negro</figcaption>
+          </figure>
+          <figure class="oscura">
+            <img
+              class="iso"
+              src="../assets/marca/isotipo-trazos-blanco.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <figcaption>isotipo-trazos-blanco</figcaption>
+          </figure>
+          <figure>
+            <img
+              class="iso"
+              src="../assets/marca/isotipo-cruzado.webp"
+              alt=""
+              width="2048"
+              height="2048"
+            />
+            <figcaption>isotipo-cruzado (solo sobre blanco)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion--oscura" aria-labelledby="t-oscura">
+      <div class="contenedor">
+        <span class="etiqueta acento" id="t-oscura">05 — Sección oscura</span>
+        <h2 style="margin-top: var(--esp-5)">The Alchemy of Space.</h2>
+        <p class="entradilla secundario" style="margin-top: var(--esp-5)">
+          No buscamos transformar el plomo en oro, sino transformar espacios en
+          experiencias.
+        </p>
+        <p style="margin-top: var(--esp-4)">
+          <a href="#">Enlace en latón claro</a>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

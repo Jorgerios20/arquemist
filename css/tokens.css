@@ -1,0 +1,76 @@
+/*
+ * ARQUEMIST. — Tokens de diseño
+ * Fuente única de valores del sitio. No usar colores, tamaños ni espacios sueltos:
+ * referenciar siempre estas variables. Decisiones en DESIGN.md.
+ *
+ * Breakpoints (las variables no funcionan dentro de @media, usar estos valores):
+ *   sm  40rem  (640px)
+ *   md  60rem  (960px)
+ *   lg  80rem  (1280px)
+ */
+
+:root {
+  /* ---------- Color ---------- */
+  --tinta: #0e0e0e; /* texto, fondo de secciones oscuras */
+  --papel: #ffffff; /* fondo principal */
+  --grafito: #5a5a5a; /* texto secundario (6.9:1 sobre papel) */
+  --grafito-claro: #b5b5b5; /* texto secundario sobre tinta */
+  --linea: #e2e0db; /* bordes, retícula, separadores */
+  --acento: #8c6a2e; /* latón — sobre papel 4.98:1 (AA) */
+  --acento-claro: #c2a266; /* latón sobre tinta — 7.96:1 */
+
+  /* ---------- Tipografía ---------- */
+  --fuente-display: "Staatliches", "Arial Narrow", sans-serif;
+  --fuente-texto: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Escala ×1.25 sobre 17px; los tamaños grandes son fluidos (375px → 1440px) */
+  --texto-xs: 0.75rem;
+  --texto-s: 0.875rem;
+  --texto-base: 1.0625rem;
+  --texto-m: 1.3125rem;
+  --texto-l: clamp(1.4rem, 1.25rem + 0.6vw, 1.66rem);
+  --texto-xl: clamp(1.66rem, 1.4rem + 1.1vw, 2.08rem);
+  --texto-2xl: clamp(2rem, 1.6rem + 1.7vw, 2.6rem);
+  --texto-3xl: clamp(2.4rem, 1.8rem + 2.6vw, 3.25rem);
+  --texto-4xl: clamp(2.9rem, 1.9rem + 4.3vw, 5rem);
+  --texto-hero: clamp(2.75rem, 0.75rem + 9.6vw, 8rem);
+
+  --interlineado: 1.6;
+  --interlineado-titular: 0.95;
+  --tracking-titular: 0.02em;
+  --tracking-etiqueta: 0.14em; /* mayúsculas pequeñas: etiquetas, navegación */
+  --medida: 68ch; /* ancho máximo de línea de texto */
+
+  /* ---------- Espaciado (base 4px) ---------- */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8: 4rem;
+  --esp-9: 6rem;
+  --esp-10: 8rem;
+  --esp-seccion: clamp(
+    4rem,
+    2rem + 8vw,
+    10rem
+  ); /* separación vertical entre secciones */
+
+  /* ---------- Retícula ---------- */
+  --columnas: 12;
+  --ancho-max: 90rem; /* 1440px */
+  --margen: clamp(1rem, 0.4rem + 2.6vw, 3rem); /* 16px en móvil */
+  --medianil: clamp(1rem, 0.7rem + 1.2vw, 2rem);
+
+  /* ---------- Forma ---------- */
+  --radio: 0; /* aristas vivas */
+  --borde: 1px solid var(--linea);
+
+  /* ---------- Movimiento ---------- */
+  --dur-corta: 200ms;
+  --dur-media: 400ms;
+  --dur-larga: 800ms;
+  --curva: cubic-bezier(0.22, 1, 0.36, 1);
+}

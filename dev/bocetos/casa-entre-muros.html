@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Boceto · Casa Entre Muros (ejemplo) — ARQUEMIST.</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../css/tokens.css" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="bocetos.css" />
+    <link rel="stylesheet" href="movimiento.css" />
+    <style>
+      .portada {
+        padding-block: var(--esp-8) var(--esp-7);
+      }
+      .datos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--esp-5) var(--esp-4);
+        border-top: var(--borde);
+        padding-top: var(--esp-5);
+      }
+      .datos dt {
+        color: var(--grafito);
+      }
+      .datos dd {
+        margin: var(--esp-1) 0 0;
+      }
+      @media (min-width: 60rem) {
+        .datos {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+      }
+      .paso {
+        display: flex;
+        gap: var(--esp-4);
+        align-items: baseline;
+        margin-bottom: var(--esp-6);
+      }
+      .renders .reticula,
+      .materia .reticula {
+        row-gap: var(--medianil);
+      }
+      .siguiente {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        border-top: var(--borde);
+        padding-block: var(--esp-8);
+      }
+      .siguiente .hero {
+        transition: color var(--dur-corta) var(--curva);
+      }
+      .siguiente:hover .hero {
+        color: var(--acento);
+      }
+      .portada .reticula { align-items: end; }
+      .foto-portada { --ar: 4 / 5; }
+      @media (min-width: 60rem) {
+        .portada .texto-portada { grid-column: 1 / span 7; }
+        .portada .foto-portada { grid-column: 8 / span 5; --ar: 686 / 808; }
+        .renders .bajo { margin-top: var(--esp-10); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aviso-boceto">Proyecto de ejemplo ficticio — textos e imágenes generados para mostrar el diseño</div>
+
+    <header class="cabecera">
+      <div class="contenedor">
+        <a href="inicio.html" aria-label="ARQUEMIST. — Inicio"
+          ><img
+            class="logo"
+            src="../../assets/marca/logo-negro.svg"
+            alt="ARQUEMIST. The Alchemy of Space."
+            width="2024"
+            height="486"
+        /></a>
+        <nav class="nav" aria-label="Principal">
+          <a href="estudio.html">Estudio</a>
+          <a href="proyectos.html" aria-current="page">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+          <span class="idioma"
+            ><a title="Español" href="#" aria-current="true">ES</a>/<a class="sin-traduccion" lang="en" aria-disabled="true" title="Traducción pendiente en el boceto">EN</a></span
+          >
+        </nav>
+        <button class="menu-boton" type="button">Menú</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Portada -->
+      <section class="portada">
+        <div class="contenedor reticula filas">
+          <div class="texto-portada pila">
+            <a class="enlace-flecha secundario" href="proyectos.html">← Proyectos</a>
+            <p class="etiqueta ficticio">Ejemplo ficticio — solo para mostrar el diseño</p>
+            <h1 class="hero">Casa Entre Muros</h1>
+            <p class="entradilla">Una vivienda que se organiza alrededor de un patio y de un mezquite que ya estaba en el terreno.</p>
+          </div>
+          <figure class="foto foto-portada">
+            <img src="../../assets/proyectos/ejemplo-casa-entre-muros/exterior.webp" alt="Render: patio de la casa con un mezquite, espejo de agua y muros de piedra y concreto al atardecer." width="1600" height="2133" fetchpriority="high" />
+          </figure>
+        </div>
+      </section>
+      <div class="contenedor">
+        <dl class="datos"><div><dt class="etiqueta">Tipo</dt><dd>Vivienda unifamiliar</dd></div><div><dt class="etiqueta">Ubicación</dt><dd>El Marqués, Querétaro</dd></div><div><dt class="etiqueta">Año</dt><dd>2027</dd></div><div><dt class="etiqueta">Superficie</dt><dd>240 m²</dd></div><div><dt class="etiqueta">Estado</dt><dd class="estado">En desarrollo</dd></div></dl>
+      </div>
+
+      <!-- 2. Idea -->
+      <section class="seccion renders">
+        <div class="contenedor">
+          <div class="paso"><span class="numero">01</span><h2>Idea</h2></div>
+          <div class="reticula filas" style="margin-bottom: var(--esp-8)">
+            <div class="col-7 desde-5 pila">
+              <p class="entradilla">Muros gruesos de cantera y concreto aparente protegen la casa del sol del semidesierto y la abren hacia el patio, donde transcurre la vida diaria.</p>
+              <p>El programa se reparte en dos crujías que abrazan el patio. La sala, de doble altura, recibe luz cenital y se abre por completo al exterior; las recámaras quedan en el ala más resguardada.</p>
+            </div>
+          </div>
+          <figure class="foto" style="--ar: 16 / 9">
+            <img src="../../assets/proyectos/ejemplo-casa-entre-muros/interior.webp" alt="Render interior: sala de doble altura con muros de concreto y madera, abierta a un patio con un olivo." width="2000" height="1125" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- 5. Siguiente proyecto -->
+      <div class="contenedor">
+        <a class="siguiente" href="taller-cantera.html">
+          <span class="etiqueta secundario">Siguiente proyecto</span>
+          <span class="hero display" style="display: block; margin-top: var(--esp-3)">Taller Cantera →</span>
+        </a>
+      </div>
+    </main>
+
+    <footer class="pie" id="contacto">
+      <div class="contenedor">
+        <div class="reticula">
+          <div class="col-4 pila">
+            <img
+              class="iso"
+              src="../../assets/marca/isotipo-trazos-blanco.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <p class="display" style="font-size: var(--texto-xl)">
+              The Alchemy of Space.
+            </p>
+          </div>
+          <div class="col-3 desde-7 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Contacto</p>
+            <address style="font-style: normal">
+              Av. 5 de Febrero #168<br />
+              Col. Las Campanas<br />
+              76010 Querétaro, Qro.
+            </address>
+          </div>
+          <div class="col-2 desde-11 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Redes</p>
+            <p><a class="red-social" href="https://www.instagram.com/arquemist.arquitectos/" target="_blank" rel="noopener" aria-label="Instagram de ARQUEMIST. (se abre en una pestaña nueva)"><svg class="icono" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" /></svg><span>Instagram</span></a></p>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© ARQUEMIST.</span
+          ><span class="idioma"
+            ><a title="Español" href="#" aria-current="true">ES</a>/<a class="sin-traduccion" lang="en" aria-disabled="true" title="Traducción pendiente en el boceto">EN</a></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Comparador: el deslizador mueve la línea y recorta el render.
+      document.querySelectorAll(".comparador").forEach((c) => {
+        const r = c.querySelector("input");
+        r.addEventListener("input", () =>
+          c.style.setProperty("--pos", r.value + "%"),
+        );
+      });
+    </script>
+    <script src="movimiento.js" defer></script>
+  </body>
+</html>
