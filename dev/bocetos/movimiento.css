@@ -486,3 +486,71 @@ html.telon-entrada::after {
     visibility: hidden;
   }
 }
+
+/* ---------- Isotipo 1 dibujado con el scroll (Inicio) ----------
+ * Tres capas exactas del isotipo de trazos cruzados (assets/marca/isotipo-cruzado-trazo-N):
+ * juntas reproducen el original sin cambios. Cada una se descubre en la dirección de su
+ * trazo con una máscara cuyo frente avanza con --aN (0–1, lo pone movimiento.js).
+ * Detrás del contenido (z-index -1): solo se ve donde la página es clara.
+ */
+.isotipo-scroll {
+  display: none;
+}
+.isotipo-scroll.listo {
+  --lado: min(80vh, 54vw);
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: calc(50% - var(--lado) / 2);
+  right: var(--margen);
+  width: var(--lado);
+  aspect-ratio: 1;
+  opacity: var(--opacidad-marca-agua);
+  pointer-events: none;
+  transform: translate3d(0, calc(var(--salida, 0) * -1px), 0);
+}
+@media (max-width: 59.99rem) {
+  .isotipo-scroll.listo {
+    --lado: min(92vw, 70vh);
+    right: calc(50% - var(--lado) / 2);
+  }
+}
+.isotipo-scroll img {
+  --frente: calc(
+    var(--ini) + (var(--fin) - var(--ini) + var(--suave)) * var(--a)
+  );
+  --suave: 7%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: linear-gradient(
+    var(--ang),
+    #000 calc(var(--frente) - var(--suave)),
+    transparent var(--frente)
+  );
+  mask-image: linear-gradient(
+    var(--ang),
+    #000 calc(var(--frente) - var(--suave)),
+    transparent var(--frente)
+  );
+}
+/* Extensión de cada trazo sobre la línea de su degradado (medida en las capas) */
+.isotipo-scroll img:nth-child(1) {
+  --a: var(--a1, 0);
+  --ang: 180deg;
+  --ini: 17.9%;
+  --fin: 82%;
+}
+.isotipo-scroll img:nth-child(2) {
+  --a: var(--a2, 0);
+  --ang: 129.4deg;
+  --ini: 22.1%;
+  --fin: 76.6%;
+}
+.isotipo-scroll img:nth-child(3) {
+  --a: var(--a3, 0);
+  --ang: 90deg;
+  --ini: 33.2%;
+  --fin: 94.5%;
+}

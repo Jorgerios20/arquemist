@@ -72,15 +72,13 @@
       tarjetas.forEach((t) => {
         const e = estado(t);
         const ok =
-          f === "todos" ||
-          (f === "construidos" ? e === "construido" : e === f);
+          f === "todos" || (f === "construidos" ? e === "construido" : e === f);
         t.hidden = !ok;
         if (ok) n++;
       });
       galeria.classList.toggle("filtrando", f !== "todos");
       vacio.hidden = n > 0;
-      anuncio.textContent =
-        n === 1 ? "1 proyecto" : `${n} proyectos`;
+      anuncio.textContent = n === 1 ? "1 proyecto" : `${n} proyectos`;
       // Las tarjetas cambian de sitio: volver a comprobar qué debe revelarse
       dispatchEvent(new Event("scroll"));
     };
@@ -117,7 +115,8 @@
   const apertura = document.querySelector(".degradado");
   if (cabeceraFondo && apertura) {
     const ajustarCabecera = () => {
-      const largo = parseFloat(getComputedStyle(apertura, "::after").height) || 0;
+      const largo =
+        parseFloat(getComputedStyle(apertura, "::after").height) || 0;
       const limite = apertura.getBoundingClientRect().bottom - largo * 0.6;
       cabeceraFondo.classList.toggle(
         "sobre-claro",
@@ -127,6 +126,64 @@
     ajustarCabecera();
     addEventListener("scroll", ajustarCabecera, { passive: true });
     addEventListener("resize", ajustarCabecera);
+  }
+
+  // ---------- Isotipo 1 dibujado con el scroll (Inicio) ----------
+  // Desde el inicio del degradado hasta el titular de Proyectos, los tres trazos
+  // del isotipo de trazos cruzados se van pintando en el fondo; después se va con la página.
+  const lienzo = document.querySelector(".isotipo-scroll");
+  const meta = document.querySelector(".destacados h2");
+  if (lienzo && apertura && meta) {
+    lienzo.classList.add("listo");
+    const tramos = [
+      [0, 0.42],
+      [0.3, 0.72],
+      [0.6, 1],
+    ];
+    let ini = 0,
+      fin = 1,
+      pendiente = false;
+    const medir = () => {
+      const vh = innerHeight;
+      const largo =
+        parseFloat(getComputedStyle(apertura, "::after").height) || 0;
+      const r = apertura.getBoundingClientRect();
+      const inicioDegradado = r.bottom + scrollY - largo;
+      ini = inicioDegradado - vh * 0.6;
+      fin = Math.max(
+        ini + 1,
+        meta.getBoundingClientRect().top + scrollY - vh * 0.6,
+      );
+    };
+    const dibujar = () => {
+      pendiente = false;
+      const y = scrollY;
+      const p = reducido
+        ? 1
+        : Math.min(1, Math.max(0, (y - ini) / (fin - ini)));
+      tramos.forEach(([a, b], i) => {
+        const t = Math.min(1, Math.max(0, (p - a) / (b - a)));
+        lienzo.style.setProperty(`--a${i + 1}`, t.toFixed(4));
+      });
+      lienzo.style.setProperty("--salida", Math.max(0, y - fin).toFixed(1));
+    };
+    const pedir = () => {
+      if (!pendiente) {
+        pendiente = true;
+        requestAnimationFrame(dibujar);
+      }
+    };
+    medir();
+    dibujar();
+    addEventListener("scroll", pedir, { passive: true });
+    addEventListener("resize", () => {
+      medir();
+      dibujar();
+    });
+    addEventListener("load", () => {
+      medir();
+      dibujar();
+    });
   }
 
   if (reducido) return;
@@ -387,11 +444,13 @@
       requestAnimationFrame(seguir);
     };
     seguir();
-    document.querySelectorAll(".proyecto-tarjeta .wf-img, .proyecto-tarjeta .foto").forEach((img) => {
-      img.addEventListener("pointerenter", () => cur.classList.add("activo"));
-      img.addEventListener("pointerleave", () =>
-        cur.classList.remove("activo"),
-      );
-    });
+    document
+      .querySelectorAll(".proyecto-tarjeta .wf-img, .proyecto-tarjeta .foto")
+      .forEach((img) => {
+        img.addEventListener("pointerenter", () => cur.classList.add("activo"));
+        img.addEventListener("pointerleave", () =>
+          cur.classList.remove("activo"),
+        );
+      });
   }
 })();

@@ -103,6 +103,48 @@
   color: var(--papel);
   text-decoration: none;
 }
+/* Contacto: la llamada principal del pie (el estudio atiende por Instagram) */
+.contacto-cta {
+  margin-bottom: var(--esp-9);
+}
+.contacto-titulo {
+  margin: 0;
+  font-size: min(var(--texto-hero), 6rem);
+  line-height: 0.88;
+  text-wrap: balance;
+}
+.pie .contacto-enlace {
+  color: var(--papel);
+  transition: color var(--dur-corta) var(--curva);
+}
+.contacto-enlace .flecha {
+  display: inline-block;
+  color: var(--acento-claro);
+  transition: transform var(--dur-media) var(--curva);
+}
+.pie .contacto-enlace:hover,
+.pie .contacto-enlace:focus-visible {
+  color: var(--acento-claro);
+}
+.contacto-enlace:hover .flecha {
+  transform: translateX(0.15em);
+}
+.contacto-usuario {
+  margin-top: var(--esp-4);
+  color: var(--grafito-claro);
+}
+.pie .enlace-flecha {
+  display: inline-block;
+  color: var(--acento-claro);
+}
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .pie .iso {
   width: 4rem;
 }
@@ -447,7 +489,7 @@
  * fondo. El ::after añade el tramo del degradado, sin contenido encima.
  */
 .degradado {
-  --largo-degradado: clamp(9rem, 26vh, 18rem);
+  --largo-degradado: clamp(6rem, 15vh, 10rem);
   background: linear-gradient(
     to bottom,
     var(--tinta) calc(100% - var(--largo-degradado)),
@@ -505,7 +547,10 @@ body:has(.degradado) .cabecera:not(.sobre-claro) .idioma a {
 body:has(.degradado) .cabecera:not(.sobre-claro) .idioma a:hover {
   background: var(--tinta-suave);
 }
-body:has(.degradado) .cabecera:not(.sobre-claro) .idioma a[aria-current="true"] {
+body:has(.degradado)
+  .cabecera:not(.sobre-claro)
+  .idioma
+  a[aria-current="true"] {
   background: var(--papel);
   color: var(--tinta);
 }

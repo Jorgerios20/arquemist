@@ -63,14 +63,14 @@
   /* ---------- Retícula ---------- */
   --columnas: 12;
   --ancho-max: 90rem; /* 1440px */
+  --opacidad-marca-agua: 0.12; /* isotipo como marca de agua en el fondo */
   --margen: clamp(1rem, 0.4rem + 2.6vw, 3rem); /* 16px en móvil */
   --medianil: clamp(1rem, 0.7rem + 1.2vw, 2rem);
 
   /* ---------- Forma ---------- */
   --radio: 0; /* aristas vivas */
   /* Sombra de "hoja": una lámina de papel apoyada sobre la mesa (cajetín de la ficha) */
-  --sombra-hoja:
-    0 2px 6px rgb(14 14 14 / 0.06),
+  --sombra-hoja: 0 2px 6px rgb(14 14 14 / 0.06),
     0 28px 56px -20px rgb(14 14 14 / 0.32);
   --borde: 1px solid var(--linea);
 

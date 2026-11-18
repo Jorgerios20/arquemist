@@ -28,7 +28,7 @@
           "dev/bocetos/inicio.html"
         ],
         "createdAt": "2026-11-18T16:05:15.667Z",
-        "reason": "Claude triage: remaining hits are short (31-42 chars) brand display lines/labels in Staatliches caps; the 171-char quote was fixed to sentence case"
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
       },
       {
         "rule": "cramped-padding",
@@ -46,7 +46,7 @@
           "dev/bocetos/estudio.html"
         ],
         "createdAt": "2026-11-18T16:05:15.702Z",
-        "reason": "Claude triage: remaining hits are short (31-42 chars) brand display lines/labels in Staatliches caps; the 171-char quote was fixed to sentence case"
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
       },
       {
         "rule": "cramped-padding",
@@ -64,7 +64,7 @@
           "dev/bocetos/proyecto.html"
         ],
         "createdAt": "2026-11-18T16:05:15.798Z",
-        "reason": "Claude triage: remaining hits are short (31-42 chars) brand display lines/labels in Staatliches caps; the 171-char quote was fixed to sentence case"
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
       },
       {
         "rule": "cramped-padding",
@@ -244,7 +244,7 @@
           "dev/bocetos/casa-entre-muros.html"
         ],
         "createdAt": "2026-11-18T17:34:22.011Z",
-        "reason": "Claude triage: el texto en mayúsculas es la etiqueta corta 'Ejemplo ficticio — solo para mostrar el diseño', no un párrafo"
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
       },
       {
         "rule": "hero-eyebrow-chip",
@@ -262,7 +262,7 @@
           "dev/bocetos/taller-cantera.html"
         ],
         "createdAt": "2026-11-18T17:34:22.048Z",
-        "reason": "Claude triage: el texto en mayúsculas es la etiqueta corta 'Ejemplo ficticio — solo para mostrar el diseño', no un párrafo"
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
       },
       {
         "rule": "hero-eyebrow-chip",
@@ -289,7 +289,7 @@
           "dev/bocetos/en/inicio.html"
         ],
         "createdAt": "2026-11-18T17:34:22.112Z",
-        "reason": "Claude triage: mismo caso que inicio.html en español: etiquetas cortas en mayúsculas, no texto corrido"
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
       },
       {
         "rule": "all-caps-body",
@@ -298,7 +298,106 @@
           "dev/bocetos/en/the-urban-librarian.html"
         ],
         "createdAt": "2026-11-18T17:51:40.235Z",
-        "reason": "Claude triage: mismo caso ya aceptado en las otras páginas; aquí además el texto en mayúsculas es un valor del cajetín en Staatliches ('Wood reclaimed from construction sites'), un dato corto, no texto corrido"
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/casa-entre-muros.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.119Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/estudio.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.167Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/inicio.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.212Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/proyecto.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.244Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/proyectos.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.298Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "dev/bocetos/proyectos.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.310Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/taller-cantera.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.319Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.346Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "dev/bocetos/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.361Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/inicio.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.374Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T18:04:27.423Z",
+        "reason": "Titular de contacto del pie en Staatliches (fuente del logo, solo mayúsculas); es display, no texto corrido"
       }
     ]
   }
