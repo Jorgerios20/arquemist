@@ -71,7 +71,132 @@
     });
   }
 
+  // ---------- Cabecera sobre la apertura oscura ----------
+  const cabeceraFondo = document.querySelector(".cabecera");
+  const apertura = document.querySelector(".degradado");
+  if (cabeceraFondo && apertura) {
+    const ajustarCabecera = () => {
+      const largo = parseFloat(getComputedStyle(apertura, "::after").height) || 0;
+      const limite = apertura.getBoundingClientRect().bottom - largo * 0.6;
+      cabeceraFondo.classList.toggle(
+        "sobre-claro",
+        limite < cabeceraFondo.offsetHeight,
+      );
+    };
+    ajustarCabecera();
+    addEventListener("scroll", ajustarCabecera, { passive: true });
+    addEventListener("resize", ajustarCabecera);
+  }
+
   if (reducido) return;
+
+  // ---------- Pincel: isotipo de tres trazos pintado trazo a trazo ----------
+  const pincel = (img) => {
+    const w = document.createElement("span");
+    w.className = ("pincel " + img.className).trim();
+    img.removeAttribute("class");
+    img.replaceWith(w);
+    const copias = [1, 2].map(() => {
+      const c = img.cloneNode();
+      c.alt = "";
+      c.setAttribute("aria-hidden", "true");
+      return c;
+    });
+    w.append(img, ...copias);
+    return w;
+  };
+  document.querySelectorAll("img.gesto").forEach(pincel);
+
+  // ---------- Telón entre páginas ----------
+  const entrada = html.classList.contains("telon-entrada");
+  const isoBlanco = document.querySelector(".pie .iso");
+  let telon = null;
+  if (isoBlanco) {
+    telon = document.createElement("div");
+    telon.className = "telon";
+    telon.setAttribute("aria-hidden", "true");
+    const iso = isoBlanco.cloneNode();
+    iso.removeAttribute("class");
+    iso.alt = "";
+    telon.append(iso);
+    const trazos = pincel(iso);
+    document.body.append(telon);
+
+    const levantar = (espera) =>
+      setTimeout(() => {
+        telon.style.transition = "";
+        telon.classList.remove("cubre", "inmediato");
+        telon.classList.add("sale");
+        html.classList.add("cargado");
+        setTimeout(() => {
+          telon.classList.remove("sale");
+          trazos.classList.remove("pintado");
+        }, 800);
+      }, espera);
+
+    if (entrada) {
+      let primera = false;
+      try {
+        primera = !sessionStorage.getItem("visto");
+        sessionStorage.setItem("visto", "1");
+        sessionStorage.removeItem("telon");
+      } catch (e) {}
+      telon.classList.add("cubre", "inmediato");
+      html.classList.remove("telon-entrada");
+      if (primera) {
+        // Primera visita: los trazos se pintan antes de abrir el telón
+        // setTimeout (no rAF): rAF puede no dispararse en pestañas o iframes ocultos
+        setTimeout(() => {
+          telon.classList.remove("inmediato");
+          telon.style.transition = "none";
+          trazos.classList.add("pintado");
+          levantar(1150);
+        }, 40);
+      } else {
+        trazos.classList.add("pintado");
+        setTimeout(() => {
+          telon.classList.remove("inmediato");
+          levantar(120);
+        }, 40);
+      }
+    }
+
+    // Salida: cubrir, pintar los trazos y navegar
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a[href]");
+      if (
+        !a ||
+        e.defaultPrevented ||
+        e.button !== 0 ||
+        e.metaKey ||
+        e.ctrlKey ||
+        e.shiftKey ||
+        e.altKey ||
+        a.target ||
+        a.hasAttribute("download")
+      )
+        return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      if (url.pathname === location.pathname && url.hash) return;
+      e.preventDefault();
+      try {
+        sessionStorage.setItem("telon", "1");
+      } catch (err) {}
+      telon.style.transition = "";
+      telon.classList.remove("sale", "inmediato");
+      telon.classList.add("cubre");
+      setTimeout(() => trazos.classList.add("pintado"), 220);
+      setTimeout(() => (location.href = url.href), 900);
+    });
+
+    // Volver con el botón Atrás (bfcache): la página no debe quedar cubierta
+    addEventListener("pageshow", (e) => {
+      if (!e.persisted) return;
+      telon.classList.remove("cubre", "sale");
+      trazos.classList.remove("pintado");
+    });
+  }
 
   // ---------- Líneas de retícula de fondo ----------
   const lineas = document.createElement("div");
@@ -109,9 +234,11 @@
     partir(h);
   });
 
-  requestAnimationFrame(() =>
-    requestAnimationFrame(() => html.classList.add("cargado")),
-  );
+  // Con telón, .cargado se añade al levantarlo (para que el hero se anime a la vista)
+  if (!entrada || !telon)
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => html.classList.add("cargado")),
+    );
 
   // ---------- Aparición al hacer scroll ----------
   const marcar = (sel, tipo = "") => {

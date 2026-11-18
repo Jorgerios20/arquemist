@@ -6,6 +6,17 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Boceto · Estudio — ARQUEMIST.</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <script>
+      // Telón de entrada (ver movimiento.js): cubrir antes del primer pintado
+      (function () {
+        try {
+          var s = sessionStorage;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (s.getItem("telon") || !s.getItem("visto"))
+            document.documentElement.classList.add("telon-entrada");
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="../../css/tokens.css" />
     <link rel="stylesheet" href="../../css/base.css" />
     <link rel="stylesheet" href="bocetos.css" />
@@ -18,7 +29,7 @@
         margin-bottom: var(--esp-5);
       }
       .nombre .iso-grande {
-        width: clamp(8rem, 5rem + 12vw, 16rem);
+        width: clamp(6rem, 4rem + 6vw, 11rem);
       }
       .nombre .ecuacion {
         font-family: var(--fuente-display);
@@ -31,18 +42,21 @@
     </style>
   </head>
   <body>
-    <div class="aviso-boceto">Boceto de la fase 2 — imágenes de ejemplo</div>
 
     <header class="cabecera">
       <div class="contenedor">
         <a href="inicio.html" aria-label="ARQUEMIST. — Inicio"
-          ><img
-            class="logo"
+          ><img class="logo logo--negro"
             src="../../assets/marca/logo-negro.svg"
             alt="ARQUEMIST. The Alchemy of Space."
             width="2024"
             height="486"
-        /></a>
+        /><img class="logo logo--blanco"
+            src="../../assets/marca/logo-blanco.svg"
+            alt=""
+            width="2024"
+            height="486"
+         aria-hidden="true" /></a>
         <nav class="nav" aria-label="Principal">
           <a href="estudio.html" aria-current="page">Estudio</a>
           <a href="proyectos.html">Proyectos</a>
@@ -57,7 +71,7 @@
 
     <main>
       <!-- 1. Apertura: ¿Quiénes somos? -->
-      <section class="apertura">
+      <section class="apertura seccion--oscura degradado">
         <div class="contenedor reticula filas">
           <h1 class="hero col-12">Estudio</h1>
           <p class="etiqueta acento col-3">¿Quiénes somos?</p>
@@ -229,10 +243,10 @@
           <div class="col-4 pila">
             <img
               class="iso-grande pinta"
-              src="../../assets/marca/isotipo-cruzado.webp"
+              src="../../assets/marca/isotipo-cruzado-negro.webp"
               alt=""
-              width="2048"
-              height="2048"
+              width="971"
+              height="971"
             />
             <p class="ecuacion"><span class="t1">Arquitectura</span> <span class="mas acento">+</span> <span class="t2">alquimia</span> <span class="resultado">= ARQUEMIST.</span></p>
           </div>

@@ -4,19 +4,6 @@
  * (no se añade con prefers-reduced-motion), así que sin JS todo es visible.
  */
 
-/* ---------- Transiciones entre páginas (View Transitions) ---------- */
-@view-transition {
-  navigation: auto;
-}
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: var(--dur-media);
-  animation-timing-function: var(--curva);
-}
-.cabecera .logo {
-  view-transition-name: logo;
-}
-
 /* ---------- Líneas de retícula: el plano del arquitecto ---------- */
 .lineas-reticula {
   position: fixed;
@@ -68,7 +55,6 @@ main,
 /* ---------- Cabecera: se oculta al bajar, vuelve al subir ---------- */
 .cabecera {
   z-index: 20;
-  transition: transform var(--dur-media) var(--curva);
 }
 .cabecera.oculta {
   transform: translateY(-100%);
@@ -101,12 +87,10 @@ main,
 .mov.cargado .palabra > span {
   transform: none;
 }
-.mov .gesto,
 .mov .pinta {
   clip-path: inset(100% 0 0 0);
   transition: clip-path 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.7s;
 }
-.mov.cargado .gesto,
 .mov .pinta.visible {
   clip-path: inset(0 0 0 0);
 }
@@ -369,8 +353,115 @@ main,
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  @view-transition {
-    navigation: none;
+
+/* ---------- Pincel: el isotipo de tres trazos se pinta trazo a trazo ----------
+ * movimiento.js envuelve la imagen en .pincel con tres copias idénticas; cada una
+ * recorta (clip-path) la franja vertical de un trazo. Juntas reproducen el isotipo
+ * exacto: no se redibuja ni se deforma, solo se descubre por partes.
+ * Franjas medidas sobre isotipo-trazos-*.png (1024 px): 0–58 %, 58–73,3 %, 73,3–100 %.
+ */
+.pincel {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+.pincel > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pincel > img + img {
+  position: absolute;
+  inset: 0;
+}
+.pincel > img:nth-child(1) {
+  --k: 0;
+  clip-path: inset(0 42% 0 0);
+}
+.pincel > img:nth-child(2) {
+  --k: 1;
+  clip-path: inset(0 26.7% 0 58%);
+}
+.pincel > img:nth-child(3) {
+  --k: 2;
+  clip-path: inset(0 0 0 73.3%);
+}
+/* Borde suave que baja como la carga de tinta de un pincel */
+.mov .pincel > img {
+  -webkit-mask-image: linear-gradient(to bottom, #000 33.4%, transparent 66.6%);
+  mask-image: linear-gradient(to bottom, #000 33.4%, transparent 66.6%);
+  -webkit-mask-size: 100% 300%;
+  mask-size: 100% 300%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 0 100%;
+  mask-position: 0 100%;
+  transition-property: -webkit-mask-position, mask-position;
+  transition-duration: var(--pincel-dur, 620ms);
+  transition-timing-function: cubic-bezier(0.55, 0, 0.25, 1);
+  transition-delay: calc(var(--pincel-espera, 0ms) + var(--k) * 140ms);
+}
+.mov .pincel.pintado > img,
+.mov.cargado .gesto.pincel > img {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+}
+.inicio-hero .gesto.pincel {
+  --pincel-espera: 700ms;
+  --pincel-dur: 900ms;
+}
+
+/* ---------- Telón entre páginas: fondo tinta + isotipo blanco pintado ---------- */
+.telon {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--tinta);
+  clip-path: inset(100% 0 0 0);
+  visibility: hidden;
+  pointer-events: none;
+}
+.telon .pincel {
+  width: min(36vmin, 15rem);
+}
+.telon.cubre,
+.telon.sale {
+  visibility: visible;
+  pointer-events: auto;
+}
+.telon.cubre {
+  clip-path: inset(0);
+  transition: clip-path 520ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.telon.sale {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 700ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.telon.sale .pincel {
+  transform: translateY(-12vh);
+  opacity: 0;
+  transition:
+    transform 700ms cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 500ms var(--curva);
+}
+/* Estado inmediato (al llegar a una página ya cubierta) */
+.telon.inmediato,
+.telon.inmediato .pincel > img {
+  transition: none;
+}
+/* Cubre la página antes de que cargue movimiento.js; se retira solo si el JS falla */
+html.telon-entrada::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--tinta);
+  animation: telon-seguro 0s 3s forwards;
+}
+@keyframes telon-seguro {
+  to {
+    visibility: hidden;
   }
 }

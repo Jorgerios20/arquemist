@@ -83,6 +83,213 @@
         ],
         "createdAt": "2026-11-18T16:05:15.841Z",
         "reason": "Claude triage: '← Proyectos' is a back-navigation breadcrumb (the remedy the rule suggests); status eyebrow was removed"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/estilos.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.759Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/casa-entre-muros.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.796Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/estudio.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.823Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/inicio.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.841Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/proyecto.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.861Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/proyectos.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.879Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/taller-cantera.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.899Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.923Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/inicio.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.939Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T17:33:59.961Z",
+        "reason": "Claude triage: fondo casi blanco #F6F4F0 pedido explícitamente por el usuario (18-11-2026) en lugar del blanco puro"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dev/bocetos/proyectos.html"
+        ],
+        "createdAt": "2026-11-18T17:34:09.167Z",
+        "reason": "Claude triage: la apertura oscura tiene padding-block esp-9/esp-7 más el ::after del degradado y el .contenedor aporta los márgenes laterales; el texto no toca el borde"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dev/bocetos/casa-entre-muros.html"
+        ],
+        "createdAt": "2026-11-18T17:34:21.906Z",
+        "reason": "Claude triage: secciones oscuras con padding-block propio y márgenes laterales del .contenedor; el texto no toca el borde"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dev/bocetos/taller-cantera.html"
+        ],
+        "createdAt": "2026-11-18T17:34:21.920Z",
+        "reason": "Claude triage: secciones oscuras con padding-block propio y márgenes laterales del .contenedor; el texto no toca el borde"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dev/bocetos/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T17:34:21.935Z",
+        "reason": "Claude triage: secciones oscuras con padding-block propio y márgenes laterales del .contenedor; el texto no toca el borde"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/inicio.html"
+        ],
+        "createdAt": "2026-11-18T17:34:21.963Z",
+        "reason": "Claude triage: secciones oscuras con padding-block propio y márgenes laterales del .contenedor; el texto no toca el borde"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T17:34:21.980Z",
+        "reason": "Claude triage: secciones oscuras con padding-block propio y márgenes laterales del .contenedor; el texto no toca el borde"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "dev/bocetos/casa-entre-muros.html"
+        ],
+        "createdAt": "2026-11-18T17:34:21.995Z",
+        "reason": "Claude triage: la etiqueta 'Ejemplo ficticio' sobre el h1 es obligatoria (CLAUDE.md) para marcar contenido ficticio"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "dev/bocetos/casa-entre-muros.html"
+        ],
+        "createdAt": "2026-11-18T17:34:22.011Z",
+        "reason": "Claude triage: el texto en mayúsculas es la etiqueta corta 'Ejemplo ficticio — solo para mostrar el diseño', no un párrafo"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "dev/bocetos/taller-cantera.html"
+        ],
+        "createdAt": "2026-11-18T17:34:22.027Z",
+        "reason": "Claude triage: la etiqueta 'Ejemplo ficticio' sobre el h1 es obligatoria (CLAUDE.md) para marcar contenido ficticio"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "dev/bocetos/taller-cantera.html"
+        ],
+        "createdAt": "2026-11-18T17:34:22.048Z",
+        "reason": "Claude triage: el texto en mayúsculas es la etiqueta corta 'Ejemplo ficticio — solo para mostrar el diseño', no un párrafo"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "dev/bocetos/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T17:34:22.076Z",
+        "reason": "Claude triage: '← Proyectos' es el enlace de regreso, no un eyebrow decorativo"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/the-urban-librarian.html"
+        ],
+        "createdAt": "2026-11-18T17:34:22.098Z",
+        "reason": "Claude triage: '← Proyectos' es el enlace de regreso, no un eyebrow decorativo"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "dev/bocetos/en/inicio.html"
+        ],
+        "createdAt": "2026-11-18T17:34:22.112Z",
+        "reason": "Claude triage: mismo caso que inicio.html en español: etiquetas cortas en mayúsculas, no texto corrido"
       }
     ]
   }

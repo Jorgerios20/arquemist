@@ -38,18 +38,18 @@ La identidad ya contiene la tensión que debe guiar todo el sitio:
 |---|---|---|---|
 | `logo.pdf` | Canva | **Vectorial**: letras en negro sobre un rectángulo de fondo blanco | Se convierte a **SVG** sin pérdida, quitando solo el rectángulo de fondo. Escala nítido a cualquier tamaño. ✅ |
 | `isotipo2.pdf` (tres trazos) | Canva | 3 imágenes de 1024 px **con transparencia** propia, sobre fondo blanco | Se exporta a **PNG/WebP transparente** sin el fondo. Suficiente para favicon, separadores y marcas medianas. ✅ |
-| `isotipo.pdf` (trazos cruzados) | Escaneo / iPhone | Una **fotografía JPEG** de 2048 px, fondo blanco incluido, sin transparencia | ⚠️ Sigue siendo raster con fondo. Solo se puede usar sobre fondo blanco (o con `mix-blend-mode: multiply` sobre fondos claros). El estudio no puede entregar versión vectorial ni transparente (confirmado): no se usa sobre fondos oscuros. |
+| `isotipo.pdf` (trazos cruzados) | Escaneo / iPhone | Una **fotografía JPEG** de 2048 px en escala de grises, fondo blanco puro | ✅ Fondo quitado (alfa = 255 − luminancia, trazo negro): sobre blanco reproduce el original píxel a píxel (diferencia 0). Hay versión negra y blanca transparentes. |
 
 **Archivos para la web** (generados en la fase 1, en `assets/marca/`):
 - `logo-negro.svg`, `logo-blanco.svg`: vector del PDF sin el fondo y sin el margen vacío; trazado idéntico.
 - `isotipo-trazos-negro|blanco.png|webp`: 1024 px, transparentes. Compuesto sobre blanco = original (diferencia máx. 1/255).
-- `isotipo-cruzado.webp`: el JPEG original con fondo blanco. Solo sobre fondo blanco.
+- `isotipo-cruzado-negro.png/.webp`, `isotipo-cruzado-blanco.png/.webp`: transparentes, recortados al contenido (971 px). Sirven sobre cualquier fondo.
 - Favicons en la raíz: `favicon.svg` (cambia a blanco en modo oscuro), `favicon-32.png`, `apple-touch-icon.png`.
 
 - Quitar el fondo blanco y convertir de formato **no** cambia la marca: los trazos y letras quedan idénticos. Permitido (ver `CLAUDE.md`); los PDF originales se conservan.
 - **Versión en blanco** permitida para fondos oscuros (ver `CLAUDE.md`). Solo dos variantes: negro sobre claro y blanco sobre oscuro. Nunca en el color de acento.
   - Logo e isotipo de los tres trazos: se generan en blanco sin problema.
-  - Isotipo de trazos cruzados: por ser una foto con fondo, no tiene versión en blanco (el estudio no puede entregarlo en vector ni transparente).
+  - Isotipo de trazos cruzados: versión en blanco disponible (`isotipo-cruzado-blanco`), generada quitando el fondo del original.
 
 ### Nombre
 - Siempre `ARQUEMIST.` — mayúsculas y con punto final.
@@ -69,7 +69,9 @@ Base monocroma (la de la identidad) + **un color de acento** (confirmado).
 | Token | Uso | Valor propuesto |
 |---|---|---|
 | `--tinta` | Texto, logo, trazos | `#0E0E0E` |
-| `--papel` | Fondo principal | Blanco puro `#FFFFFF` ✅ |
+| `--fondo` | Fondo principal | Casi blanco cálido `#F6F4F0` ✅ (cambio del 18-11-2026: el blanco puro se veía demasiado plano) |
+| `--papel` | Texto sobre oscuro, rótulos | Blanco puro `#FFFFFF` |
+| `--tinta-suave` | Superficies y bordes sobre tinta | `#2A2A2A` |
 | `--grafito` | Texto secundario | `#5A5A5A` |
 | `--linea` | Bordes, retícula | `#E2E0DB` |
 | `--acento` | Enlaces, estado activo, detalles, etiquetas de proyecto | **Latón** `#8C6A2E` ✅ |
@@ -81,6 +83,7 @@ El "oro" de la obra: herrajes, detalles, metal trabajado. Un guiño alquímico s
 | Fondo | Contraste | Uso permitido |
 |---|---|---|
 | Papel (blanco) `#FFFFFF` | 4.98 | Texto normal (AA) |
+| Fondo `#F6F4F0` | 4.53 | Texto normal (AA, justo) |
 | Tinta `#0E0E0E` | 3.88 | Solo texto grande (≥ 24 px, o ≥ 19 px en negrita), iconos y líneas |
 
 - Sobre fondo oscuro, si hace falta texto pequeño en acento, usar la variante `--acento-claro` `#C2A266` (contraste 7.96 sobre tinta, AA y AAA).
@@ -151,9 +154,9 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 
 ## 10. Pendientes
 
-1. ~~Versiones vectoriales del logo~~ ✅ (`logo.pdf` es vectorial). Isotipo de trazos cruzados: el estudio **no puede entregarlo** en vector ni con fondo transparente (confirmado); solo existe con fondo blanco, así que únicamente se usa sobre fondo blanco y nunca en versión blanca. Versión en blanco del logo ✅ permitida.
+1. ~~Versiones vectoriales del logo~~ ✅ (`logo.pdf` es vectorial). Isotipo de trazos cruzados: el estudio no puede entregarlo en vector (confirmado); se le quitó el fondo al original y ya hay versiones transparentes negra y blanca. Versión en blanco del logo ✅ permitida.
 2. ~~Nombre de las fuentes del logo~~ ✅ Staatliches + Noto Sans (§4).
-3. ~~Paleta~~ ✅ blanco puro + acento latón `#8C6A2E` (§5).
+3. ~~Paleta~~ ✅ fondo casi blanco `#F6F4F0` + acento latón `#8C6A2E` (§5). La primera sección de cada página es tinta y se degrada al fondo (`.degradado`); la cabecera es oscura sobre ella y clara al pasarla.
 4. ~~Estructura de URLs de idioma~~ ✅ español en la raíz + `/en/` (§6).
 5. Contenido de **Proyectos**: por proyecto, renders, fotos de obra (idealmente con los mismos encuadres que los renders), nombre, año, ubicación, tipo, estado y texto del concepto; superficie solo si se tiene (el dato se omite en la ficha cuando falta).
    - ✅ **The Urban Librarian.** (`docs/THE URBAN LIBRARIAN..md`, 3 renders). Estado confirmado: *En desarrollo*. Sin superficie (no aplica por ahora).

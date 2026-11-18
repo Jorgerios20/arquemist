@@ -7,6 +7,17 @@
     <title>Mock-up · Home — ARQUEMIST.</title>
     <link rel="alternate" hreflang="es" href="../inicio.html" />
     <link rel="icon" href="../../../favicon.svg" type="image/svg+xml" />
+    <script>
+      // Telón de entrada (ver movimiento.js): cubrir antes del primer pintado
+      (function () {
+        try {
+          var s = sessionStorage;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (s.getItem("telon") || !s.getItem("visto"))
+            document.documentElement.classList.add("telon-entrada");
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="../../../css/tokens.css" />
     <link rel="stylesheet" href="../../../css/base.css" />
     <link rel="stylesheet" href="../bocetos.css" />
@@ -19,7 +30,7 @@
         row-gap: var(--esp-7);
       }
       .inicio-hero .segunda {
-        color: var(--grafito);
+        color: var(--grafito-claro);
       }
       .inicio-hero .pie-hero {
         display: flex;
@@ -38,6 +49,10 @@
           grid-column: 1 / span 7;
           align-self: end;
         }
+        /* El titular no debe invadir la foto entre 960 y 1440 px */
+        .inicio-hero h1.hero {
+          font-size: min(var(--texto-hero), 8.4vw);
+        }
         .inicio-hero .foto-hero {
           grid-column: 8 / span 5;
           --ar: 638 / 875;
@@ -54,20 +69,21 @@
     </style>
   </head>
   <body>
-    <div class="aviso-boceto">
-      Phase 2 mock-up — example images and projects
-    </div>
 
     <header class="cabecera">
       <div class="contenedor">
         <a href="inicio.html" aria-label="ARQUEMIST. — Home"
-          ><img
-            class="logo"
+          ><img class="logo logo--negro"
             src="../../../assets/marca/logo-negro.svg"
             alt="ARQUEMIST. The Alchemy of Space."
             width="2024"
             height="486"
-        /></a>
+        /><img class="logo logo--blanco"
+            src="../../../assets/marca/logo-blanco.svg"
+            alt=""
+            width="2024"
+            height="486"
+         aria-hidden="true" /></a>
         <nav class="nav" aria-label="Main">
           <a href="../estudio.html">Studio</a>
           <a href="../proyectos.html">Projects</a>
@@ -82,12 +98,12 @@
 
     <main>
       <!-- 1. Hero: frase de marca + foto del casco -->
-      <section class="inicio-hero">
+      <section class="inicio-hero seccion--oscura degradado">
         <div class="contenedor reticula">
           <div class="texto-hero">
             <h1 class="hero">We transform ideas into spaces, <span class="segunda">and spaces into experiences.</span></h1>
             <div class="pie-hero">
-              <img class="gesto" src="../../../assets/marca/isotipo-trazos-negro.webp" alt="" width="1024" height="1024" />
+              <img class="gesto" src="../../../assets/marca/isotipo-trazos-blanco.webp" alt="" width="1024" height="1024" />
               <p class="etiqueta secundario">Architecture and design studio</p>
             </div>
           </div>

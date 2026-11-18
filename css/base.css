@@ -71,7 +71,7 @@ select {
 
 /* ---------- Documento ---------- */
 body {
-  background: var(--papel);
+  background: var(--fondo);
   color: var(--tinta);
   font-family: var(--fuente-texto);
   font-size: var(--texto-base);

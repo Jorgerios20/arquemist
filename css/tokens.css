@@ -12,7 +12,9 @@
 :root {
   /* ---------- Color ---------- */
   --tinta: #0e0e0e; /* texto, fondo de secciones oscuras */
-  --papel: #ffffff; /* fondo principal */
+  --papel: #ffffff; /* blanco puro: texto sobre oscuro, rótulos */
+  --fondo: #f6f4f0; /* casi blanco cálido, fondo principal — tinta 17.6:1, grafito 6.3:1, latón 4.53:1 (AA) */
+  --tinta-suave: #2a2a2a; /* superficies y bordes sobre tinta */
   --grafito: #5a5a5a; /* texto secundario (6.9:1 sobre papel) */
   --grafito-claro: #b5b5b5; /* texto secundario sobre tinta */
   --linea: #e2e0db; /* bordes, retícula, separadores */

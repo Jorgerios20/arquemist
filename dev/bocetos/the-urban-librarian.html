@@ -7,6 +7,17 @@
     <title>Boceto · The Urban Librarian. — ARQUEMIST.</title>
     <link rel="alternate" hreflang="en" href="en/the-urban-librarian.html" />
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <script>
+      // Telón de entrada (ver movimiento.js): cubrir antes del primer pintado
+      (function () {
+        try {
+          var s = sessionStorage;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (s.getItem("telon") || !s.getItem("visto"))
+            document.documentElement.classList.add("telon-entrada");
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="../../css/tokens.css" />
     <link rel="stylesheet" href="../../css/base.css" />
     <link rel="stylesheet" href="bocetos.css" />
@@ -66,18 +77,21 @@
     </style>
   </head>
   <body>
-    <div class="aviso-boceto">Boceto de la fase 2 — ficha real, variante «en desarrollo» (portada + idea)</div>
 
     <header class="cabecera">
       <div class="contenedor">
         <a href="inicio.html" aria-label="ARQUEMIST. — Inicio"
-          ><img
-            class="logo"
+          ><img class="logo logo--negro"
             src="../../assets/marca/logo-negro.svg"
             alt="ARQUEMIST. The Alchemy of Space."
             width="2024"
             height="486"
-        /></a>
+        /><img class="logo logo--blanco"
+            src="../../assets/marca/logo-blanco.svg"
+            alt=""
+            width="2024"
+            height="486"
+         aria-hidden="true" /></a>
         <nav class="nav" aria-label="Principal">
           <a href="estudio.html">Estudio</a>
           <a href="proyectos.html" aria-current="page">Proyectos</a>
@@ -92,7 +106,7 @@
 
     <main>
       <!-- 1. Portada -->
-      <section class="portada">
+      <section class="portada seccion--oscura degradado">
         <div class="contenedor reticula filas">
           <div class="texto-portada pila">
             <a class="enlace-flecha secundario" href="proyectos.html">← Proyectos</a>

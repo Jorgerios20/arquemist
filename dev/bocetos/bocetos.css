@@ -38,7 +38,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--papel);
+  background: var(--fondo);
   border-bottom: var(--borde);
 }
 .cabecera .contenedor {
@@ -112,7 +112,7 @@
 .pie .legal {
   margin-top: var(--esp-8);
   padding-top: var(--esp-5);
-  border-top: 1px solid #2a2a2a;
+  border-top: 1px solid var(--tinta-suave);
   color: var(--grafito-claro);
   font-size: var(--texto-xs);
   display: flex;
@@ -348,7 +348,8 @@
 .ficticio {
   color: var(--grafito);
   border: 1px dashed var(--grafito);
-  padding: var(--esp-1) var(--esp-2);
+  padding: var(--esp-2) var(--esp-3);
+  line-height: 1;
   display: inline-block;
   width: fit-content;
 }
@@ -420,7 +421,7 @@
 }
 .pie .idioma a:hover,
 .menu-movil .idioma a:hover {
-  background: #2a2a2a;
+  background: var(--tinta-suave);
   color: var(--papel);
 }
 .pie .idioma a[aria-current="true"],
@@ -439,4 +440,72 @@
   padding: var(--esp-3) var(--esp-4);
   opacity: 1;
   transform: none;
+}
+
+/* ---------- Apertura oscura que se funde en el fondo casi blanco ----------
+ * La primera sección de cada página es tinta y, en su parte baja, se degrada al
+ * fondo. El ::after añade el tramo del degradado, sin contenido encima.
+ */
+.degradado {
+  --largo-degradado: clamp(9rem, 26vh, 18rem);
+  background: linear-gradient(
+    to bottom,
+    var(--tinta) calc(100% - var(--largo-degradado)),
+    var(--fondo)
+  );
+  background: linear-gradient(
+    in oklab to bottom,
+    var(--tinta) calc(100% - var(--largo-degradado)),
+    var(--fondo)
+  );
+}
+.degradado::after {
+  content: "";
+  display: block;
+  height: var(--largo-degradado);
+}
+.degradado .ficticio {
+  color: var(--grafito-claro);
+  border-color: var(--grafito-claro);
+}
+
+/* Cabecera sobre la apertura oscura (movimiento.js añade .sobre-claro al pasarla) */
+.logo--blanco {
+  display: none;
+}
+.cabecera {
+  transition:
+    background-color var(--dur-media) var(--curva),
+    border-color var(--dur-media) var(--curva),
+    transform var(--dur-media) var(--curva);
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) {
+  background: var(--tinta);
+  border-bottom-color: var(--tinta-suave);
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .logo--negro {
+  display: none;
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .logo--blanco {
+  display: block;
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .nav a,
+body:has(.degradado) .cabecera:not(.sobre-claro) .menu-boton {
+  color: var(--papel);
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .nav a[aria-current="page"] {
+  color: var(--acento-claro);
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .idioma {
+  border-color: var(--papel);
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .idioma a {
+  color: var(--papel);
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .idioma a:hover {
+  background: var(--tinta-suave);
+}
+body:has(.degradado) .cabecera:not(.sobre-claro) .idioma a[aria-current="true"] {
+  background: var(--papel);
+  color: var(--tinta);
 }
