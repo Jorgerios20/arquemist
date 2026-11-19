@@ -171,7 +171,7 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 ## 11. Fases
 
 1. ✅ **Fundamentos:** `css/tokens.css`, `css/base.css` (fuentes, tipografía, retícula 4/8/12, secciones oscuras, foco, movimiento reducido), `assets/` y guía visual interna en `dev/estilos.html`.
-2. 🔄 **Bocetos:** `dev/bocetos/` — `inicio.html`, `estudio.html`, `proyectos.html`, `proyecto.html` (ficha con comparador funcional), con el texto real y marcadores de imagen. Pendiente de aprobación.
+2. 🔄 **Bocetos:** `dev/bocetos/` — `inicio.html`, `estudio.html`, `proyectos.html`, fichas de proyecto (`the-urban-librarian.html`, `nadi-pilates.html`; `taller-cantera.html` con comparador funcional), `contacto.html`, en español e inglés, con el texto real y marcadores de imagen. Pendiente de aprobación.
 3. **Estudio + Inicio:** construir con el contenido ya disponible en `docs/`, en ES y EN (`/nueva-pagina`).
 4. **Proyectos + Contacto:** plantilla de ficha (idea → transformación → materia) y comparador render ↔ obra; se llena según lleguen renders y fotos.
 5. **Pulido:** movimiento, accesibilidad, rendimiento, SEO.
