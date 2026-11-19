@@ -1,4 +1,3 @@
-<!-- BORRADOR de traducción al inglés de docs/sobreAquermist.md — pendiente de revisión. -->
 
 # About us
 

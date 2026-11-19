@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Mock-up · Studio — ARQUEMIST.</title>
+    <link rel="alternate" hreflang="es" href="../estudio.html" />
+    <link rel="icon" href="../../../favicon.svg" type="image/svg+xml" />
+    <script>
+      // Telón de entrada (ver movimiento.js): cubrir antes del primer pintado
+      (function () {
+        try {
+          var s = sessionStorage;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (s.getItem("telon") || !s.getItem("visto"))
+            document.documentElement.classList.add("telon-entrada");
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../../../css/tokens.css?v=a723962" />
+    <link rel="stylesheet" href="../../../css/base.css?v=a723962" />
+    <link rel="stylesheet" href="../bocetos.css?v=a723962" />
+    <link rel="stylesheet" href="../movimiento.css?v=a723962" />
+    <style>
+      .apertura {
+        padding-block: var(--esp-9) var(--esp-8);
+      }
+      .mision-vision h2 {
+        margin-bottom: var(--esp-5);
+      }
+      .nombre .iso-grande {
+        width: clamp(6rem, 4rem + 6vw, 11rem);
+      }
+      /* En escritorio el isotipo acompaña la lectura mientras se dibuja */
+      @media (min-width: 60rem) {
+        .nombre .reticula > .col-4 {
+          position: sticky;
+          top: var(--esp-10);
+          align-self: start;
+        }
+      }
+      .nombre .ecuacion {
+        font-family: var(--fuente-display);
+        font-size: var(--texto-2xl);
+        line-height: 1.1;
+      }
+      .nombre .ecuacion .acento {
+        color: var(--acento);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="contenedor">
+        <a href="inicio.html" aria-label="ARQUEMIST. — Home"
+          ><img
+            class="logo logo--negro"
+            src="../../../assets/marca/logo-negro.svg"
+            alt="ARQUEMIST. The Alchemy of Space."
+            width="2024"
+            height="486" /><img
+            class="logo logo--blanco"
+            src="../../../assets/marca/logo-blanco.svg"
+            alt=""
+            width="2024"
+            height="486"
+            aria-hidden="true"
+        /></a>
+        <nav class="nav" aria-label="Main">
+          <a href="estudio.html" aria-current="page">Studio</a>
+          <a href="proyectos.html">Projects</a>
+          <a href="contacto.html">Contact</a>
+          <span class="idioma"
+            ><a title="Español" href="../estudio.html" lang="es" hreflang="es"
+              >ES</a
+            >/<a title="English" href="estudio.html" aria-current="true"
+              >EN</a
+            ></span
+          >
+        </nav>
+        <button class="menu-boton" type="button">Menu</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Apertura: About us -->
+      <section class="apertura seccion--oscura degradado">
+        <div class="contenedor reticula filas">
+          <h1 class="hero col-12">Studio</h1>
+          <p class="etiqueta acento col-3">About us</p>
+          <div class="col-7 desde-5 pila">
+            <p class="entradilla">
+              ARQUEMIST. is an architecture and design studio born from a
+              conviction: spaces have the power to transform the way we live,
+              feel and relate to the world.
+            </p>
+            <p>
+              We understand architecture as an encounter between art, technique
+              and human sensitivity. A process of exploration in which ideas
+              become matter, needs become possibilities, and spaces become
+              experiences.
+            </p>
+            <p>
+              We do not believe in an architecture limited to the construction
+              of buildings. We believe in an architecture that questions, that
+              experiments, that engages in dialogue with its surroundings and
+              finds beauty even in the everyday.
+            </p>
+            <p>
+              Each project is an opportunity to reinterpret what already exists,
+              to discover new possibilities and to create something that
+              transcends its function.
+            </p>
+            <p>
+              <strong
+                >We are ARQUEMIST. We transform ideas into spaces, and spaces
+                into experiences.</strong
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Identidad: carrusel de mockups (carrusel.js) -->
+      <section
+        class="seccion identidad carrusel"
+        aria-roledescription="carousel"
+        aria-labelledby="identidad-titulo"
+      >
+        <div class="contenedor carrusel-cabeza">
+          <p class="etiqueta acento" id="identidad-titulo">Identity</p>
+          <div class="carrusel-controles">
+            <button
+              class="carrusel-pausa etiqueta"
+              type="button"
+              aria-pressed="false"
+            >
+              Pause
+            </button>
+            <span class="carrusel-cuenta etiqueta" aria-hidden="true"
+              >01 / 04</span
+            >
+            <button
+              class="carrusel-flecha"
+              type="button"
+              data-dir="-1"
+              aria-label="Previous photo"
+            >
+              ←
+            </button>
+            <button
+              class="carrusel-flecha"
+              type="button"
+              data-dir="1"
+              aria-label="Next photo"
+            >
+              →
+            </button>
+          </div>
+        </div>
+        <ul class="carrusel-pista" tabindex="0" aria-label="Identity photos">
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="1 of 4"
+            style="--ar: 4 / 5"
+          >
+            <figure class="foto">
+              <img
+                src="../../../assets/fotos/camisa-manos.webp"
+                alt="White shirt embroidered with “ARQUEMIST.” and “The Alchemy of Space.”, held up by several hands in front of a dark door."
+                width="1122"
+                height="1402"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="2 of 4"
+            style="--ar: 3 / 4"
+          >
+            <figure class="foto">
+              <img
+                src="../../../assets/fotos/casco-bloques.webp"
+                alt="White hard hat with the ARQUEMIST. logo on a wall of concrete blocks."
+                width="1086"
+                height="1448"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="3 of 4"
+            style="--ar: 9 / 16"
+          >
+            <figure class="foto">
+              <img
+                src="../../../assets/fotos/chalecos.webp"
+                alt="Two black site vests with reflective stripes on a clothes rack: one with the ARQUEMIST. logo, the other with the isotype on the back."
+                width="941"
+                height="1672"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="4 of 4"
+            style="--ar: 9 / 16"
+          >
+            <figure class="foto">
+              <img
+                src="../../../assets/fotos/camisa-gancho.webp"
+                alt="White shirt with the ARQUEMIST. logo on a hanger against a concrete wall."
+                width="941"
+                height="1672"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 3. Misión y Visión: dos columnas -->
+      <section class="seccion mision-vision">
+        <div class="contenedor reticula filas">
+          <div class="col-5 pila">
+            <h2>Mission</h2>
+            <p class="entradilla">
+              To transform space through architecture, design and creativity,
+              developing projects that balance artistic sensitivity,
+              functionality and social responsibility.
+            </p>
+            <p class="secundario">
+              We seek to deeply understand people, their needs and their
+              surroundings in order to conceive spaces with identity — spaces
+              capable of evoking emotions, improving everyday life and
+              generating a positive impact on society.
+            </p>
+            <p class="secundario">
+              We believe that every project, regardless of its scale, is an
+              opportunity to create value, awaken new perspectives and show that
+              architecture can be much more than building.
+            </p>
+          </div>
+          <div class="col-5 desde-8 pila">
+            <h2>Vision</h2>
+            <p class="entradilla">
+              To establish ourselves as an architecture and design studio
+              recognized for its creative identity, its capacity for innovation
+              and its commitment to people.
+            </p>
+            <p class="secundario">
+              We aspire to go beyond the boundaries of conventional
+              architecture, exploring new forms of expression through art,
+              design, research and experimentation.
+            </p>
+            <p class="secundario">
+              Our vision is to build an architectural practice with national and
+              international reach, where every project helps transform its
+              surroundings, enrich the human experience and leave a meaningful
+              mark on society.
+            </p>
+            <p class="secundario">
+              We want ARQUEMIST. to be more than a studio: a way of
+              understanding, questioning and transforming the world through
+              space.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Filosofía: sección oscura -->
+      <section class="seccion seccion--oscura" id="filosofia">
+        <div class="contenedor reticula filas">
+          <p class="etiqueta acento col-12">Our philosophy</p>
+          <p
+            class="cita col-8"
+            style="font-size: var(--texto-4xl); max-width: 18ch"
+          >
+            Architecture is the art of transformation.
+          </p>
+          <div class="col-5 desde-8 pila">
+            <p>
+              Not only of materials into buildings, but of ideas into
+              experiences, needs into opportunities, and spaces into places that
+              take on meaning.
+            </p>
+            <p class="secundario">
+              We believe that the true value of architecture lies not only in
+              what we build, but in what we are able to evoke through it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Pilares: lista numerada, no tarjetas -->
+      <section class="seccion">
+        <div class="contenedor">
+          <h2 style="margin-bottom: var(--esp-7)">Our pillars</h2>
+          <ol class="pilares">
+            <li>
+              <span class="numero">01</span>
+              <h3>Creativity without formulas</h3>
+              <p class="secundario">
+                Every project deserves its own answer. We do not design from
+                repeated solutions, but from ideas born of understanding and
+                questioning.
+              </p>
+            </li>
+            <li>
+              <span class="numero">02</span>
+              <h3>Human architecture</h3>
+              <p class="secundario">
+                We put people at the center of design. Architecture must serve,
+                move, include and improve lives.
+              </p>
+            </li>
+            <li>
+              <span class="numero">03</span>
+              <h3>Art and experimentation</h3>
+              <p class="secundario">
+                We explore materials, forms, concepts and disciplines to
+                discover new possibilities of expression.
+              </p>
+            </li>
+            <li>
+              <span class="numero">04</span>
+              <h3>Rigor and materialization</h3>
+              <p class="secundario">
+                A good idea must also be buildable. We combine creative vision,
+                technical knowledge and attention to detail.
+              </p>
+            </li>
+            <li>
+              <span class="numero">05</span>
+              <h3>Commitment to our surroundings</h3>
+              <p class="secundario">
+                We understand architecture as a social and environmental
+                responsibility. We seek to generate an impact that transcends
+                each project.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 6. Why ARQUEMIST.? -->
+      <section class="seccion nombre" style="padding-top: 0">
+        <div class="contenedor reticula filas">
+          <div class="col-4 pila">
+            <!-- Isotipo 1 que se dibuja con el scroll (movimiento.js) -->
+            <div class="iso-grande isotipo-trazos" aria-hidden="true">
+              <img
+                src="../../../assets/marca/isotipo-cruzado-trazo-1.webp"
+                alt=""
+                width="971"
+                height="971"
+              />
+              <img
+                src="../../../assets/marca/isotipo-cruzado-trazo-2.webp"
+                alt=""
+                width="971"
+                height="971"
+              />
+              <img
+                src="../../../assets/marca/isotipo-cruzado-trazo-3.webp"
+                alt=""
+                width="971"
+                height="971"
+              />
+            </div>
+            <p class="ecuacion">
+              <span class="t1">Architecture</span>
+              <span class="mas acento">+</span>
+              <span class="t2">alchemy</span>
+              <span class="resultado">= ARQUEMIST.</span>
+            </p>
+          </div>
+          <div class="col-7 desde-6 pila">
+            <h2>Why ARQUEMIST.?</h2>
+            <p class="entradilla">
+              ARQUEMIST. is born from the union of two concepts: architecture
+              and alchemy.
+            </p>
+            <p>
+              Since ancient times, alchemy has represented the pursuit of
+              transformation: the desire to turn ordinary matter into something
+              extraordinary.
+            </p>
+            <p>
+              We find in that philosophy an analogy for the way we understand
+              architecture.
+            </p>
+            <p>
+              Just as the alchemist studies, experiments and transforms matter,
+              the architect interprets needs, explores the possibilities of
+              space and turns ideas into tangible realities.
+            </p>
+            <p>
+              For us, every project is an alchemical process in which art,
+              science, technique and human sensitivity converge to give rise to
+              something new.
+            </p>
+            <p class="cita-larga">
+              We do not seek to turn lead into gold, but to transform spaces
+              into experiences, materials into emotions, and ideas into places
+              with meaning.
+            </p>
+            <p>
+              That is where our name comes from: from the conviction that the
+              true richness of architecture lies not only in what we build, but
+              in what we manage to transform.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie" id="contacto">
+      <div class="contenedor">
+        <div class="contacto-cta">
+          <h2 class="contacto-titulo">
+            <a
+              class="contacto-enlace"
+              href="https://www.instagram.com/arquemist.arquitectos/"
+              target="_blank"
+              rel="noopener"
+              >Message us on Instagram&nbsp;<span
+                class="flecha"
+                aria-hidden="true"
+                >→</span
+              ><span class="visualmente-oculto"> (opens in a new tab)</span></a
+            >
+          </h2>
+          <p class="contacto-usuario">@arquemist.arquitectos</p>
+        </div>
+        <div class="reticula">
+          <div class="col-4 pila">
+            <img
+              class="iso"
+              src="../../../assets/marca/isotipo-trazos-blanco.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <p class="display" style="font-size: var(--texto-xl)">
+              The Alchemy of Space.
+            </p>
+          </div>
+          <div class="col-3 desde-5 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Studio</p>
+            <address style="font-style: normal">
+              C. 13 de Septiembre 7<br />
+              Las Campanas<br />
+              76010 Santiago de Querétaro, Qro.
+            </address>
+            <a
+              class="enlace-flecha"
+              href="https://www.google.com/maps/search/?api=1&amp;query=C.+13+de+Septiembre+7%2C+Las+Campanas%2C+76010+Santiago+de+Quer%C3%A9taro%2C+Qro.%2C+M%C3%A9xico"
+              target="_blank"
+              rel="noopener"
+              >Get directions →<span class="visualmente-oculto">
+                (opens Google Maps in a new tab)</span
+              ></a
+            >
+          </div>
+          <div class="col-3 desde-8 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Contact</p>
+            <p class="contacto-datos">
+              <a href="tel:+524461019600" aria-label="Call +52 446 101 9600"
+                >+52 446 101 9600</a
+              >
+              <a
+                href="mailto:contacto.arquemist@gmail.com"
+                aria-label="Email contacto.arquemist@gmail.com"
+                >contacto.arquemist@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="col-2 desde-11 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Social</p>
+            <p>
+              <a
+                class="red-social"
+                href="https://www.instagram.com/arquemist.arquitectos/"
+                target="_blank"
+                rel="noopener"
+                aria-label="ARQUEMIST. on Instagram (opens in a new tab)"
+                ><svg
+                  class="icono"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="0.75"
+                    fill="currentColor"
+                    stroke="none"
+                  /></svg
+                ><span>Instagram</span></a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© ARQUEMIST.</span
+          ><span class="idioma"
+            ><a title="Español" href="../estudio.html" lang="es" hreflang="es"
+              >ES</a
+            >/<a title="English" href="estudio.html" aria-current="true"
+              >EN</a
+            ></span
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="../movimiento.js?v=a723962" defer></script>
+    <script src="../carrusel.js?v=a723962" defer></script>
+  </body>
+</html>
