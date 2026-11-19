@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Sitio web del estudio de arquitectura y diseño ARQUEMIST. Es HTML/CSS/JS estático: sin framework, sin bundler, sin paso de build. No añadir dependencias de npm ni herramientas de build sin preguntar.
 
 - `docs/sobreAquermist.md` — texto oficial de marca (quiénes somos, misión, visión, filosofía, pilares, origen del nombre). Es la fuente del contenido del sitio: usarlo literalmente, no reescribirlo ni inventar textos de marca nuevos.
-- `docs/sobreAquermist.en.md` — su traducción al inglés (borrador pendiente de revisión). Fuente del texto de las páginas en `en/`.
+- `docs/sobreAquermist.en.md` — su traducción al inglés (aprobada por el estudio). Fuente del texto de las páginas en `en/`.
 - `docs/contacto.md` — dirección y redes del estudio. Fuente del pie y de Contacto.
 - `img/logo/`, `img/isotipos/` — logo y isotipos oficiales.
 
@@ -24,7 +24,7 @@ Las decisiones de diseño (paleta, tipografía, componentes, ficha de proyecto) 
 - Retícula: `.contenedor` > `.reticula`, con hijos `.col-N` (ancho) y `.desde-N` (columna inicial). En móvil todo ocupa el ancho completo.
 - Logo, isotipos y favicons para la web: usar los de `assets/marca/` y la raíz, no los PDF de `img/`.
 - Fotos: `img/` guarda los originales recibidos (no se tocan); las versiones web (recortadas, WebP) van en `assets/fotos/` y `assets/proyectos/<slug>/`. Nunca ampliar una imagen por encima de su resolución original.
-- Contenido de **ejemplo ficticio** (imágenes generadas con IA): `assets/proyectos/ejemplo-*/` y las fichas `dev/bocetos/casa-entre-muros.html` y `taller-cantera.html`. Solo sirve para enseñar el boceto: siempre marcado como "Ejemplo ficticio", nunca se pasa a las páginas reales y se borra antes de publicar.
+- Contenido de **ejemplo ficticio** (imágenes generadas con IA): `assets/proyectos/ejemplo-*/` y la ficha `dev/bocetos/taller-cantera.html`. Solo sirve para enseñar el boceto: siempre marcado como "Ejemplo ficticio", nunca se pasa a las páginas reales y se borra antes de publicar.
 - `dev/` es una herramienta interna (`dev/estilos.html`, guía visual): no se enlaza ni se traduce. Durante la fase de boceto el repo está publicado en GitHub Pages (https://jorgerios20.github.io/arquemist/) y el `index.html` de la raíz redirige provisionalmente a `dev/bocetos/inicio.html`; al publicar el sitio real, sustituir ese `index.html` y dejar de publicar `dev/`.
 
 ## Reglas de marca

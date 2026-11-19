@@ -159,8 +159,9 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 3. ~~Paleta~~ ✅ fondo casi blanco `#F6F4F0` + acento latón `#8C6A2E` (§5). La primera sección de cada página es tinta y se degrada al fondo (`.degradado`); la cabecera es oscura sobre ella y clara al pasarla.
 4. ~~Estructura de URLs de idioma~~ ✅ español en la raíz + `/en/` (§6).
 5. Contenido de **Proyectos**: por proyecto, renders, fotos de obra (idealmente con los mismos encuadres que los renders), nombre, año, ubicación, tipo, estado y texto del concepto; superficie solo si se tiene (el dato se omite en la ficha cuando falta).
-   - ✅ **The Urban Librarian.** (`docs/THE URBAN LIBRARIAN..md`, 3 renders). Estado confirmado: *En desarrollo*. Sin superficie (no aplica por ahora).
-   - 🧪 **Casa Entre Muros** (en desarrollo) y **Taller Cantera** (construido, con comparador): proyectos **ficticios** con imágenes generadas en Canva, solo para mostrar el boceto. Marcados como "Ejemplo ficticio"; borrar `assets/proyectos/ejemplo-*` y sus fichas antes de publicar.
+   - ✅ **The Urban Librarian.** (`docs/THE URBAN LIBRARIAN..md`, 8 renders originales de 1672 px; se usan 4). Estado confirmado: *En desarrollo*. Sin superficie (no aplica por ahora).
+   - ✅ **Nadi Pilates** (`docs/nadi-pilates.md`, renders en `docs/arquemist_docs/.../NADI PILATES/`, 12 imágenes de 1672–2560 px). Querétaro, 2027, 80 m², *En desarrollo*. Traducción al inglés hecha por nosotros: pendiente de revisión del estudio.
+   - 🧪 **Taller Cantera** (construido, con comparador): proyecto **ficticio** con imágenes generadas en Canva, solo para mostrar el boceto. Marcado como "Ejemplo ficticio"; borrar `assets/proyectos/ejemplo-*` y su ficha antes de publicar.
    - ⚠️ Las imágenes recibidas (proyecto y foto del casco) son **capturas de Instagram de 630–740 px**: se recortó la interfaz, pero no sirven a pantalla completa. Pedir los archivos originales (≥ 2400 px de ancho).
 6. Contacto y redes (`docs/contacto.md`): ✅ dirección e Instagram. Correo y teléfono no se publican por ahora (decisión del estudio).
 7. Traducción al inglés: borrador en `docs/sobreAquermist.en.md`, pendiente de revisión.

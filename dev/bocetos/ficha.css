@@ -21,7 +21,6 @@
   }
   .portada .foto-portada {
     grid-column: 8 / span 5;
-    --ar: 686 / 808;
   }
   .renders .bajo {
     margin-top: var(--esp-10);
