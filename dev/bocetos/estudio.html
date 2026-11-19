@@ -17,19 +17,13 @@
         } catch (e) {}
       })();
     </script>
-    <link rel="stylesheet" href="../../css/tokens.css?v=dee15ce" />
-    <link rel="stylesheet" href="../../css/base.css?v=dee15ce" />
-    <link rel="stylesheet" href="bocetos.css?v=dee15ce" />
-    <link rel="stylesheet" href="movimiento.css?v=dee15ce" />
+    <link rel="stylesheet" href="../../css/tokens.css?v=a723962" />
+    <link rel="stylesheet" href="../../css/base.css?v=a723962" />
+    <link rel="stylesheet" href="bocetos.css?v=a723962" />
+    <link rel="stylesheet" href="movimiento.css?v=a723962" />
     <style>
       .apertura {
         padding-block: var(--esp-9) var(--esp-8);
-      }
-      /* Identidad: las fotos de la derecha bajan para romper la fila */
-      @media (min-width: 60rem) {
-        .identidad .bajada {
-          margin-top: var(--esp-10);
-        }
       }
       .mision-vision h2 {
         margin-bottom: var(--esp-5);
@@ -129,47 +123,117 @@
         </div>
       </section>
 
-      <!-- 2. Identidad: mockups del estudio, composición asimétrica -->
-      <section class="seccion identidad" aria-labelledby="identidad-titulo">
-        <div class="contenedor reticula filas">
-          <p class="etiqueta acento col-12" id="identidad-titulo">Identidad</p>
-          <figure class="foto col-6" style="--ar: 4 / 5">
-            <img
-              src="../../assets/fotos/camisa-manos.webp"
-              alt="Camisa blanca con «ARQUEMIST.» y «The Alchemy of Space.» bordados, sostenida por varias manos frente a una puerta oscura."
-              width="1122"
-              height="1402"
-              loading="lazy"
-            />
-          </figure>
-          <figure class="foto col-4 desde-8 bajada" style="--ar: 3 / 4">
-            <img
-              src="../../assets/fotos/casco-bloques.webp"
-              alt="Casco de obra blanco con la marca ARQUEMIST. sobre un muro de bloques de concreto."
-              width="1086"
-              height="1448"
-              loading="lazy"
-            />
-          </figure>
-          <figure class="foto col-4 desde-2" style="--ar: 9 / 16">
-            <img
-              src="../../assets/fotos/chalecos.webp"
-              alt="Dos chalecos de obra negros con franjas reflejantes colgados en un perchero: uno con la marca ARQUEMIST. y otro con el isotipo en la espalda."
-              width="941"
-              height="1672"
-              loading="lazy"
-            />
-          </figure>
-          <figure class="foto col-4 desde-7 bajada" style="--ar: 9 / 16">
-            <img
-              src="../../assets/fotos/camisa-gancho.webp"
-              alt="Camisa blanca con la marca ARQUEMIST. colgada de un gancho contra un muro de concreto."
-              width="941"
-              height="1672"
-              loading="lazy"
-            />
-          </figure>
+      <!-- 2. Identidad: carrusel de mockups (carrusel.js) -->
+      <section
+        class="seccion identidad carrusel"
+        aria-roledescription="carrusel"
+        aria-labelledby="identidad-titulo"
+      >
+        <div class="contenedor carrusel-cabeza">
+          <p class="etiqueta acento" id="identidad-titulo">Identidad</p>
+          <div class="carrusel-controles">
+            <button
+              class="carrusel-pausa etiqueta"
+              type="button"
+              aria-pressed="false"
+            >
+              Pausar
+            </button>
+            <span class="carrusel-cuenta etiqueta" aria-hidden="true"
+              >01 / 04</span
+            >
+            <button
+              class="carrusel-flecha"
+              type="button"
+              data-dir="-1"
+              aria-label="Foto anterior"
+            >
+              ←
+            </button>
+            <button
+              class="carrusel-flecha"
+              type="button"
+              data-dir="1"
+              aria-label="Foto siguiente"
+            >
+              →
+            </button>
+          </div>
         </div>
+        <ul class="carrusel-pista" tabindex="0" aria-label="Fotos de identidad">
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="diapositiva"
+            aria-label="1 de 4"
+            style="--ar: 4 / 5"
+          >
+            <figure class="foto">
+              <img
+                src="../../assets/fotos/camisa-manos.webp"
+                alt="Camisa blanca con «ARQUEMIST.» y «The Alchemy of Space.» bordados, sostenida por varias manos frente a una puerta oscura."
+                width="1122"
+                height="1402"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="diapositiva"
+            aria-label="2 de 4"
+            style="--ar: 3 / 4"
+          >
+            <figure class="foto">
+              <img
+                src="../../assets/fotos/casco-bloques.webp"
+                alt="Casco de obra blanco con la marca ARQUEMIST. sobre un muro de bloques de concreto."
+                width="1086"
+                height="1448"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="diapositiva"
+            aria-label="3 de 4"
+            style="--ar: 9 / 16"
+          >
+            <figure class="foto">
+              <img
+                src="../../assets/fotos/chalecos.webp"
+                alt="Dos chalecos de obra negros con franjas reflejantes colgados en un perchero: uno con la marca ARQUEMIST. y otro con el isotipo en la espalda."
+                width="941"
+                height="1672"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+          <li
+            class="carrusel-diapo"
+            role="group"
+            aria-roledescription="diapositiva"
+            aria-label="4 de 4"
+            style="--ar: 9 / 16"
+          >
+            <figure class="foto">
+              <img
+                src="../../assets/fotos/camisa-gancho.webp"
+                alt="Camisa blanca con la marca ARQUEMIST. colgada de un gancho contra un muro de concreto."
+                width="941"
+                height="1672"
+                loading="lazy"
+                draggable="false"
+              />
+            </figure>
+          </li>
+        </ul>
       </section>
 
       <!-- 3. Misión y Visión: dos columnas -->
@@ -480,6 +544,7 @@
         </div>
       </div>
     </footer>
-    <script src="movimiento.js?v=dee15ce" defer></script>
+    <script src="movimiento.js?v=a723962" defer></script>
+    <script src="carrusel.js?v=a723962" defer></script>
   </body>
 </html>
