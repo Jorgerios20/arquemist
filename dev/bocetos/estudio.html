@@ -25,6 +25,12 @@
       .apertura {
         padding-block: var(--esp-9) var(--esp-8);
       }
+      /* Identidad: las fotos de la derecha bajan para romper la fila */
+      @media (min-width: 60rem) {
+        .identidad .bajada {
+          margin-top: var(--esp-10);
+        }
+      }
       .mision-vision h2 {
         margin-bottom: var(--esp-5);
       }
@@ -123,7 +129,50 @@
         </div>
       </section>
 
-      <!-- 2. Misión y Visión: dos columnas -->
+      <!-- 2. Identidad: mockups del estudio, composición asimétrica -->
+      <section class="seccion identidad" aria-labelledby="identidad-titulo">
+        <div class="contenedor reticula filas">
+          <p class="etiqueta acento col-12" id="identidad-titulo">Identidad</p>
+          <figure class="foto col-6" style="--ar: 4 / 5">
+            <img
+              src="../../assets/fotos/camisa-manos.webp"
+              alt="Camisa blanca con «ARQUEMIST.» y «The Alchemy of Space.» bordados, sostenida por varias manos frente a una puerta oscura."
+              width="1122"
+              height="1402"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="foto col-4 desde-8 bajada" style="--ar: 3 / 4">
+            <img
+              src="../../assets/fotos/casco-bloques.webp"
+              alt="Casco de obra blanco con la marca ARQUEMIST. sobre un muro de bloques de concreto."
+              width="1086"
+              height="1448"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="foto col-4 desde-2" style="--ar: 9 / 16">
+            <img
+              src="../../assets/fotos/chalecos.webp"
+              alt="Dos chalecos de obra negros con franjas reflejantes colgados en un perchero: uno con la marca ARQUEMIST. y otro con el isotipo en la espalda."
+              width="941"
+              height="1672"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="foto col-4 desde-7 bajada" style="--ar: 9 / 16">
+            <img
+              src="../../assets/fotos/camisa-gancho.webp"
+              alt="Camisa blanca con la marca ARQUEMIST. colgada de un gancho contra un muro de concreto."
+              width="941"
+              height="1672"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- 3. Misión y Visión: dos columnas -->
       <section class="seccion mision-vision">
         <div class="contenedor reticula filas">
           <div class="col-5 pila">
@@ -172,7 +221,7 @@
         </div>
       </section>
 
-      <!-- 3. Filosofía: sección oscura -->
+      <!-- 4. Filosofía: sección oscura -->
       <section class="seccion seccion--oscura" id="filosofia">
         <div class="contenedor reticula filas">
           <p class="etiqueta acento col-12">Nuestra filosofía</p>
@@ -197,7 +246,7 @@
         </div>
       </section>
 
-      <!-- 4. Pilares: lista numerada, no tarjetas -->
+      <!-- 5. Pilares: lista numerada, no tarjetas -->
       <section class="seccion">
         <div class="contenedor">
           <h2 style="margin-bottom: var(--esp-7)">Pilares</h2>
@@ -248,7 +297,7 @@
         </div>
       </section>
 
-      <!-- 5. ¿Por qué ARQUEMIST.? -->
+      <!-- 6. ¿Por qué ARQUEMIST.? -->
       <section class="seccion nombre" style="padding-top: 0">
         <div class="contenedor reticula filas">
           <div class="col-4 pila">
