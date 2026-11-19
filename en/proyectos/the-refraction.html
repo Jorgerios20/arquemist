@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>THE REFRACTION — ARQUEMIST.</title>
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="../../es/proyectos/the-refraction.html"
+    />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <script>
+      // Telón de entrada (ver movimiento.js): cubrir antes del primer pintado
+      (function () {
+        try {
+          var s = sessionStorage;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (s.getItem("telon") || !s.getItem("visto"))
+            document.documentElement.classList.add("telon-entrada");
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../../css/tokens.css?v=6d91afd" />
+    <link rel="stylesheet" href="../../css/base.css?v=6d91afd" />
+    <link rel="stylesheet" href="../../css/sitio.css?v=6d91afd" />
+    <link rel="stylesheet" href="../../css/movimiento.css?v=6d91afd" />
+    <link rel="stylesheet" href="../../css/ficha.css?v=6d91afd" />
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="contenedor">
+        <a href="../index.html" aria-label="ARQUEMIST. — Home"
+          ><img
+            class="logo logo--negro"
+            src="../../assets/marca/logo-negro.svg"
+            alt="ARQUEMIST. The Alchemy of Space."
+            width="2024"
+            height="486" /><img
+            class="logo logo--blanco"
+            src="../../assets/marca/logo-blanco.svg"
+            alt=""
+            width="2024"
+            height="486"
+            aria-hidden="true"
+        /></a>
+        <nav class="nav" aria-label="Main">
+          <a href="../estudio.html">Studio</a>
+          <a href="../proyectos.html" aria-current="page">Projects</a>
+          <a href="../contacto.html">Contact</a>
+          <span class="idioma"
+            ><a
+              title="Español"
+              href="../../es/proyectos/the-refraction.html"
+              lang="es"
+              hreflang="es"
+              >ES</a
+            >/<a title="English" href="the-refraction.html" aria-current="true"
+              >EN</a
+            ></span
+          >
+        </nav>
+        <button class="menu-boton" type="button">Menu</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Portada -->
+      <section class="portada seccion--oscura degradado">
+        <div class="contenedor reticula filas">
+          <div class="texto-portada pila">
+            <a class="enlace-flecha secundario" href="../proyectos.html"
+              >← Projects</a
+            >
+            <h1 class="hero">THE REFRACTION</h1>
+            <p class="entradilla">Beyond the surface.</p>
+          </div>
+          <figure class="foto foto-portada">
+            <img
+              src="../../assets/proyectos/the-refraction/portada.webp"
+              alt="Render of THE REFRACTION at sunset: the raised portion of the salt flat reflected in the water beside the visitors."
+              width="819"
+              height="1024"
+              fetchpriority="high"
+            />
+          </figure>
+        </div>
+      </section>
+      <div class="contenedor cajetin">
+        <dl class="datos">
+          <div>
+            <dt class="etiqueta">Type</dt>
+            <dd>Conceptual architecture</dd>
+          </div>
+          <div>
+            <dt class="etiqueta">Location</dt>
+            <dd>Salar de Uyuni, Bolivia</dd>
+          </div>
+          <div>
+            <dt class="etiqueta">Year</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt class="etiqueta">Area</dt>
+            <dd>500 m²</dd>
+          </div>
+          <div>
+            <dt class="etiqueta">Status</dt>
+            <dd class="estado">Competition entry</dd>
+          </div>
+          <div class="cajetin-proceso">
+            <dt class="etiqueta">Process</dt>
+            <dd>
+              <ol class="proceso" aria-label="Sections of this project">
+                <li><a href="#idea">Idea</a></li>
+                <li><span>Transformation</span></li>
+                <li><span>Matter</span></li>
+              </ol>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- 2. Idea: concepto + renders -->
+      <section class="seccion renders" id="idea">
+        <div class="contenedor">
+          <div class="paso">
+            <span class="numero">01</span>
+            <h2>Idea</h2>
+          </div>
+          <div class="reticula filas" style="margin-bottom: var(--esp-8)">
+            <div class="col-7 desde-5 pila">
+              <p class="entradilla">
+                THE REFRACTION was born from a reflection on the way we
+                experience the contemporary world. We inhabit a reality
+                dominated by appearances, where experiences are consumed through
+                images, representations and constructed identities. We have
+                grown used to observing from the comfort of the familiar,
+                without questioning what lies beyond the surface.
+              </p>
+              <p>
+                The proposal finds its origin in this contradiction: we live
+                surrounded by possibilities to observe the world, yet we find
+                fewer and fewer opportunities to truly experience it.
+              </p>
+              <p>
+                Set in the Salar de Uyuni, Bolivia, the project draws on one of
+                the landscape’s most extraordinary natural conditions: the
+                seasonal transformation of its surface into an immense mirror
+                that reflects the sky, the clouds and the stars, blurring the
+                boundaries between earth and sky.
+              </p>
+              <p>
+                Instead of the conventional approach of an observation tower,
+                THE REFRACTION proposes an inverse architectural operation.
+                Rather than raising a structure foreign to the territory, it
+                imagines an incision in the salt flat and the lifting of a
+                portion of its surface, as if the landscape itself were coming
+                loose from the ground to become architecture.
+              </p>
+              <p>
+                This intervention creates two complementary experiences. Beneath
+                the raised surface, an exhibition gallery dedicated to the salt
+                flat represents the world of mediated knowledge: what we
+                observe, interpret and consume through a representation. Above
+                it, an open lookout confronts the visitor with the immensity of
+                the real landscape, with no intermediaries.
+              </p>
+              <p>
+                The use of timber beams, steel, glass and exposed concrete makes
+                it possible to conceive a contemporary structure that contrasts
+                with the apparent natural continuity of the terrain. The top
+                cladding, made of material from the salt flat itself, reinforces
+                the intention of blurring the boundaries between architecture
+                and landscape.
+              </p>
+              <p>
+                The route thus traces a transition from contemplating a
+                represented reality to a direct encounter with nature.
+              </p>
+              <p>
+                THE REFRACTION questions the boundaries between observing and
+                experiencing, between knowing an image and inhabiting what it
+                represents. An architecture that does not seek to impose itself
+                on the landscape, but to use it to provoke a reflection on our
+                own way of looking.
+              </p>
+            </div>
+          </div>
+          <div class="reticula filas">
+            <figure class="foto col-7" style="--ar: 16 / 9">
+              <img
+                src="../../assets/proyectos/the-refraction/galeria.webp"
+                alt="Render: the raised surface of the salt flat reveals the lit gallery beneath it."
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="foto col-5 desde-8 bajo" style="--ar: 16 / 9">
+              <img
+                src="../../assets/proyectos/the-refraction/museo.webp"
+                alt="Render: inside the exhibition gallery dedicated to the salt flat, with timber beams and views of the landscape."
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="foto col-8 desde-3" style="--ar: 16 / 9">
+              <img
+                src="../../assets/proyectos/the-refraction/noche.webp"
+                alt="Render: at night, under the Milky Way, the lit entrance to the gallery on the salt flat."
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+          <div class="reticula filas" style="margin-top: var(--esp-8)">
+            <div class="col-7 desde-5 pila">
+              <h3 class="etiqueta">Process</h3>
+              <p>
+                The project arose as a response to the international competition
+                Observation Tower, organized by Archibest, whose brief invited
+                entrants to imagine an observation tower anywhere on the planet.
+              </p>
+              <p>
+                The freedom of the brief became the first challenge. With no
+                predetermined site, conventional architectural program or
+                specific client needs, the process began with a fundamental
+                question: which place in the world deserves to be observed, and
+                how should architecture intervene to make that possible?
+              </p>
+              <p>
+                Choosing the Salar de Uyuni made it possible to develop a
+                proposal in which the landscape was not only the setting of the
+                intervention, but its main conceptual argument.
+              </p>
+              <p>
+                The decision to replace the vertical tower with a lifting of the
+                ground itself transformed the traditional idea of the
+                observatory. Architecture was no longer understood as an object
+                to look from, but as a route able to reveal different dimensions
+                of the territory.
+              </p>
+              <p>
+                The lower gallery and the upper lookout set up a relationship
+                between the contained and the boundless, the represented and the
+                real. The intervention invites visitors to experience the salt
+                flat from different perspectives: from inside, from outside,
+                from below and from above its surface.
+              </p>
+              <p>
+                The proposal received an honorable mention in Archibest’s
+                Observation Tower competition, a recognition that is part of
+                ARQUEMIST.’s path of architectural exploration.
+              </p>
+            </div>
+            <section
+              class="ficha-tecnica col-10 desde-3"
+              aria-labelledby="ficha-tecnica"
+            >
+              <h3 id="ficha-tecnica">Technical data</h3>
+              <dl>
+                <div class="ancho">
+                  <dt class="etiqueta">Type</dt>
+                  <dd>
+                    Conceptual architecture&nbsp;/ International
+                    competition&nbsp;/ Lookout and exhibition space
+                  </dd>
+                </div>
+                <div>
+                  <dt class="etiqueta">Competition</dt>
+                  <dd>Observation Tower — Archibest</dd>
+                </div>
+                <div>
+                  <dt class="etiqueta">Recognition</dt>
+                  <dd>Honorable mention</dd>
+                </div>
+                <div>
+                  <dt class="etiqueta">Status</dt>
+                  <dd>Unbuilt conceptual competition entry</dd>
+                </div>
+                <div>
+                  <dt class="etiqueta">Area</dt>
+                  <dd>Approximately 500 m² in total</dd>
+                </div>
+                <div class="ancho">
+                  <dt class="etiqueta">Materials</dt>
+                  <dd>
+                    Timber beams, glass, steel, exposed concrete and top
+                    cladding made with material from the salt flat itself.
+                  </dd>
+                </div>
+                <div class="ancho">
+                  <dt class="etiqueta">Images</dt>
+                  <dd>
+                    Digital architectural visualizations, competition boards and
+                    conceptual diagrams.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="etiqueta">Documentation</dt>
+                  <dd>
+                    Digital honorable mention diploma awarded by Archibest.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="etiqueta">Credits</dt>
+                  <dd>ARQUEMIST.</dd>
+                </div>
+              </dl>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cierre -->
+      <section class="seccion seccion--oscura cierre">
+        <div class="contenedor reticula">
+          <img
+            class="cierre-trazos trazos-al-ver"
+            src="../../assets/marca/isotipo-trazos-blanco.webp"
+            alt=""
+            width="1024"
+            height="1024"
+            loading="lazy"
+          />
+          <p class="cierre-frase">
+            “Looking at the world is not enough. We must dare to experience it.”
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. Siguiente proyecto -->
+      <a class="siguiente" href="penthouse-juriquilla.html">
+        <div class="contenedor reticula">
+          <div class="siguiente-texto">
+            <span class="etiqueta secundario">Next project</span>
+            <span class="siguiente-titulo"
+              >Penthouse Juriquilla
+              <span class="flecha" aria-hidden="true">→</span></span
+            >
+          </div>
+          <figure class="foto siguiente-foto">
+            <img
+              src="../../assets/proyectos/penthouse-juriquilla/terraza.webp"
+              alt=""
+              width="1672"
+              height="941"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </a>
+    </main>
+
+    <footer class="pie" id="contacto">
+      <div class="contenedor">
+        <div class="contacto-cta">
+          <h2 class="contacto-titulo">
+            <a
+              class="contacto-enlace"
+              href="https://www.instagram.com/arquemist.arquitectos/"
+              target="_blank"
+              rel="noopener"
+              >Message us on Instagram&nbsp;<span
+                class="flecha"
+                aria-hidden="true"
+                >→</span
+              ><span class="visualmente-oculto"> (opens in a new tab)</span></a
+            >
+          </h2>
+          <p class="contacto-usuario">@arquemist.arquitectos</p>
+        </div>
+        <div class="reticula">
+          <div class="col-4 pila">
+            <img
+              class="iso"
+              src="../../assets/marca/isotipo-trazos-blanco.webp"
+              alt=""
+              width="1024"
+              height="1024"
+            />
+            <p class="display" style="font-size: var(--texto-xl)">
+              The Alchemy of Space.
+            </p>
+          </div>
+          <div class="col-3 desde-5 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Studio</p>
+            <address style="font-style: normal">
+              C. 13 de Septiembre 7<br />
+              Las Campanas<br />
+              76010 Santiago de Querétaro, Qro.
+            </address>
+            <a
+              class="enlace-flecha"
+              href="https://www.google.com/maps/search/?api=1&amp;query=C.+13+de+Septiembre+7%2C+Las+Campanas%2C+76010+Santiago+de+Quer%C3%A9taro%2C+Qro.%2C+M%C3%A9xico"
+              target="_blank"
+              rel="noopener"
+              >Get directions →<span class="visualmente-oculto">
+                (opens Google Maps in a new tab)</span
+              ></a
+            >
+          </div>
+          <div class="col-3 desde-8 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Contact</p>
+            <p class="contacto-datos">
+              <a href="tel:+524461019600" aria-label="Call +52 446 101 9600"
+                >+52 446 101 9600</a
+              >
+              <a
+                href="mailto:contacto.arquemist@gmail.com"
+                aria-label="Email contacto.arquemist@gmail.com"
+                >contacto.arquemist@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="col-2 desde-11 pila-s">
+            <p class="etiqueta" style="color: var(--grafito-claro)">Social</p>
+            <p>
+              <a
+                class="red-social"
+                href="https://www.instagram.com/arquemist.arquitectos/"
+                target="_blank"
+                rel="noopener"
+                aria-label="ARQUEMIST. on Instagram (opens in a new tab)"
+                ><svg
+                  class="icono"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="0.75"
+                    fill="currentColor"
+                    stroke="none"
+                  /></svg
+                ><span>Instagram</span></a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© ARQUEMIST.</span
+          ><span class="idioma"
+            ><a
+              title="Español"
+              href="../../es/proyectos/the-refraction.html"
+              lang="es"
+              hreflang="es"
+              >ES</a
+            >/<a title="English" href="the-refraction.html" aria-current="true"
+              >EN</a
+            ></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Comparador: el deslizador mueve la línea y recorta el render.
+      document.querySelectorAll(".comparador").forEach((c) => {
+        const r = c.querySelector("input");
+        r.addEventListener("input", () =>
+          c.style.setProperty("--pos", r.value + "%"),
+        );
+      });
+    </script>
+    <script src="../../js/movimiento.js?v=6d91afd" defer></script>
+  </body>
+</html>

@@ -399,14 +399,14 @@
   height: 100%;
   object-fit: cover;
 }
-/* Marca visible para proyectos de ejemplo ficticios */
-.ficticio {
-  color: var(--grafito);
-  border: 1px dashed var(--grafito);
-  padding: var(--esp-2) var(--esp-3);
-  line-height: 1;
+/* Reconocimiento (premio, mención) junto al estado en la tarjeta */
+.reconocimiento {
   display: inline-block;
-  width: fit-content;
+  margin-left: var(--esp-2);
+  padding: var(--esp-1) var(--esp-2);
+  border: 1px solid var(--acento);
+  color: var(--acento);
+  line-height: 1;
 }
 
 /* Redes sociales en el pie: icono de línea + texto */
@@ -519,11 +519,6 @@
   display: block;
   height: var(--largo-degradado);
 }
-.degradado .ficticio {
-  color: var(--grafito-claro);
-  border-color: var(--grafito-claro);
-}
-
 /* Cabecera sobre la apertura oscura (movimiento.js añade .sobre-claro al pasarla) */
 .logo--blanco {
   display: none;

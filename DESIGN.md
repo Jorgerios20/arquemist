@@ -161,6 +161,10 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 5. Contenido de **Proyectos**: por proyecto, renders, fotos de obra (idealmente con los mismos encuadres que los renders), nombre, año, ubicación, tipo, estado y texto del concepto; superficie solo si se tiene (el dato se omite en la ficha cuando falta).
    - ✅ **The Urban Librarian.** (textos en `docs/arquemist_docs/ARQUEMIST/proyectos.md`, 8 renders originales de 1672 px; se usan 4). Querétaro, 2026, 1.46 m de altura, *En fabricación*.
    - ✅ **Nadi Pilates** (`docs/nadi-pilates.md`, renders en `docs/arquemist_docs/.../NADI PILATES/`, 12 imágenes de 1672–2560 px). Querétaro, 2026, 80 m², *Propuesta conceptual no ejecutada*. Traducción al inglés hecha por nosotros: pendiente de revisión del estudio.
+   - ✅ **THE REFRACTION** (concurso Observation Tower — Archibest, mención honorífica). Salar de Uyuni, 2026, ≈500 m², *propuesta de concurso*. 3 renders de 1536 px.
+   - ✅ **Penthouse Juriquilla**. Juriquilla, Querétaro, 2026, 270 m², *propuesta conceptual*. 3 renders de 1672 px.
+   - ✅ **Departamentos San Juan del Río**. San Juan del Río, Querétaro, 2026, 4 × 58 m², *propuesta conceptual*. 3 renders de 1600 px.
+   - ⏳ **Aula Cocina DIF**: pendiente (no se publica aún).
    - ✅ Ya no quedan capturas de Instagram: renders y casco vienen de los archivos originales (máx. 1672 px). Si existen, pedir exportaciones ≥ 2400 px para imágenes a sangre.
    - ⚠️ **Mockups de identidad** (Estudio): el chaleco y la camisa colgada llevan bordado "Arq. Fernando Lechuga Ojeda". Confirmar que está de acuerdo antes de publicar; si no, quitar `chalecos.webp` y `camisa-gancho.webp`.
 6. Contacto y redes (`docs/contacto.md`): ✅ dirección e Instagram. Correo y teléfono no se publican por ahora (decisión del estudio).
