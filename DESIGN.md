@@ -102,7 +102,7 @@ Bilingüe ES / EN, con las mismas páginas en ambos idiomas.
 | **Proyectos** | Galería + ficha por proyecto: primero los renders, luego la obra terminada (ver §7) | Renders y fotos **pendientes de recibir** |
 | **Contacto** | Correo, teléfono, ubicación, redes | **Falta contenido** |
 
-**Estructura de URLs** ✅: español en la raíz, inglés bajo `/en/` con los mismos nombres de archivo (`/estudio.html` ↔ `/en/estudio.html`, `/proyectos/casa-x.html` ↔ `/en/proyectos/casa-x.html`). Así el selector de idioma y los `hreflang` se calculan sin tabla de equivalencias.
+**Estructura de URLs** ✅: `/<idioma>/<página>` — español bajo `/es/`, inglés bajo `/en/`, con los mismos nombres de archivo (`/es/estudio.html` ↔ `/en/estudio.html`, `/es/proyectos/casa-x.html` ↔ `/en/proyectos/casa-x.html`). Inicio es `/es/` y `/en/`; la raíz elige idioma según el navegador. Así el selector de idioma y los `hreflang` se calculan sin tabla de equivalencias.
 
 ## 7. Composición y componentes
 
@@ -125,7 +125,7 @@ Bilingüe ES / EN, con las mismas páginas en ambos idiomas.
 
 ## 8. Movimiento
 
-El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la idea de la marca (plano → construcción → transformación); nada es adorno genérico. Implementado en `dev/bocetos/movimiento.css` + `movimiento.js` (sin dependencias).
+El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la idea de la marca (plano → construcción → transformación); nada es adorno genérico. Implementado en `css/movimiento.css` + `js/movimiento.js` (sin dependencias).
 
 | Momento | Qué pasa | Idea |
 |---|---|---|
@@ -157,7 +157,7 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 1. ~~Versiones vectoriales del logo~~ ✅ (`logo.pdf` es vectorial). Isotipo de trazos cruzados: el estudio no puede entregarlo en vector (confirmado); se le quitó el fondo al original y ya hay versiones transparentes negra y blanca. Versión en blanco del logo ✅ permitida.
 2. ~~Nombre de las fuentes del logo~~ ✅ Staatliches + Noto Sans (§4).
 3. ~~Paleta~~ ✅ fondo casi blanco `#F6F4F0` + acento latón `#8C6A2E` (§5). La primera sección de cada página es tinta y se degrada al fondo (`.degradado`); la cabecera es oscura sobre ella y clara al pasarla.
-4. ~~Estructura de URLs de idioma~~ ✅ español en la raíz + `/en/` (§6).
+4. ~~Estructura de URLs de idioma~~ ✅ `/es/` + `/en/` (§6).
 5. Contenido de **Proyectos**: por proyecto, renders, fotos de obra (idealmente con los mismos encuadres que los renders), nombre, año, ubicación, tipo, estado y texto del concepto; superficie solo si se tiene (el dato se omite en la ficha cuando falta).
    - ✅ **The Urban Librarian.** (textos en `docs/arquemist_docs/ARQUEMIST/proyectos.md`, 8 renders originales de 1672 px; se usan 4). Querétaro, 2026, 1.46 m de altura, *En fabricación*.
    - ✅ **Nadi Pilates** (`docs/nadi-pilates.md`, renders en `docs/arquemist_docs/.../NADI PILATES/`, 12 imágenes de 1672–2560 px). Querétaro, 2026, 80 m², *Propuesta conceptual no ejecutada*. Traducción al inglés hecha por nosotros: pendiente de revisión del estudio.
@@ -170,7 +170,7 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 ## 11. Fases
 
 1. ✅ **Fundamentos:** `css/tokens.css`, `css/base.css` (fuentes, tipografía, retícula 4/8/12, secciones oscuras, foco, movimiento reducido), `assets/` y guía visual interna en `dev/estilos.html`.
-2. 🔄 **Bocetos:** `dev/bocetos/` — `inicio.html`, `estudio.html`, `proyectos.html`, fichas de proyecto (`the-urban-librarian.html`, `nadi-pilates.html`), `contacto.html`, en español e inglés, con el texto real y marcadores de imagen. Pendiente de aprobación.
+2. ✅ **Bocetos (aprobados):** ya fuera de `dev/`, en `es/` y `en/` — `index.html` (Inicio), `estudio.html`, `proyectos.html`, fichas de proyecto (`the-urban-librarian.html`, `nadi-pilates.html`), `contacto.html`, en español e inglés, con el texto real.
 3. **Estudio + Inicio:** construir con el contenido ya disponible en `docs/`, en ES y EN (`/nueva-pagina`).
 4. **Proyectos + Contacto:** plantilla de ficha (idea → transformación → materia) y comparador render ↔ obra; se llena según lleguen renders y fotos.
 5. **Pulido:** movimiento, accesibilidad, rendimiento, SEO.

@@ -1,4 +1,4 @@
-// Capa de movimiento e interacción de los bocetos. Sin dependencias.
+// Capa de movimiento e interacción del sitio. Sin dependencias.
 (() => {
   const html = document.documentElement;
   const en = html.lang === "en";

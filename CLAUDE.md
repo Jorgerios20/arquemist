@@ -13,18 +13,19 @@ Sitio web del estudio de arquitectura y diseño ARQUEMIST. Es HTML/CSS/JS estát
 
 ## Idiomas
 
-El sitio es bilingüe español + inglés. Todo contenido nuevo debe existir en ambos idiomas; el español es el original y el inglés su traducción. Español en la raíz, inglés bajo `en/` con la misma ruta y el mismo nombre de archivo (`estudio.html` ↔ `en/estudio.html`); no traducir los nombres de archivo.
+El sitio es bilingüe español + inglés. Todo contenido nuevo debe existir en ambos idiomas; el español es el original y el inglés su traducción. Español bajo `es/` e inglés bajo `en/`, con la misma ruta y el mismo nombre de archivo (`es/estudio.html` ↔ `en/estudio.html`, `es/proyectos/<slug>.html` ↔ `en/proyectos/<slug>.html`); no traducir los nombres de archivo. Inicio es `index.html` de cada idioma. El `index.html` de la raíz solo elige idioma según el navegador (español por defecto).
 
 Las decisiones de diseño (paleta, tipografía, componentes, ficha de proyecto) están en `DESIGN.md`.
 
 ## CSS y archivos
 
-- Cada página carga `css/tokens.css` y luego `css/base.css`. No usar colores, tamaños ni espacios sueltos: usar las variables de `tokens.css` (añadir un token nuevo si falta).
-- CSS y JS se enlazan con versión para saltarse la caché del navegador (`bocetos.css?v=<hash>`). Al cambiar un `.css` o `.js`, actualizar el `?v=` en todas las páginas (mismo valor en todas, p. ej. el hash corto del último commit).
+- Cada página carga `css/tokens.css`, `css/base.css` y luego `css/sitio.css` (componentes) y `css/movimiento.css`; las fichas añaden `css/ficha.css`. JS en `js/`. No usar colores, tamaños ni espacios sueltos: usar las variables de `tokens.css` (añadir un token nuevo si falta).
+- CSS y JS se enlazan con versión para saltarse la caché del navegador (`sitio.css?v=<hash>`). Al cambiar un `.css` o `.js`, actualizar el `?v=` en todas las páginas (mismo valor en todas, p. ej. el hash corto del último commit).
 - Retícula: `.contenedor` > `.reticula`, con hijos `.col-N` (ancho) y `.desde-N` (columna inicial). En móvil todo ocupa el ancho completo.
 - Logo, isotipos y favicons para la web: usar los de `assets/marca/` y la raíz, no los PDF de `img/`.
 - Fotos: `img/` guarda los originales recibidos (no se tocan); las versiones web (recortadas, WebP) van en `assets/fotos/` y `assets/proyectos/<slug>/`. Nunca ampliar una imagen por encima de su resolución original.
-- `dev/` es una herramienta interna (`dev/estilos.html`, guía visual): no se enlaza ni se traduce. Durante la fase de boceto el repo está publicado en GitHub Pages (https://jorgerios20.github.io/arquemist/) y el `index.html` de la raíz redirige provisionalmente a `dev/bocetos/inicio.html`; al publicar el sitio real, sustituir ese `index.html` y dejar de publicar `dev/`.
+- El repo está publicado en GitHub Pages (https://jorgerios20.github.io/arquemist/). Las páginas llevan `noindex` hasta la publicación definitiva.
+- `dev/` es una herramienta interna (`dev/estilos.html`, guía visual; `dev/documentos/`): no se enlaza ni se traduce.
 
 ## Reglas de marca
 

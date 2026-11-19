@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Boceto · Inicio — ARQUEMIST.</title>
-    <link rel="alternate" hreflang="en" href="en/inicio.html" />
-    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <title>Proyectos — ARQUEMIST.</title>
+    <link rel="alternate" hreflang="en" href="../en/proyectos.html" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <script>
       // Telón de entrada (ver movimiento.js): cubrir antes del primer pintado
       (function () {
@@ -18,52 +18,36 @@
         } catch (e) {}
       })();
     </script>
-    <link rel="stylesheet" href="../../css/tokens.css?v=6ca0e5e.2" />
-    <link rel="stylesheet" href="../../css/base.css?v=6ca0e5e.2" />
-    <link rel="stylesheet" href="bocetos.css?v=6ca0e5e.2" />
-    <link rel="stylesheet" href="movimiento.css?v=6ca0e5e.2" />
+    <link rel="stylesheet" href="../css/tokens.css?v=8edf72c" />
+    <link rel="stylesheet" href="../css/base.css?v=8edf72c" />
+    <link rel="stylesheet" href="../css/sitio.css?v=8edf72c" />
+    <link rel="stylesheet" href="../css/movimiento.css?v=8edf72c" />
     <style>
-      .inicio-hero {
-        padding-block: var(--esp-8);
+      .apertura {
+        padding-block: var(--esp-9) var(--esp-7);
       }
-      .inicio-hero .reticula {
-        row-gap: var(--esp-7);
-      }
-      .inicio-hero .segunda {
-        color: var(--grafito-claro);
-      }
-      .inicio-hero .pie-hero {
+      .filtros {
         display: flex;
-        align-items: center;
-        gap: var(--esp-4);
-        margin-top: var(--esp-7);
+        gap: var(--esp-5);
+        flex-wrap: wrap;
+        border-bottom: var(--borde);
+        padding-bottom: var(--esp-4);
       }
-      .inicio-hero .gesto {
-        width: 3.5rem;
+      .filtros button {
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        color: var(--grafito);
       }
-      .foto-hero {
-        --ar: 4 / 5;
-      }
-      @media (min-width: 60rem) {
-        .inicio-hero .texto-hero {
-          grid-column: 1 / span 7;
-          align-self: end;
-        }
-        /* El titular no debe invadir la foto entre 960 y 1440 px */
-        .inicio-hero h1.hero {
-          font-size: min(var(--texto-hero), 8.4vw);
-        }
-        .inicio-hero .foto-hero {
-          grid-column: 8 / span 5;
-          --ar: 941 / 1291;
-        }
-      }
-      .destacados .grande {
-        --ar: 4 / 5;
+      .filtros button[aria-pressed="true"] {
+        color: var(--tinta);
+        border-bottom: 2px solid var(--acento);
+        padding-bottom: var(--esp-1);
       }
       @media (min-width: 60rem) {
-        .destacados .bajo {
-          margin-top: var(--esp-10);
+        .galeria .bajo {
+          margin-top: var(--esp-9);
         }
       }
     </style>
@@ -71,15 +55,15 @@
   <body>
     <header class="cabecera">
       <div class="contenedor">
-        <a href="inicio.html" aria-label="ARQUEMIST. — Inicio"
+        <a href="index.html" aria-label="ARQUEMIST. — Inicio"
           ><img
             class="logo logo--negro"
-            src="../../assets/marca/logo-negro.svg"
+            src="../assets/marca/logo-negro.svg"
             alt="ARQUEMIST. The Alchemy of Space."
             width="2024"
             height="486" /><img
             class="logo logo--blanco"
-            src="../../assets/marca/logo-blanco.svg"
+            src="../assets/marca/logo-blanco.svg"
             alt=""
             width="2024"
             height="486"
@@ -87,12 +71,13 @@
         /></a>
         <nav class="nav" aria-label="Principal">
           <a href="estudio.html">Estudio</a>
-          <a href="proyectos.html">Proyectos</a>
+          <a href="proyectos.html" aria-current="page">Proyectos</a>
           <a href="contacto.html">Contacto</a>
           <span class="idioma"
-            ><a title="Español" href="inicio.html" aria-current="true">ES</a>/<a
+            ><a title="Español" href="proyectos.html" aria-current="true">ES</a
+            >/<a
               title="English"
-              href="en/inicio.html"
+              href="../en/proyectos.html"
               lang="en"
               hreflang="en"
               >EN</a
@@ -104,97 +89,39 @@
     </header>
 
     <main>
-      <!-- 1. Hero: frase de marca + foto del casco -->
-      <section class="inicio-hero seccion--oscura degradado">
-        <div class="contenedor reticula">
-          <div class="texto-hero">
-            <h1 class="hero">
-              Transformamos ideas en espacios
-              <span class="segunda">y espacios en experiencias.</span>
-            </h1>
-            <div class="pie-hero">
-              <img
-                class="gesto"
-                src="../../assets/marca/isotipo-trazos-blanco.webp"
-                alt=""
-                width="1024"
-                height="1024"
-              />
-              <p class="etiqueta secundario">
-                Estudio de arquitectura y diseño
-              </p>
-            </div>
-          </div>
-          <figure class="foto foto-hero">
-            <img
-              src="../../assets/fotos/casco.webp"
-              alt="Casco de obra blanco con la marca ARQUEMIST. sobre suelo de concreto, entre franjas de luz y sombra."
-              width="941"
-              height="1291"
-              fetchpriority="high"
-            />
-          </figure>
-        </div>
-      </section>
-
-      <!-- 2. Isotipo 1 que se dibuja con el scroll, en el fondo (movimiento.js) -->
-      <div class="isotipo-scroll" aria-hidden="true">
-        <img
-          src="../../assets/marca/isotipo-cruzado-trazo-1.webp"
-          alt=""
-          width="971"
-          height="971"
-          decoding="async"
-        />
-        <img
-          src="../../assets/marca/isotipo-cruzado-trazo-2.webp"
-          alt=""
-          width="971"
-          height="971"
-          decoding="async"
-        />
-        <img
-          src="../../assets/marca/isotipo-cruzado-trazo-3.webp"
-          alt=""
-          width="971"
-          height="971"
-          decoding="async"
-        />
-      </div>
-
-      <!-- 3. Quiénes somos (resumen) -->
-      <section class="seccion">
+      <section class="apertura seccion--oscura degradado">
         <div class="contenedor reticula filas">
-          <p class="etiqueta acento col-3">¿Quiénes somos?</p>
-          <div class="col-7 desde-5 pila">
-            <p class="entradilla">
-              ARQUEMIST. es un estudio de arquitectura y diseño que nace de una
-              convicción: los espacios tienen el poder de transformar la manera
-              en que vivimos, sentimos y nos relacionamos con el mundo.
-            </p>
-            <p class="secundario">
-              Entendemos la arquitectura como un encuentro entre el arte, la
-              técnica y la sensibilidad humana. Un proceso de exploración en el
-              que las ideas se convierten en materia, las necesidades en
-              posibilidades y los espacios en experiencias.
-            </p>
-            <a class="enlace-flecha" href="estudio.html">Conoce el estudio →</a>
-          </div>
+          <h1 class="hero col-12">Proyectos</h1>
+          <p class="entradilla secundario col-6">
+            Cada proyecto representa una oportunidad para reinterpretar lo
+            existente, descubrir nuevas posibilidades y crear algo que
+            trascienda su función.
+          </p>
         </div>
       </section>
 
-      <!-- 4. Proyectos destacados: composición asimétrica -->
-      <section class="seccion destacados" style="padding-top: 0">
+      <section class="seccion galeria" style="padding-top: 0">
         <div class="contenedor">
-          <div class="fila-entre" style="margin-bottom: var(--esp-7)">
-            <h2>Proyectos</h2>
-            <a class="enlace-flecha" href="proyectos.html">Ver todos →</a>
+          <div
+            class="filtros etiqueta"
+            role="group"
+            aria-label="Filtrar por estado"
+            style="margin-bottom: var(--esp-7)"
+          >
+            <button type="button" aria-pressed="true">Todos</button>
+            <button type="button" aria-pressed="false">Construidos</button>
+            <button type="button" aria-pressed="false">En desarrollo</button>
           </div>
+
+          <!-- Galería asimétrica: anchos y alturas alternos sobre la retícula de 12 -->
           <div class="reticula filas">
-            <a class="proyecto-tarjeta col-7" href="the-urban-librarian.html">
+            <a
+              class="proyecto-tarjeta col-7"
+              href="proyectos/the-urban-librarian.html"
+            >
               <div class="foto" style="--ar: 4 / 5">
                 <img
-                  src="../../assets/proyectos/the-urban-librarian/portada.webp"
+                  src="../assets/proyectos/the-urban-librarian/portada.webp"
                   alt="Render de The Urban Librarian: biblioteca comunitaria de madera recuperada junto a un área de juegos."
                   width="753"
                   height="941"
@@ -202,7 +129,7 @@
                 />
                 <img
                   class="alterna"
-                  src="../../assets/proyectos/the-urban-librarian/parque.webp"
+                  src="../assets/proyectos/the-urban-librarian/parque.webp"
                   alt=""
                   width="1672"
                   height="941"
@@ -211,17 +138,17 @@
               </div>
               <div class="meta">
                 <span class="etiqueta estado">En desarrollo</span>
-                <h3>The Urban Librarian.</h3>
+                <h2>The Urban Librarian.</h2>
                 <p class="secundario">Arquitectura social · Querétaro · 2026</p>
               </div>
             </a>
             <a
               class="proyecto-tarjeta col-4 desde-9 bajo"
-              href="nadi-pilates.html"
+              href="proyectos/nadi-pilates.html"
             >
               <div class="foto" style="--ar: 3 / 4">
                 <img
-                  src="../../assets/proyectos/nadi-pilates/fachada.webp"
+                  src="../assets/proyectos/nadi-pilates/fachada.webp"
                   alt="Render de Nadi Pilates: muro cálido con el letrero «NADI — Respira · Conecta · Fluye»."
                   width="753"
                   height="941"
@@ -229,7 +156,7 @@
                 />
                 <img
                   class="alterna"
-                  src="../../assets/proyectos/nadi-pilates/recepcion-chakras.webp"
+                  src="../assets/proyectos/nadi-pilates/recepcion-chakras.webp"
                   alt=""
                   width="1672"
                   height="941"
@@ -238,29 +165,12 @@
               </div>
               <div class="meta">
                 <span class="etiqueta estado">En desarrollo</span>
-                <h3>Nadi Pilates</h3>
+                <h2>Nadi Pilates</h2>
                 <p class="secundario">
                   Arquitectura comercial · Querétaro · 2026
                 </p>
               </div>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Filosofía: sección oscura con la cita -->
-      <section class="seccion seccion--oscura">
-        <div class="contenedor reticula filas">
-          <p class="cita col-8">La arquitectura es el arte de transformar.</p>
-          <div class="col-4 desde-9 pila" style="align-self: end">
-            <p class="secundario">
-              No solamente materiales en edificios, sino ideas en experiencias,
-              necesidades en oportunidades y espacios en lugares que adquieren
-              significado.
-            </p>
-            <a class="enlace-flecha" href="estudio.html#filosofia"
-              >Nuestra filosofía →</a
-            >
           </div>
         </div>
       </section>
@@ -290,7 +200,7 @@
           <div class="col-4 pila">
             <img
               class="iso"
-              src="../../assets/marca/isotipo-trazos-blanco.webp"
+              src="../assets/marca/isotipo-trazos-blanco.webp"
               alt=""
               width="1024"
               height="1024"
@@ -365,9 +275,10 @@
         <div class="legal">
           <span>© ARQUEMIST.</span
           ><span class="idioma"
-            ><a title="Español" href="inicio.html" aria-current="true">ES</a>/<a
+            ><a title="Español" href="proyectos.html" aria-current="true">ES</a
+            >/<a
               title="English"
-              href="en/inicio.html"
+              href="../en/proyectos.html"
               lang="en"
               hreflang="en"
               >EN</a
@@ -376,6 +287,6 @@
         </div>
       </div>
     </footer>
-    <script src="movimiento.js?v=6ca0e5e.2" defer></script>
+    <script src="../js/movimiento.js?v=8edf72c" defer></script>
   </body>
 </html>

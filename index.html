@@ -6,11 +6,25 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>ARQUEMIST.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <!-- Provisional: mientras el sitio está en fase de boceto, la raíz lleva al boceto de Inicio. -->
-    <meta http-equiv="refresh" content="0; url=dev/bocetos/inicio.html" />
-    <link rel="canonical" href="dev/bocetos/inicio.html" />
+    <link rel="alternate" hreflang="es" href="es/" />
+    <link rel="alternate" hreflang="en" href="en/" />
+    <script>
+      // Elige el idioma según el navegador: inglés si lo prefiere, español por defecto.
+      (function () {
+        var langs = navigator.languages || [navigator.language || ""];
+        var en =
+          String(langs[0] || "")
+            .toLowerCase()
+            .indexOf("en") === 0;
+        location.replace(en ? "en/" : "es/");
+      })();
+    </script>
   </head>
   <body>
-    <p><a href="dev/bocetos/inicio.html">Ir al boceto de ARQUEMIST.</a></p>
+    <p>
+      ARQUEMIST. —
+      <a href="es/" hreflang="es" lang="es">Español</a> /
+      <a href="en/" hreflang="en" lang="en">English</a>
+    </p>
   </body>
 </html>
