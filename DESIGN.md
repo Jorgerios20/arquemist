@@ -159,9 +159,8 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 3. ~~Paleta~~ ✅ fondo casi blanco `#F6F4F0` + acento latón `#8C6A2E` (§5). La primera sección de cada página es tinta y se degrada al fondo (`.degradado`); la cabecera es oscura sobre ella y clara al pasarla.
 4. ~~Estructura de URLs de idioma~~ ✅ español en la raíz + `/en/` (§6).
 5. Contenido de **Proyectos**: por proyecto, renders, fotos de obra (idealmente con los mismos encuadres que los renders), nombre, año, ubicación, tipo, estado y texto del concepto; superficie solo si se tiene (el dato se omite en la ficha cuando falta).
-   - ✅ **The Urban Librarian.** (`docs/THE URBAN LIBRARIAN..md`, 8 renders originales de 1672 px; se usan 4). Estado confirmado: *En desarrollo*. Sin superficie (no aplica por ahora).
-   - ✅ **Nadi Pilates** (`docs/nadi-pilates.md`, renders en `docs/arquemist_docs/.../NADI PILATES/`, 12 imágenes de 1672–2560 px). Querétaro, 2027, 80 m², *En desarrollo*. Traducción al inglés hecha por nosotros: pendiente de revisión del estudio.
-   - 🧪 **Taller Cantera** (construido, con comparador): proyecto **ficticio** con imágenes generadas en Canva, solo para mostrar el boceto. Marcado como "Ejemplo ficticio"; borrar `assets/proyectos/ejemplo-*` y su ficha antes de publicar.
+   - ✅ **The Urban Librarian.** (textos en `docs/arquemist_docs/ARQUEMIST/proyectos.md`, 8 renders originales de 1672 px; se usan 4). Querétaro, 2026, 1.46 m de altura, *En fabricación*.
+   - ✅ **Nadi Pilates** (`docs/nadi-pilates.md`, renders en `docs/arquemist_docs/.../NADI PILATES/`, 12 imágenes de 1672–2560 px). Querétaro, 2026, 80 m², *Propuesta conceptual no ejecutada*. Traducción al inglés hecha por nosotros: pendiente de revisión del estudio.
    - ✅ Ya no quedan capturas de Instagram: renders y casco vienen de los archivos originales (máx. 1672 px). Si existen, pedir exportaciones ≥ 2400 px para imágenes a sangre.
    - ⚠️ **Mockups de identidad** (Estudio): el chaleco y la camisa colgada llevan bordado "Arq. Fernando Lechuga Ojeda". Confirmar que está de acuerdo antes de publicar; si no, quitar `chalecos.webp` y `camisa-gancho.webp`.
 6. Contacto y redes (`docs/contacto.md`): ✅ dirección e Instagram. Correo y teléfono no se publican por ahora (decisión del estudio).
@@ -171,7 +170,7 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
 ## 11. Fases
 
 1. ✅ **Fundamentos:** `css/tokens.css`, `css/base.css` (fuentes, tipografía, retícula 4/8/12, secciones oscuras, foco, movimiento reducido), `assets/` y guía visual interna en `dev/estilos.html`.
-2. 🔄 **Bocetos:** `dev/bocetos/` — `inicio.html`, `estudio.html`, `proyectos.html`, fichas de proyecto (`the-urban-librarian.html`, `nadi-pilates.html`; `taller-cantera.html` con comparador funcional), `contacto.html`, en español e inglés, con el texto real y marcadores de imagen. Pendiente de aprobación.
+2. 🔄 **Bocetos:** `dev/bocetos/` — `inicio.html`, `estudio.html`, `proyectos.html`, fichas de proyecto (`the-urban-librarian.html`, `nadi-pilates.html`), `contacto.html`, en español e inglés, con el texto real y marcadores de imagen. Pendiente de aprobación.
 3. **Estudio + Inicio:** construir con el contenido ya disponible en `docs/`, en ES y EN (`/nueva-pagina`).
 4. **Proyectos + Contacto:** plantilla de ficha (idea → transformación → materia) y comparador render ↔ obra; se llena según lleguen renders y fotos.
 5. **Pulido:** movimiento, accesibilidad, rendimiento, SEO.

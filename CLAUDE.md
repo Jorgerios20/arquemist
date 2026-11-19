@@ -24,7 +24,6 @@ Las decisiones de diseño (paleta, tipografía, componentes, ficha de proyecto) 
 - Retícula: `.contenedor` > `.reticula`, con hijos `.col-N` (ancho) y `.desde-N` (columna inicial). En móvil todo ocupa el ancho completo.
 - Logo, isotipos y favicons para la web: usar los de `assets/marca/` y la raíz, no los PDF de `img/`.
 - Fotos: `img/` guarda los originales recibidos (no se tocan); las versiones web (recortadas, WebP) van en `assets/fotos/` y `assets/proyectos/<slug>/`. Nunca ampliar una imagen por encima de su resolución original.
-- Contenido de **ejemplo ficticio** (imágenes generadas con IA): `assets/proyectos/ejemplo-*/` y la ficha `dev/bocetos/taller-cantera.html`. Solo sirve para enseñar el boceto: siempre marcado como "Ejemplo ficticio", nunca se pasa a las páginas reales y se borra antes de publicar.
 - `dev/` es una herramienta interna (`dev/estilos.html`, guía visual): no se enlaza ni se traduce. Durante la fase de boceto el repo está publicado en GitHub Pages (https://jorgerios20.github.io/arquemist/) y el `index.html` de la raíz redirige provisionalmente a `dev/bocetos/inicio.html`; al publicar el sitio real, sustituir ese `index.html` y dejar de publicar `dev/`.
 
 ## Reglas de marca
