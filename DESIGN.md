@@ -162,7 +162,8 @@ El sitio debe sentirse **vivo y espacial**, no plano. Cada movimiento cuenta la 
    - ✅ **The Urban Librarian.** (`docs/THE URBAN LIBRARIAN..md`, 8 renders originales de 1672 px; se usan 4). Estado confirmado: *En desarrollo*. Sin superficie (no aplica por ahora).
    - ✅ **Nadi Pilates** (`docs/nadi-pilates.md`, renders en `docs/arquemist_docs/.../NADI PILATES/`, 12 imágenes de 1672–2560 px). Querétaro, 2027, 80 m², *En desarrollo*. Traducción al inglés hecha por nosotros: pendiente de revisión del estudio.
    - 🧪 **Taller Cantera** (construido, con comparador): proyecto **ficticio** con imágenes generadas en Canva, solo para mostrar el boceto. Marcado como "Ejemplo ficticio"; borrar `assets/proyectos/ejemplo-*` y su ficha antes de publicar.
-   - ⚠️ Las imágenes recibidas (proyecto y foto del casco) son **capturas de Instagram de 630–740 px**: se recortó la interfaz, pero no sirven a pantalla completa. Pedir los archivos originales (≥ 2400 px de ancho).
+   - ✅ Ya no quedan capturas de Instagram: renders y casco vienen de los archivos originales (máx. 1672 px). Si existen, pedir exportaciones ≥ 2400 px para imágenes a sangre.
+   - ⚠️ **Mockups de identidad** (Estudio): el chaleco y la camisa colgada llevan bordado "Arq. Fernando Lechuga Ojeda". Confirmar que está de acuerdo antes de publicar; si no, quitar `chalecos.webp` y `camisa-gancho.webp`.
 6. Contacto y redes (`docs/contacto.md`): ✅ dirección e Instagram. Correo y teléfono no se publican por ahora (decisión del estudio).
 7. Traducción al inglés: borrador en `docs/sobreAquermist.en.md`, pendiente de revisión.
 8. Dominio y hosting: los gestiona el dueño del proyecto (no se piden al estudio).
