@@ -1,0 +1,5 @@
+# Originales recibidos del estudio (pesados; no se publican)
+docs/arquemist_docs/
+
+# Worktrees de Claude Code
+.claude/worktrees/
